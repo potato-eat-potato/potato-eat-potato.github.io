@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HRUMC Talk - A Harmonic View of Random Walks and Electrical Networks · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Talk / exposition</p>
+<article>
+<h1
+id="hrumc-talk-a-harmonic-view-of-random-walks-and-electrical-networks">HRUMC
+Talk — A Harmonic View of Random Walks and Electrical Networks</h1>
+<p><strong>“A Harmonic View of Random Walks and Electrical Networks:
+From Dirichlet Problems to Recurrence of <span
+class="math inline">\(\mathbb{Z}^2\)</span>”</strong> Hudson River
+Undergraduate Mathematics Conference — <strong>April 25, 2026</strong>
+(delivered). Slides: 11 pages, <a
+href="https://potato-eat-potato.github.io/files/hrumc-2026-slides.pdf">hrumc-2026-slides.pdf</a>.</p>
+<h2 id="one-line-thesis-the-slide-2-spine">One-Line Thesis (the slide-2
+spine)</h2>
+<blockquote>
+<p>harmonicity <span class="math inline">\(\Rightarrow\)</span>
+uniqueness <span class="math inline">\(\Rightarrow\)</span> random walk
+/ electrical dictionary <span class="math inline">\(\Rightarrow\)</span>
+resistance estimate.</p>
+</blockquote>
+<p>The whole talk is built through <strong>harmonic functions</strong>:
+one local averaging law that both the probabilistic and the electrical
+side obey.</p>
+<h2 id="the-arc-as-delivered">The Arc (as delivered)</h2>
+<ol type="1">
+<li><strong>Discrete harmonicity is a local averaging law.</strong>
+<span class="math inline">\(f\)</span> is harmonic at <span
+class="math inline">\(x\)</span> iff <span
+class="math inline">\(f(x)\)</span> equals the average of its neighbours
+— and that is exactly the one-step expectation for <a
+href="simple-random-walk-on-z2.html">Simple random walk on Z2</a>. (<a
+href="turn-hitting-probability-into-harmonic-function.html">Turn hitting
+probability into harmonic function</a>.)</li>
+<li><strong>Random-walk side.</strong> Hitting probabilities solve a
+Dirichlet problem.</li>
+<li><strong>Electrical side.</strong> Voltages solve the <em>same</em>
+Dirichlet problem, with the same boundary data.</li>
+<li><strong>Uniqueness principle.</strong> Two harmonic functions
+agreeing on the boundary agree everywhere (<a
+href="maximum-principle.html">Maximum principle</a>); hence
+<em>probabilistic questions <span
+class="math inline">\(\Leftrightarrow\)</span> electrical
+quantities</em> — the dictionary. (<a
+href="turn-random-walk-into-electrical-network.html">Turn random walk
+into electrical network</a>.)</li>
+<li><strong>From recurrence to resistance.</strong> A return problem
+becomes a deterministic estimate of <span
+class="math inline">\(R_{\mathrm{eff}}(0 \leftrightarrow
+\infty)\)</span>: recurrence <span class="math inline">\(\Leftrightarrow
+R_{\mathrm{eff}}(0,\infty) = \infty\)</span>.</li>
+<li><strong>Surgery, then the finale.</strong> Shorting and cutting laws
+(<a href="use-rayleigh-monotonicity-by-shorting-or-cutting.html">Use
+Rayleigh monotonicity by shorting or cutting</a>); then
+<strong>recurrence of <span
+class="math inline">\(\mathbb{Z}^2\)</span></strong>: shorting the
+annuli reduces <span class="math inline">\(R_{\mathrm{eff}}(0,\partial
+B_n)\)</span> to a constant multiple of the harmonic series, which
+diverges. (<a href="rayleigh-monotonicity.html">Rayleigh
+monotonicity</a>.)</li>
+</ol>
+<h2 id="which-tools-were-central">Which Tools Were Central</h2>
+<p><a href="turn-hitting-probability-into-harmonic-function.html">Turn
+hitting probability into harmonic function</a> · <a
+href="turn-random-walk-into-electrical-network.html">Turn random walk
+into electrical network</a> · <a
+href="use-rayleigh-monotonicity-by-shorting-or-cutting.html">Use
+Rayleigh monotonicity by shorting or cutting</a></p>
+<h2 id="what-this-talk-reveals-about-my-interests">What This Talk
+Reveals About My Interests</h2>
+<p>Connections-first: I chose to show that two theories are secretly one
+(through harmonic functions) rather than to prove a single hard theorem.
+Under a time limit I kept the concrete payoff — recurrence of <span
+class="math inline">\(\mathbb{Z}^2\)</span> falling out of a harmonic
+series — and dropped generality.</p>
+<h2 id="what-the-talk-did-not-cover-and-where-it-points">What the Talk
+Did <em>Not</em> Cover (and where it points)</h2>
+<p>The talk stops at recurrence of <span
+class="math inline">\(\mathbb{Z}^2\)</span>. It does
+<strong>not</strong> reach the Green function as a covariance or the <a
+href="dgff.html">DGFF</a> — that is the natural sequel, and exactly the
+direction of my Bourgade reading. The planned write-up <a
+href="exposition-why-green-functions-connect-random-walks-and-dgff.html">Exposition
+- Why Green Functions Connect Random Walks and DGFF</a> continues the
+story past where the talk ended.</p>
+<h2 id="retrospective-to-expand-from-memory-while-fresh">Retrospective
+(to expand from memory while fresh)</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />What questions did the audience ask?
+What confused people?</label></li>
+<li><label><input type="checkbox" />Which slide/segment would I redo?
+(Slides 9–10 were the recurrence figures.)</label></li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Slides were delivered publicly at HRUMC; <a
+href="https://potato-eat-potato.github.io/files/hrumc-2026-slides.pdf">hrumc-2026-slides.pdf</a>
+is linked from the site and from the public toolbox page. Good public
+artifact as-is.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

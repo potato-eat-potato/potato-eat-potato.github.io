@@ -74,7 +74,7 @@ ALLOW = {
     "Green Function and Potential Theory Map",
     "Branching Random Walk Map", "Large Deviations Map",
     # Talks & expositions (4)
-    "HRUMC Talk - Random Walks Electrical Networks and DGFF",
+    "HRUMC Talk - A Harmonic View of Random Walks and Electrical Networks",
     "Courant Seminar Talk - Lattice Random Walks and Electrical Networks",
     "Exposition - Why Green Functions Connect Random Walks and DGFF",
     "Exposition - Effective Resistance as a Probability Tool",
@@ -210,6 +210,9 @@ def main():
         sys.exit("ABORT: blocked notes in publish set: %s" % leaked)
 
     os.makedirs(OUT, exist_ok=True)
+    for old in os.listdir(OUT):                      # clear stale pages (renames, removals)
+        if old.endswith(".html"):
+            os.remove(os.path.join(OUT, old))
 
     by_section = {}
     for base, folder, path in notes:

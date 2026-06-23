@@ -45,7 +45,10 @@ class="math inline">\(\tfrac14 + \tfrac14 = \tfrac12\)</span> A. Voltage
 drop across that unit resistor <span class="math inline">\(=
 \tfrac12\)</span>, and unit current flows overall, so <span
 class="math inline">\(R_{\mathrm{eff}} = \tfrac12\)</span>. (<a
-href="unit-current-flow.html">Unit current flow</a>, linearity.)</li>
+href="unit-current-flow.html">Unit current flow</a>, linearity.) — but
+on recurrent <span class="math inline">\(\mathbb{Z}^2\)</span> this
+superposes two <em>infinite</em> networks, which is not yet rigorous;
+see <strong>The rigorous version</strong> below.</li>
 <li><strong>Potential kernel.</strong> <span
 class="math inline">\(\mathbb{P}_0(\tau_{e_1} &lt; \tau_0^+) = \big(c(0)
 R_{\mathrm{eff}}(0,e_1)\big)^{-1}\)</span>, and via <span
@@ -67,6 +70,54 @@ gives <span class="math inline">\(R_{\mathrm{eff}}(e) \to
 \tfrac12\)</span>. (Limit interchange to be done carefully — see
 below.)</li>
 </ol>
+<h2 id="the-rigorous-version-my-writeup">The Rigorous Version (my
+writeup)</h2>
+<p>The superposition argument is morally right but cheats: “1A out at
+infinity” is undefined, and on a <em>recurrent</em> graph two infinite
+networks cannot simply be added. My write-up <a
+href="https://potato-eat-potato.github.io/files/srw-z2-escape-probability.pdf"><em>Nearest-Neighbor
+Escape Probability of SRW on <span
+class="math inline">\(\mathbb{Z}^2\)</span></em> (PDF)</a> makes it
+honest:</p>
+<ol type="1">
+<li><strong>Finite box.</strong> Work on <span class="math inline">\(B_n
+= [-n,n]^2 \cap \mathbb{Z}^2\)</span> with <span
+class="math inline">\(\partial B_n\)</span> wired to a single vertex.
+Network 1 = unit current <span class="math inline">\(o \to \partial
+B_n\)</span>; Network 2 = unit current <span
+class="math inline">\(\partial B_n \to a\)</span>; their sum is the unit
+current flow <span class="math inline">\(o \to a\)</span> on the wired
+box.</li>
+<li><strong>Network 1 is exact.</strong> <span
+class="math inline">\(B_n\)</span> is centred at <span
+class="math inline">\(o\)</span>, so by symmetry the current out of
+<span class="math inline">\(o\)</span> splits four ways and <span
+class="math inline">\(i_n^{(1)}(o,a) = \tfrac14\)</span> for
+<em>every</em> <span class="math inline">\(n\)</span>.</li>
+<li><strong>Network 2 needs a limit.</strong> A box centred at <span
+class="math inline">\(a\)</span> gives <span
+class="math inline">\(\tfrac14\)</span> too, but the two networks use
+boxes centred at different points; the real task is to show <span
+class="math inline">\(V_n^{(0)}(x) - V_n^{(a)}(x) \to 0\)</span>.</li>
+<li><strong>Killed Green function.</strong> <span
+class="math inline">\(V_D(x) = \tfrac14\big(g_D(a,a) -
+g_D(x,a)\big)\)</span>, so the comparison is between two <a
+href="killed-green-function.html">killed Green functions</a>.</li>
+<li><strong>Potential kernel closes it.</strong> With <span
+class="math inline">\(g_D(x,a) = \mathbb{E}_x[a(X_{\tau_{\partial D}} -
+a)] - a(x-a)\)</span> and <span class="math inline">\(a(z) =
+\tfrac{2}{\pi}\log|z| + c_0 + O(|z|^{-2})\)</span>, the <span
+class="math inline">\(a(x-a)\)</span> term cancels between the two
+domains and the difference <span class="math inline">\(\to 0\)</span> as
+<span class="math inline">\(n \to \infty\)</span>. (<a
+href="replace-divergent-green-function-by-potential-kernel.html">Replace
+divergent Green function by potential kernel</a>.)</li>
+</ol>
+<p>So <span class="math inline">\(R_{\mathrm{eff}} = \tfrac12\)</span>
+rests on a genuine finite-volume argument, not hand-waving about
+infinity — a small but honest instance of <a
+href="finite-volume-approximation.html">Finite volume
+approximation</a>.</p>
 <h2 id="objects-involved">Objects Involved</h2>
 <p><a href="effective-resistance.html">Effective resistance</a>, <a
 href="unit-current-flow.html">Unit current flow</a>, <a
@@ -78,7 +129,10 @@ href="use-thomson-principle-by-constructing-flow.html">Use Thomson
 principle by constructing flow</a> for upper bounds if I forget the
 exact trick.</p>
 <h2 id="what-i-understand">What I Understand</h2>
-<p>Solutions 1 and 2 completely; they were part of my Courant blackboard
+<p>Solutions 1 and 2 completely. I wrote up the rigorous finite-box
+justification of Solution 1 in full (<a
+href="https://potato-eat-potato.github.io/files/srw-z2-escape-probability.pdf">PDF</a>,
+April 2026), and presented this problem in my Courant blackboard
 talk.</p>
 <h2 id="what-remains-unclear">What Remains Unclear</h2>
 <ul>
@@ -106,6 +160,8 @@ SRW on Z2</a></li>
 <ul>
 <li>2026-06-11: Vault created; problem recorded as the canonical toolbox
 demo.</li>
+<li>2026-06-23: Folded in the rigorous finite-box + potential-kernel
+argument from my April 2026 writeup; linked the PDF.</li>
 </ul>
 <h2 id="public-version-notes">Public Version Notes</h2>
 <p><strong>Public-ready candidate #1.</strong> Harmless, beautiful, and
