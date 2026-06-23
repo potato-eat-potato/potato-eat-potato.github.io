@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Branching Random Walk Map · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Map</p>
+<article>
+<h1 id="branching-random-walk-map">Branching Random Walk Map</h1>
+<p><em>The model organism. Object note: <a
+href="branching-random-walk.html">Branching random walk</a>. Everything
+here is training for the DGFF Map — and beautiful in its own
+right.</em></p>
+<h2 id="the-logic-of-the-area">The Logic of the Area</h2>
+<ol type="1">
+<li><strong>One identity to compute</strong>: many-to-one turns
+particle-count first moments into single-walk Cramér estimates.</li>
+<li><strong>Speed = entropy/energy crossing</strong>: <span
+class="math inline">\(\Lambda^*(v^*) = \log m\)</span> (<a
+href="use-cramer-transform-for-large-deviation-speed.html">Use Cramer
+transform for large deviation speed</a>, <a
+href="entropy-versus-energy.html">Entropy versus energy</a>).</li>
+<li><strong>Corrections = tree structure</strong>: <span
+class="math inline">\(-\frac{3}{2\theta^*}\log n\)</span>, proved by
+barrier-truncated second moments — where the genuinely
+branching-specific technology lives.</li>
+<li><strong>Limit law = derivative martingale</strong> (Aïdékon) — the
+deep layer.</li>
+</ol>
+<p>The full layered status is in Maximum of branching random walk — that
+problem note is the real center of this map.</p>
+<h2 id="tools-housed-here">Tools Housed Here</h2>
+<p><a href="use-first-moment-method-for-maximum-upper-bound.html">Use
+first moment method for maximum upper bound</a> · <a
+href="use-second-moment-method-for-existence-lower-bound.html">Use
+second moment method for existence lower bound</a> · <a
+href="use-cramer-transform-for-large-deviation-speed.html">Use Cramer
+transform for large deviation speed</a></p>
+<h2 id="patterns-housed-here">Patterns Housed Here</h2>
+<p><a href="first-moment-upper-bound.html">First moment upper bound</a>
+· <a href="second-moment-lower-bound.html">Second moment lower bound</a>
+(esp. the truncated form) · <a href="entropy-versus-energy.html">Entropy
+versus energy</a> · <a
+href="union-bound-over-exponential-family.html">Union bound over
+exponential family</a> · <a href="change-of-measure.html">Change of
+measure</a> (spine version, future)</p>
+<h2 id="the-bridge-to-dgff-why-this-map-exists">The Bridge to DGFF (why
+this map exists)</h2>
+<p><a href="use-multiscale-decomposition.html">Use multiscale
+decomposition</a> exhibits the 2D DGFF as <span
+class="math inline">\(\approx\)</span> BRW over dyadic scales:</p>
+<table>
+<thead>
+<tr class="header">
+<th>BRW</th>
+<th>DGFF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>generation <span class="math inline">\(k\)</span></td>
+<td>dyadic scale <span class="math inline">\(k\)</span></td>
+</tr>
+<tr class="even">
+<td>common ancestor depth</td>
+<td><span class="math inline">\(\log(N/|x-y|)\)</span> shared
+scales</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(-\frac{3}{2\theta^*}\log n\)</span></td>
+<td><span class="math inline">\(-\frac{3}{4}\sqrt{g}\log\log
+N\)</span></td>
+</tr>
+<tr class="even">
+<td>barrier along generations</td>
+<td>barrier along scales</td>
+</tr>
+</tbody>
+</table>
+<h2 id="missing-pieces-ordered">Missing Pieces (ordered)</h2>
+<ol type="1">
+<li>Ballot-problem estimates (walk above a line) — blocks layer 2.</li>
+<li>Time-inhomogeneous BRW (variance profiles) — where the DGFF
+correspondence gets exact.</li>
+<li>Spine/size-biasing — blocks layer 3.</li>
+</ol>
+<h2 id="sanity-example-i-keep-loaded">Sanity Example I Keep Loaded</h2>
+<p>Binary branching, standard Gaussian steps: <span
+class="math inline">\(v^* = \sqrt{2\log 2}\)</span>, <span
+class="math inline">\(\theta^* = \sqrt{2\log 2}\)</span>. Run every new
+claim against this case first.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

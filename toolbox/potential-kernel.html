@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Potential kernel · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Object</p>
+<article>
+<h1 id="object-potential-kernel">Object: Potential kernel</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p><span class="math inline">\(a(x)\)</span> is what the Green function
+becomes in recurrent dimension two: you can’t count total visits
+(infinite), but you <em>can</em> count the visit deficit relative to the
+origin.</p>
+<h2 id="definition">Definition</h2>
+<p>For SRW on <span class="math inline">\(\mathbb{Z}^2\)</span>: <span
+class="math display">\[a(x) = \sum_{k=0}^{\infty}\Big[\mathbb{P}_0(X_k =
+0) - \mathbb{P}_x(X_k = 0)\Big].\]</span></p>
+<h2 id="important-properties">Important Properties</h2>
+<ul>
+<li><span class="math inline">\(a(0) = 0\)</span>, <span
+class="math inline">\(a \ge 0\)</span>, and <span
+class="math inline">\(\Delta a = \delta_0\)</span> — so <span
+class="math inline">\(a\)</span> is <strong>harmonic away from the
+origin</strong> and plays the role of <span
+class="math inline">\(-G\)</span>.</li>
+<li><strong>Exact value at neighbors</strong>: <span
+class="math inline">\(a(e_1) = 1\)</span>. One-line proof: <span
+class="math inline">\(1 = \Delta a(0) = \frac{1}{4}\sum_{|e|=1} a(e) =
+a(e_1)\)</span> by symmetry. (This tiny identity computes <a
+href="effective-resistance-between-adjacent-vertices-in-z2.html">Effective
+resistance between adjacent vertices in Z2</a>.)</li>
+<li><strong>Asymptotics</strong>: <span class="math inline">\(a(x) =
+\frac{2}{\pi}\log|x| + \kappa + O(|x|^{-2})\)</span>, with <span
+class="math inline">\(\kappa = \frac{2\gamma + \log 8}{\pi} \approx
+1.029\)</span>.</li>
+<li>Uniqueness: <span class="math inline">\(a\)</span> is the unique
+nonnegative solution of <span class="math inline">\(\Delta a =
+\delta_0\)</span>, <span class="math inline">\(a(0)=0\)</span> with
+subpolynomial growth — uniqueness needs the growth condition (a <a
+href="maximum-principle.html">Maximum principle</a>-at-infinity
+issue).</li>
+</ul>
+<h2 id="key-formula">Key Formula</h2>
+<p><span class="math display">\[G_D(x,y) =
+\mathbb{E}_x\big[a(X_{\tau_{D^c}} - y)\big] - a(x-y).\]</span> Every
+killed Green function in <span
+class="math inline">\(\mathbb{Z}^2\)</span> is “boundary average of
+<span class="math inline">\(a\)</span> minus <span
+class="math inline">\(a\)</span>.” This is the workhorse behind all my
+2D estimates — see <a
+href="replace-divergent-green-function-by-potential-kernel.html">Replace
+divergent Green function by potential kernel</a>.</p>
+<p>Typical application via <a
+href="optional-stopping-theorem.html">Optional stopping theorem</a>:
+<span class="math inline">\(a(X_{n \wedge \tau_0})\)</span> is a
+martingale, which gives <span
+class="math display">\[\mathbb{P}_x(\tau_{\partial B_n} &lt; \tau_0) =
+\frac{a(x)}{\frac{2}{\pi}\log n + \kappa + o(1)}.\]</span></p>
+<h2 id="why-this-object-is-central-to-my-probability-route">Why This
+Object Is Central to My Probability Route</h2>
+<p>I live in <span class="math inline">\(d = 2\)</span>, where the Green
+function is dead on arrival. The potential kernel is the prosthetic that
+makes 2D potential theory run; the DGFF variance asymptotics I use in
+the Bourgade reading come from <span class="math inline">\(a\)</span>’s
+log expansion.</p>
+<h2 id="where-i-encountered-this">Where I Encountered This</h2>
+<p>Zeitouni project (escape probabilities); Lawler’s books as
+reference.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>I have not internalized a proof of the full asymptotic expansion
+(the <span class="math inline">\(\kappa\)</span> and the <span
+class="math inline">\(O(|x|^{-2})\)</span>); currently citing it.
+Process a proof sketch from Lawler–Limic eventually.</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Publish after the <span class="math inline">\(a(e_1)=1\)</span>
+argument and the <span class="math inline">\(G_D\)</span> formula get
+worked examples.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

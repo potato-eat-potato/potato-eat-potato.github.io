@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cramer theorem · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Theorem</p>
+<article>
+<h1 id="theorem-cramer-theorem">Theorem: Cramer theorem</h1>
+<h2 id="statement">Statement</h2>
+<p>(Cramér.) For i.i.d. <span class="math inline">\(X_i\)</span> with
+<span class="math inline">\(\Lambda(\lambda) = \log\mathbb{E}e^{\lambda
+X_1} &lt; \infty\)</span> near <span class="math inline">\(0\)</span>,
+the empirical means satisfy a large deviation principle with rate $^* =
+$ <a href="legendre-transform.html">Legendre transform</a> of <span
+class="math inline">\(\Lambda\)</span>: <span
+class="math display">\[\frac{1}{n}\log\mathbb{P}\big(S_n/n \ge a\big)
+\longrightarrow -\Lambda^*(a), \qquad a &gt; \mathbb{E}X_1.\]</span></p>
+<h2 id="intuition">Intuition</h2>
+<p>Rare events happen in the <em>cheapest possible way</em>: to have
+mean <span class="math inline">\(a\)</span>, the walk behaves like an
+i.i.d. sample from the tilted law with mean <span
+class="math inline">\(a\)</span>, and the price is the relative entropy
+of that tilt — which is exactly <span
+class="math inline">\(\Lambda^*(a)\)</span>.</p>
+<h2 id="when-to-use">When to Use</h2>
+<ul>
+<li>Exponential decay rates for sums; speed selection for <a
+href="branching-random-walk.html">Branching random walk</a> via <span
+class="math inline">\(\Lambda^*(v^*) = \log m\)</span>.</li>
+<li>As the prototype: when increments aren’t i.i.d., ask “what is the
+Gärtner–Ellis version?” before improvising.</li>
+</ul>
+<h2 id="what-it-converts">What It Converts</h2>
+<p>An <span class="math inline">\(n\to\infty\)</span> asymptotic
+probability into a finite-dimensional convex optimization.</p>
+<h2 id="proof-sketch">Proof Sketch</h2>
+<p>Upper bound: Chernoff, optimize <span
+class="math inline">\(\lambda\)</span>. Lower bound: tilt to mean <span
+class="math inline">\(a\)</span> (<a
+href="change-of-measure.html">Change of measure</a>), apply the LLN
+<em>in the tilted world</em>, undo the tilt and collect <span
+class="math inline">\(e^{-n\Lambda^*(a)}\)</span>. The proof is itself a
+reusable pattern — both halves recur constantly.</p>
+<h2 id="typical-failure-modes">Typical Failure Modes</h2>
+<ul>
+<li>Heavy tails: <span class="math inline">\(\Lambda \equiv
+\infty\)</span> off <span class="math inline">\(0\)</span>; rate
+function degenerates (one-big-jump principle instead — different
+universe, don’t mix them up).</li>
+<li><span class="math inline">\(a\)</span> outside the closure of the
+mean’s range: rate <span class="math inline">\(= \infty\)</span>,
+statements vacuous.</li>
+<li>Lattice vs. non-lattice issues only matter for sharp prefactors
+(Bahadur–Rao), not the exponential scale.</li>
+</ul>
+<h2 id="related-tools">Related Tools</h2>
+<ul>
+<li><a href="use-cramer-transform-for-large-deviation-speed.html">Use
+Cramer transform for large deviation speed</a> (action version)</li>
+<li><a href="use-first-moment-method-for-maximum-upper-bound.html">Use
+first moment method for maximum upper bound</a> (Cramér supplies the
+tail, the union bound does the rest)</li>
+</ul>
+<h2 id="where-i-have-used-or-seen-this">Where I Have Used or Seen
+This</h2>
+<p>Probability coursework for the statement; BRW speed computations in
+the Zeitouni notes for daily use.</p>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Statement and both proof halves: yes. Multidimensional version:
+statement only.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>Sample-path LDPs (Mogulskii/Schilder) — needed for barrier problems
+in BRW; on the reading queue.</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Public-ready with the tilting proof sketch.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

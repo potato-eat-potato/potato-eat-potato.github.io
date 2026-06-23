@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compare domains by monotonicity · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Tool</p>
+<article>
+<h1 id="tool-compare-domains-by-monotonicity">Tool: Compare domains by
+monotonicity</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>Sandwich an awkward domain between two computable ones and transport
+the estimate across the inclusion — the lazy person’s sharp bound.</p>
+<h2 id="what-problem-does-this-solve">What Problem Does This Solve?</h2>
+<p>Estimates on irregular domains (punctured boxes, boxes with holes,
+non-round regions) where exact formulas exist only for balls and
+boxes.</p>
+<h2 id="input">Input</h2>
+<p>Domain inclusion <span class="math inline">\(D&#39; \subset
+D\)</span> and a monotone quantity.</p>
+<h2 id="the-monotonicity-inventory-memorize-the-directions">The
+Monotonicity Inventory (memorize the directions)</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th>Direction under <span class="math inline">\(D&#39; \subset
+D\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Killed Green function <span
+class="math inline">\(G_{D&#39;}(x,y)\)</span></td>
+<td><span class="math inline">\(\le G_D(x,y)\)</span> (fewer visits
+before exit)</td>
+</tr>
+<tr class="even">
+<td>DGFF variance <span
+class="math inline">\(\mathrm{Var}_{D&#39;}(\varphi_x) =
+G_{D&#39;}(x,x)\)</span></td>
+<td><span class="math inline">\(\le\)</span></td>
+</tr>
+<tr class="odd">
+<td>Exit time <span class="math inline">\(\mathbb{E}_x
+\tau_{D&#39;}\)</span></td>
+<td><span class="math inline">\(\le\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(R_{\mathrm{eff}}\)</span> to the
+boundary</td>
+<td>network version: see <a href="rayleigh-monotonicity.html">Rayleigh
+monotonicity</a></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathbb{P}_x(\text{exit } D&#39; \text{
+before hitting } A)\)</span>, <span class="math inline">\(A \subset
+D&#39;\)</span></td>
+<td>needs care — <em>not</em> always monotone; check each time</td>
+</tr>
+</tbody>
+</table>
+<h2 id="output">Output</h2>
+<p>Two-sided bounds: e.g. for any <span class="math inline">\(D\)</span>
+with <span class="math inline">\(B_r(x) \subset D \subset
+B_R(x)\)</span>: <span class="math display">\[\tfrac{2}{\pi}\log r +
+O(1) \le \mathrm{Var}(\varphi_x) \le \tfrac{2}{\pi}\log R +
+O(1).\]</span> For “round enough” domains the sandwich is sharp to <span
+class="math inline">\(O(1)\)</span> — often all I need.</p>
+<h2 id="what-it-converts">What It Converts</h2>
+<ul>
+<li>from: geometry-specific hard analysis</li>
+<li>to: one inclusion diagram + a known formula on balls/boxes</li>
+</ul>
+<h2 id="core-idea">Core Idea</h2>
+<p>Coupling: run the same walk, kill it earlier in the smaller domain —
+every visit-count in <span class="math inline">\(D&#39;\)</span> is
+dominated pathwise. For the field, the Gibbs–Markov decomposition (<a
+href="use-gaussian-conditioning-as-markov-property.html">Use Gaussian
+conditioning as Markov property</a>) writes <span
+class="math inline">\(\varphi_D = \varphi_{D&#39;} + \text{independent
+harmonic part}\)</span>, so variances <em>add</em> — monotonicity with
+an exact error term. That upgrade (inequality → decomposition) is the
+move behind Boundary-to-bulk comparison.</p>
+<h2 id="when-should-i-think-of-this">When Should I Think of This?</h2>
+<ul>
+<li>First move on any perturbed-domain problem: what do the inscribed
+and circumscribed boxes already give?</li>
+<li>To sanity-check any claimed estimate: does it respect the inventory
+directions?</li>
+</ul>
+<h2 id="where-this-appears-in-my-path">Where This Appears in My
+Path</h2>
+<p>Constantly in the punctured box question: the punctured domain sits
+between “tiny box around the hole removed” and “full box,” and the first
+nontrivial fact I derived there was which comparisons are lossless.</p>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Solid; the inventory table is battle-tested.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>A clean characterization of <em>which</em> hitting probabilities are
+domain-monotone (the failure cases still bite me).</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>The inventory table is publishable as-is once the caveat row gets an
+explicit counterexample.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

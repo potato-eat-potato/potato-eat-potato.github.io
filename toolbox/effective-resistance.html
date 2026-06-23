@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Effective resistance · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Object</p>
+<article>
+<h1 id="object-effective-resistance">Object: Effective resistance</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p><span class="math inline">\(R_{\mathrm{eff}}(a,z)\)</span> is the
+single number a network shows the outside world between two terminals —
+and it is exactly the quantity that converts geometry into random-walk
+behavior.</p>
+<h2 id="definition">Definition</h2>
+<p>Impose voltage to send unit current from <span
+class="math inline">\(a\)</span> to <span
+class="math inline">\(z\)</span>; then <span
+class="math inline">\(R_{\mathrm{eff}}(a,z) = v(a) - v(z)\)</span>.
+Equivalently, via the variational characterizations: <span
+class="math display">\[R_{\mathrm{eff}}(a,z) =
+\inf\{\mathcal{E}(\theta): \theta \text{ unit flow } a \to z\} =
+\Big(\inf\{\mathcal{E}(f): f(a)=1,\, f(z)=0\}\Big)^{-1}.\]</span></p>
+<p>The two infima are the <strong>variational vise</strong>: flows give
+upper bounds on <span class="math inline">\(R_{\mathrm{eff}}\)</span>
+(<a href="thomson-principle.html">Thomson principle</a>), test
+potentials give lower bounds (<a
+href="dirichlet-principle.html">Dirichlet principle</a>). Almost every
+resistance estimate I know is one jaw of this vise.</p>
+<h2 id="probabilistic-meaning">Probabilistic Meaning</h2>
+<ul>
+<li><strong>Escape probability</strong>: <span
+class="math inline">\(\mathbb{P}_a(\tau_z &lt; \tau_a^+) =
+\dfrac{1}{c(a)\,R_{\mathrm{eff}}(a,z)}\)</span>.</li>
+<li><strong>Recurrence criterion</strong>: SRW is recurrent iff <span
+class="math inline">\(R_{\mathrm{eff}}(0,\infty) = \infty\)</span>.</li>
+<li><strong>Commute time identity</strong>: <span
+class="math inline">\(\mathbb{E}_a\tau_z + \mathbb{E}_z\tau_a =
+2|E|\,R_{\mathrm{eff}}(a,z)\)</span> (unit conductances).</li>
+<li><strong>Green function</strong>: <span
+class="math inline">\(G_D(x,x) = c(x)R_{\mathrm{eff}}(x, D^c)\)</span> —
+see <a href="green-function.html">Green function</a>.</li>
+</ul>
+<h2 id="important-properties">Important Properties</h2>
+<ul>
+<li>Metric-like: <span class="math inline">\(R_{\mathrm{eff}}\)</span>
+is a metric on the network (triangle inequality holds).</li>
+<li>Monotone: increasing edge resistances increases <span
+class="math inline">\(R_{\mathrm{eff}}\)</span> (<a
+href="rayleigh-monotonicity.html">Rayleigh monotonicity</a>).</li>
+<li>On <span class="math inline">\(\mathbb{Z}^2\)</span>: <span
+class="math inline">\(R_{\mathrm{eff}}(0, \partial B_n) = \frac{\log
+n}{2\pi} + O(1)\)</span> — logarithmic growth ⇒ recurrence, but slowly ⇒
+“almost transient.”</li>
+</ul>
+<h2 id="why-this-object-is-central-to-my-probability-route">Why This
+Object Is Central to My Probability Route</h2>
+<p>The Zeitouni project taught me that effective resistance is not
+circuit trivia: it is a <em>probability estimate in disguise</em>. My
+exposition <a
+href="exposition-effective-resistance-as-a-probability-tool.html">Exposition
+- Effective Resistance as a Probability Tool</a> exists to make that
+case in public.</p>
+<h2 id="tools-that-use-this-object">Tools That Use This Object</h2>
+<ul>
+<li><a href="use-effective-resistance-to-control-random-walk.html">Use
+effective resistance to control random walk</a></li>
+<li><a href="use-thomson-principle-by-constructing-flow.html">Use
+Thomson principle by constructing flow</a></li>
+<li><a href="use-rayleigh-monotonicity-by-shorting-or-cutting.html">Use
+Rayleigh monotonicity by shorting or cutting</a></li>
+</ul>
+<h2 id="common-normalizations-or-conventions">Common Normalizations or
+Conventions</h2>
+<p>Unit conductances unless stated. Watch whether a source’s escape
+probability formula has <span class="math inline">\(c(a)\)</span> or
+<span class="math inline">\(\deg(a)\)</span> — same thing here, not on
+weighted graphs.</p>
+<h2 id="where-i-encountered-this">Where I Encountered This</h2>
+<p>Doyle–Snell with Zeitouni; centerpiece of both talks.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>How much of resistance theory survives without reversibility? (Flag
+for later; not urgent.)</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Core public material — polish together with the exposition note.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

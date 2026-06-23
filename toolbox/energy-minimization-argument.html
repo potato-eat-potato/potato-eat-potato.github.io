@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energy minimization argument · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Proof pattern</p>
+<article>
+<h1 id="proof-pattern-energy-minimization-argument">Proof Pattern:
+Energy minimization argument</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>When the target quantity is the minimum of a quadratic energy, prove
+bounds by <em>exhibiting competitors</em> — never by solving the
+minimization.</p>
+<h2 id="when-this-pattern-appears">When This Pattern Appears</h2>
+<p>Resistance/capacity bounds; transience and recurrence;
+eigenvalue-type bounds; any quantity with a variational
+characterization.</p>
+<h2 id="general-structure">General Structure</h2>
+<ol type="1">
+<li>Identify the variational characterization and, crucially,
+<strong>its direction</strong>: is the target an inf over flows (<a
+href="thomson-principle.html">Thomson principle</a>, upper bounds) or an
+inf over potentials (<a href="dirichlet-principle.html">Dirichlet
+principle</a>, which upper-bounds <em>conductance</em>,
+i.e. lower-bounds resistance)?</li>
+<li>Steal a competitor from the continuum: the harmonic profile (<span
+class="math inline">\(\log|x|\)</span> in 2D, <span
+class="math inline">\(|x|^{2-d}\)</span> in higher <span
+class="math inline">\(d\)</span>), the radial flow, the
+product/interpolation profile.</li>
+<li>Discretize the competitor; verify admissibility <em>exactly</em>
+(node law for flows, boundary values for potentials).</li>
+<li>Compute its energy in shells: <span class="math inline">\(\sum_k
+(\#\text{edges in shell } k) \times (\text{value on shell }
+k)^2\)</span>.</li>
+<li>If both directions are needed, build one competitor of each type and
+compare the constants (the duality gap is zero, so good guesses nearly
+meet).</li>
+</ol>
+<h2 id="key-estimate-or-mechanism">Key Estimate or Mechanism</h2>
+<p>The shell sum. In <span class="math inline">\(\mathbb{Z}^2\)</span>
+shells have <span class="math inline">\(\asymp k\)</span> edges and
+harmonic profiles have increments <span class="math inline">\(\asymp
+1/k\)</span>, giving the universal <span class="math inline">\(\sum_k k
+\cdot k^{-2} = \log\)</span> — the same <span
+class="math inline">\(\log\)</span> in resistance, escape probability,
+and DGFF variance. Recognize it on sight.</p>
+<h2 id="typical-inputs">Typical Inputs</h2>
+<p>A variational principle; a continuum intuition for the optimizer.</p>
+<h2 id="typical-output">Typical Output</h2>
+<p>Two-sided order-sharp bounds with explicit constants.</p>
+<h2 id="common-mistakes-or-failure-modes">Common Mistakes or Failure
+Modes</h2>
+<ul>
+<li>Direction confusion (see step 1) — I keep the mnemonic “flows over,
+potentials under” in <a href="effective-resistance.html">Effective
+resistance</a>.</li>
+<li>Inadmissible competitor (node law violated at the apex of a radial
+flow — patch by hand near the source).</li>
+<li>Computing the energy of the <em>continuum</em> object and forgetting
+discretization corrections near the singularity.</li>
+</ul>
+<h2 id="examples-from-my-learning">Examples From My Learning</h2>
+<ul>
+<li>Recurrence of <span class="math inline">\(\mathbb{Z}^2\)</span> +
+transience of <span class="math inline">\(\mathbb{Z}^3\)</span>, both
+reading-project staples and both performed in my Courant talk.</li>
+<li>The superposition argument in <a
+href="effective-resistance-between-adjacent-vertices-in-z2.html">Effective
+resistance between adjacent vertices in Z2</a>.</li>
+</ul>
+<h2 id="related-tools">Related Tools</h2>
+<ul>
+<li><a href="use-thomson-principle-by-constructing-flow.html">Use
+Thomson principle by constructing flow</a>, <a
+href="use-effective-resistance-to-control-random-walk.html">Use
+effective resistance to control random walk</a></li>
+</ul>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Solid; my most-used pattern.</p>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Public-ready; this is the signature pattern of my Zeitouni-side
+toolbox.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

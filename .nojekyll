@@ -1,0 +1,1 @@
+# Serve files verbatim (skip Jekyll). Keeps toolbox/ and build/ as plain static assets.

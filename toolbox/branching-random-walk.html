@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Branching random walk · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Object</p>
+<article>
+<h1 id="object-branching-random-walk">Object: Branching random walk</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>Particles that branch and move independently — the cleanest model
+where “exponentially many correlated trajectories” can be analyzed
+exactly, and the toy model for everything log-correlated.</p>
+<h2 id="definition">Definition</h2>
+<p>Start with one particle at <span class="math inline">\(0\)</span>.
+Each generation, every particle splits into offspring (mean <span
+class="math inline">\(m &gt; 1\)</span>) which each jump by an
+independent copy of a step distribution. $M_n = $ position of the
+rightmost particle at generation <span
+class="math inline">\(n\)</span>.</p>
+<h2 id="the-identity-that-makes-it-computable">The Identity That Makes
+It Computable</h2>
+<p><strong>Many-to-one lemma</strong> (simple version): for the count
+over generation-<span class="math inline">\(n\)</span> particles, <span
+class="math display">\[\mathbb{E}\Big[\sum_{|v| = n} f(S_v)\Big] = m^n\,
+\mathbb{E}[f(S_n)],\]</span> where <span
+class="math inline">\(S_n\)</span> is an ordinary random walk. First
+moments of BRW = (growth factor) × (single-walk computation). This is
+why <a href="use-first-moment-method-for-maximum-upper-bound.html">Use
+first moment method for maximum upper bound</a> + <a
+href="cramer-theorem.html">Cramer theorem</a> immediately give the
+speed.</p>
+<h2 id="headline-behavior">Headline Behavior</h2>
+<ul>
+<li><strong>Speed</strong>: <span class="math inline">\(M_n / n \to
+v^*\)</span> where <span class="math inline">\(I(v^*) = \log m\)</span>
+(<span class="math inline">\(I\)</span> = rate function of the step;
+Hammersley–Kingman–Biggins). Balance: <span
+class="math inline">\(e^{n\log m}\)</span> particles vs. <span
+class="math inline">\(e^{-nI(v)}\)</span> cost — pure <a
+href="entropy-versus-energy.html">Entropy versus energy</a>.</li>
+<li><strong>Log correction</strong>: <span class="math inline">\(M_n =
+nv^* - \frac{3}{2\theta^*}\log n + O_P(1)\)</span> (Bramson for BBM;
+Addario-Berry–Reed, Hu–Shi for BRW). The <span
+class="math inline">\(\frac{3}{2}\)</span>, vs. <span
+class="math inline">\(\frac{1}{2}\)</span> for independent walkers, is
+the price of the tree correlations.</li>
+<li>Convergence in law of the recentered max (Aïdékon) — future
+reading.</li>
+</ul>
+<h2 id="why-this-object-is-central-to-my-probability-route">Why This
+Object Is Central to My Probability Route</h2>
+<p>BRW is the skeleton key for the 2D <a href="dgff.html">DGFF</a>: the
+multiscale decomposition exhibits the field as approximately a BRW
+across <span class="math inline">\(\log N\)</span> dyadic scales, and
+the extremal behavior matches (<span
+class="math inline">\(\frac34\log\log\)</span> ↔︎ <span
+class="math inline">\(\frac32\log\)</span>). Understanding BRW extremes
+<em>is</em> the entry ticket to log-correlated fields.</p>
+<h2 id="tools-that-use-this-object">Tools That Use This Object</h2>
+<ul>
+<li><a href="use-first-moment-method-for-maximum-upper-bound.html">Use
+first moment method for maximum upper bound</a></li>
+<li><a
+href="use-second-moment-method-for-existence-lower-bound.html">Use
+second moment method for existence lower bound</a> (needs Bramson’s
+truncation — vanilla second moment fails)</li>
+<li><a href="use-cramer-transform-for-large-deviation-speed.html">Use
+Cramer transform for large deviation speed</a></li>
+<li><a href="use-multiscale-decomposition.html">Use multiscale
+decomposition</a></li>
+</ul>
+<h2 id="common-normalizations-or-conventions">Common Normalizations or
+Conventions</h2>
+<p>Binary branching + Gaussian steps is my default sandbox; general
+offspring/step laws add integrability conditions I should not quote
+casually.</p>
+<h2 id="where-i-encountered-this">Where I Encountered This</h2>
+<p>Zeitouni’s notes on branching random walks and Gaussian fields;
+Bourgade reading direction.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>Derivative martingale: I know it exists and is the right
+normalization for the max limit law; cannot yet reproduce why.</li>
+<li>Exact assumptions for Biggins’ theorem (which moments?).</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>The many-to-one + speed story is publishable; the correction-term
+material should wait until I can prove what I quote.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

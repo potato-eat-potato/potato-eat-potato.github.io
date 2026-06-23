@@ -1,0 +1,79 @@
+/* Sicheng (Sam) Wang — site styles.
+   Shared by the homepage (index.html) and the Probability Toolbox (toolbox/).
+   Edit here; build/build_toolbox.py links every toolbox page to this file. */
+
+:root{
+  --text:#1b1b1b; --muted:#6b6b6b; --faint:#8a8a8a;
+  --rule:#e7e7e3; --link:#1a4b8c; --link-hover:#0f2e57;
+  --bg:#fdfdfc; --code-bg:#f3f3f0; --pre-bg:#f7f7f4; --th-bg:#f5f5f1;
+  --maxw:720px;
+  --serif:Georgia,Cambria,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  max-width:var(--maxw); margin:0 auto; padding:64px 24px 96px;
+  font-family:var(--serif); font-size:18px; line-height:1.7;
+  color:var(--text); background:var(--bg);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+h1,h2,h3,h4,nav,.subtitle,.kicker,.crumb,th,.sans{font-family:var(--sans)}
+h1{font-size:2.05rem;font-weight:600;letter-spacing:-.015em;margin:0 0 .12em}
+.subtitle{color:var(--muted);font-size:1.02rem;margin:0 0 1.7em}
+a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .12s}
+a:hover{color:var(--link-hover);border-bottom-color:currentColor}
+p{margin:0 0 1.05em}
+ul{padding-left:1.15em;margin:.4em 0 1.1em}
+li{margin:.3em 0}
+strong{font-weight:600}
+em{font-style:italic}
+hr{border:0;border-top:1px solid var(--rule);margin:2.4em 0}
+.lead{font-size:1.07rem}
+.meta,.d{color:var(--muted);font-size:.92rem}
+footer{margin-top:3.6em;padding-top:1.3em;border-top:1px solid var(--rule);color:var(--faint);font-size:.86rem}
+footer a{color:var(--faint)}
+
+/* homepage */
+.home h2{font-size:.76rem;text-transform:uppercase;letter-spacing:.11em;font-weight:700;color:var(--muted);margin:2.7em 0 .9em}
+.home ul.tight{padding-left:0;list-style:none}
+.home ul.tight li{margin:.28em 0}
+.entry{margin:0 0 1.05em}
+.entry .t{font-weight:600}
+
+/* toolbox */
+nav.crumb{font-size:.85rem;color:var(--muted);margin-bottom:2em}
+nav.crumb a{color:var(--muted)}
+p.kicker{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;color:var(--faint);margin:0 0 .15em}
+p.intro{font-size:1.05rem;color:#333}
+article h1{font-size:1.7rem;font-weight:600;letter-spacing:-.01em;margin:.1em 0 .6em}
+article h2{font-size:1.16rem;font-weight:600;margin:1.9em 0 .5em;color:#1f1f1f}
+article h3{font-size:1rem;font-weight:600;margin:1.4em 0 .35em;color:#2a2a2a}
+blockquote{margin:1.2em 0;padding:.3em 0 .3em 1.1em;border-left:3px solid var(--rule);color:#444}
+code{font-family:var(--mono);font-size:.88em;background:var(--code-bg);padding:.12em .35em;border-radius:3px}
+pre{background:var(--pre-bg);border:1px solid var(--rule);padding:.9em 1.1em;border-radius:6px;overflow-x:auto;line-height:1.5}
+pre code{background:none;padding:0;font-size:.85em}
+table{border-collapse:collapse;width:100%;margin:1.3em 0;font-size:.95em}
+th,td{border:1px solid var(--rule);padding:.5em .75em;text-align:left;vertical-align:top}
+th{background:var(--th-bg);font-weight:600}
+section.group{margin:1.4em 0}
+section.group h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700;color:var(--muted);margin:2.2em 0 .2em}
+section.group p.desc{color:var(--muted);font-size:.92rem;margin:.1em 0 .6em}
+section.group ul{list-style:none;padding-left:0}
+section.group li{margin:.25em 0}
+.mjx-container{overflow-x:auto;overflow-y:hidden;max-width:100%}
+
+@media (max-width:640px){
+  body{padding:40px 18px 64px;font-size:17px}
+  h1{font-size:1.75rem}
+  article h1{font-size:1.45rem}
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --text:#e6e6e3; --muted:#9a9a96; --faint:#7f7f7b; --rule:#2c2c2c;
+    --link:#7fb0e6; --link-hover:#a9ccef; --bg:#161616;
+    --code-bg:#222; --pre-bg:#1d1d1d; --th-bg:#1f1f1f;
+  }
+  article h2{color:#ededea} article h3{color:#dadad6} blockquote{color:#bdbdb8}
+}

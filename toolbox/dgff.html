@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGFF · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Object</p>
+<article>
+<h1 id="object-dgff">Object: DGFF</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>The Discrete Gaussian Free Field is “the Gaussian measure whose
+energy is Dirichlet energy” — a random height function whose entire
+probabilistic structure is encoded in the Green function of a random
+walk.</p>
+<h2 id="definition">Definition</h2>
+<p>For finite <span class="math inline">\(D \subset
+\mathbb{Z}^d\)</span> with zero boundary conditions: the centered
+Gaussian field <span class="math inline">\((\varphi_x)_{x \in
+D}\)</span> with density <span class="math display">\[\propto
+\exp\Big(-\tfrac{1}{4d}\sum_{x \sim y}(\varphi_x - \varphi_y)^2\Big)
+\quad (\text{ordered pairs}),\]</span> equivalently the centered
+Gaussian with covariance <span
+class="math inline">\(\mathbb{E}[\varphi_x\varphi_y] =
+G_D(x,y)\)</span>, the <a href="killed-green-function.html">Killed Green
+function</a>.</p>
+<p>This note is deliberately a <strong>map, not a textbook
+chapter</strong> — the real content lives in the tool notes linked
+below.</p>
+<h2 id="the-facts-i-organize-everything-around">The Facts I Organize
+Everything Around</h2>
+<ul>
+<li><strong>Covariance = Green function</strong> — so all field
+estimates reduce to walk estimates: <a
+href="express-dgff-covariance-by-green-function.html">Express DGFF
+covariance by Green function</a>.</li>
+<li><strong>Domain Markov property</strong>: condition on values outside
+<span class="math inline">\(U\)</span>; inside you get (independent
+zero-boundary DGFF on <span class="math inline">\(U\)</span>) +
+(harmonic extension of the conditioned values): <a
+href="use-gaussian-conditioning-as-markov-property.html">Use Gaussian
+conditioning as Markov property</a>.</li>
+<li><strong>Log-correlated in <span
+class="math inline">\(d=2\)</span></strong>: <span
+class="math inline">\(\mathbb{E}[\varphi_x\varphi_y] \approx
+\frac{2}{\pi}\log\frac{N}{|x-y|}\)</span> in a box of side <span
+class="math inline">\(N\)</span>; variance <span
+class="math inline">\(\frac{2}{\pi}\log N + O(1)\)</span>. No pointwise
+infinite-volume limit exists in <span class="math inline">\(d=2\)</span>
+— hence <a
+href="regularize-infinite-graph-by-finite-box.html">Regularize infinite
+graph by finite box</a>.</li>
+<li><strong>Hierarchical structure</strong>: across dyadic scales the
+field looks like a <a href="branching-random-walk.html">Branching random
+walk</a> — the engine of <a href="use-multiscale-decomposition.html">Use
+multiscale decomposition</a>.</li>
+<li><strong>Extremes</strong>: in <span
+class="math inline">\(d=2\)</span>, <span
+class="math inline">\(\max_{V_N} \varphi = 2\sqrt{g}\,\log N -
+\tfrac{3}{4}\sqrt{g}\,\log\log N + O_P(1)\)</span> with <span
+class="math inline">\(g = 2/\pi\)</span> (Bramson–Ding–Zeitouni). The
+<span class="math inline">\(\tfrac34\)</span> (vs. <span
+class="math inline">\(\tfrac14\)</span> for i.i.d.) is the fingerprint
+of the branching structure.</li>
+</ul>
+<h2 id="connections-to-chase">Connections to Chase</h2>
+<ul>
+<li>Compare DGFF and branching random walk <em>(note to create when I
+process the multiscale material)</em></li>
+<li>Cover times of graphs ↔︎ DGFF via isomorphism theorems
+(Ding–Lee–Peres) — future reading.</li>
+<li>Continuum GFF, conformal invariance — the mathematical-physics
+horizon.</li>
+</ul>
+<h2 id="why-this-object-is-central-to-my-probability-route">Why This
+Object Is Central to My Probability Route</h2>
+<p>This is where my route currently points: the Bourgade reading is
+about Gaussian fields, my HRUMC talk ended on the DGFF, and my candidate
+research questions (DGFF on punctured box) live here. If the vault has a
+protagonist, it’s this field.</p>
+<h2 id="common-normalizations-or-conventions">Common Normalizations or
+Conventions</h2>
+<p>The <span class="math inline">\(\frac{1}{4d}\)</span> vs <span
+class="math inline">\(\frac{1}{2}\)</span>-per-edge choice moves a
+factor <span class="math inline">\(2d\)</span> into the covariance.
+Vault convention: covariance is exactly <span
+class="math inline">\(G_D\)</span> in the probabilistic normalization of
+<a href="discrete-laplacian.html">Discrete Laplacian</a>. Biskup’s notes
+use a different <span class="math inline">\(g\)</span> bookkeeping —
+reconcile when citing.</p>
+<h2 id="where-i-encountered-this">Where I Encountered This</h2>
+<p>Zeitouni’s notes on Gaussian fields; Bourgade reading discussions;
+final act of my HRUMC talk.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>The precise statement and proof of the Gibbs–Markov decomposition
+over a dyadic hierarchy (constants per scale).</li>
+<li>What exactly survives of the BRW analogy at the level of full
+extremal process — reading goal.</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Public version should stay a map; the BDZ result quoted with
+reference.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

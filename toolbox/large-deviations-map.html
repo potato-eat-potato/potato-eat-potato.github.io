@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Large Deviations Map · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Map</p>
+<article>
+<h1 id="large-deviations-map">Large Deviations Map</h1>
+<p><em>The exponential bookkeeping department: not (currently) a
+research area for me, but the calculus my research areas bill their
+costs in.</em></p>
+<h2 id="the-logic-of-the-area">The Logic of the Area</h2>
+<ol type="1">
+<li><strong>Rates exist</strong>: <span
+class="math inline">\(\mathbb{P}(S_n/n \approx a) \approx
+e^{-n\Lambda^*(a)}\)</span> (<a href="cramer-theorem.html">Cramer
+theorem</a>).</li>
+<li><strong>Rates are dual</strong>: $^* = $ <a
+href="legendre-transform.html">Legendre transform</a> of the log-MGF;
+tilting parameter ↔︎ target value.</li>
+<li><strong>Rates are entropies</strong>: the cost of a tilt is its
+relative entropy; optimal tilts make rare events typical (<a
+href="change-of-measure.html">Change of measure</a>).</li>
+<li><strong>Everything else is transport</strong>: contraction
+principles, Varadhan — <em>statements known, proofs not yet processed;
+don’t fake it.</em></li>
+</ol>
+<h2 id="tools-housed-here">Tools Housed Here</h2>
+<p><a href="use-cramer-transform-for-large-deviation-speed.html">Use
+Cramer transform for large deviation speed</a> — my one fully-owned LD
+tool, and honestly the one I use 90% of the time.</p>
+<h2 id="where-ld-plugs-into-my-program">Where LD Plugs Into My
+Program</h2>
+<ul>
+<li><strong>BRW speed</strong>: <span
+class="math inline">\(\Lambda^*(v^*) = \log m\)</span> — the cleanest LD
+application I know (<a href="branching-random-walk-map.html">Branching
+Random Walk Map</a>).</li>
+<li><strong>Gaussian tails</strong>: <span
+class="math inline">\(\Lambda^*(a) = a^2/(2\sigma^2)\)</span> — every
+DGFF estimate’s inner loop.</li>
+<li><strong>Field shifts</strong>: Cameron–Martin cost <span
+class="math inline">\(\frac12\mathcal{E}(h)\)</span> — large deviations
+<em>of the DGFF itself</em>, with <a
+href="dirichlet-energy.html">Dirichlet energy</a> as rate function.
+(This is the deep reason energy appears in both halves of my
+toolbox.)</li>
+<li><strong>Entropic repulsion-type phenomena</strong> — future reading;
+the LD language is the prerequisite.</li>
+</ul>
+<h2 id="reading-ladder">Reading Ladder</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="" />Cramér with both proof
+halves.</label></li>
+<li><label><input type="checkbox" />Gärtner–Ellis (dependence) —
+next.</label></li>
+<li><label><input type="checkbox" />Sample-path LD (Mogulskii, Schilder)
+— needed for BRW barrier heuristics done right.</label></li>
+<li><label><input type="checkbox" />Dembo–Zeitouni as the systematic
+reference (fitting, given whose notes I read for BRW).</label></li>
+</ul>
+<h2 id="patterns-housed-here">Patterns Housed Here</h2>
+<p><a href="entropy-versus-energy.html">Entropy versus energy</a> · <a
+href="change-of-measure.html">Change of measure</a> · <a
+href="union-bound-over-exponential-family.html">Union bound over
+exponential family</a></p>
+<h2 id="honest-status">Honest Status</h2>
+<p>A service area, deliberately: I keep it exactly as deep as my
+BRW/DGFF needs require, and no deeper — but the sample-path gap is now
+actively blocking layer-2 BRW work, so it’s next.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

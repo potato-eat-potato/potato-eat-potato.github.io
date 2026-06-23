@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Use Thomson principle by constructing flow · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Tool</p>
+<article>
+<h1 id="tool-use-thomson-principle-by-constructing-flow">Tool: Use
+Thomson principle by constructing flow</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>To bound a resistance from above, don’t solve the network — <em>build
+any unit flow</em> and pay its energy.</p>
+<h2 id="what-problem-does-this-solve">What Problem Does This Solve?</h2>
+<p>Upper bounds on <span
+class="math inline">\(R_{\mathrm{eff}}\)</span>, hence: lower bounds on
+escape probabilities, proofs of transience, upper bounds on <span
+class="math inline">\(G_D(x,x)\)</span>.</p>
+<h2 id="input">Input</h2>
+<p>A network and terminals; an ansatz for how current “should” spread
+(usually stolen from the continuum).</p>
+<h2 id="output">Output</h2>
+<p><span class="math inline">\(R_{\mathrm{eff}} \le \mathcal{E}(\theta)
+= \sum_e \theta(e)^2 r_e\)</span> for the constructed unit flow <span
+class="math inline">\(\theta\)</span>.</p>
+<h2 id="construction-recipe">Construction Recipe</h2>
+<ol type="1">
+<li>Guess the continuum picture (radial spreading, flow along a spanning
+tree, uniform spreading over shells).</li>
+<li>Discretize: define <span class="math inline">\(\theta(e)\)</span>
+explicitly; <strong>verify the node law</strong> (this is where
+constructions silently die).</li>
+<li>Sum the energy shell by shell.</li>
+</ol>
+<p>Worked reflex example — transience of <span
+class="math inline">\(\mathbb{Z}^3\)</span>: spread unit flow so each
+edge at distance <span class="math inline">\(k\)</span> carries <span
+class="math inline">\(\asymp k^{-2}\)</span>; shells have <span
+class="math inline">\(\asymp k^2\)</span> edges; <span
+class="math inline">\(\mathcal{E} \asymp \sum_k k^2 \cdot k^{-4} &lt;
+\infty\)</span>. Done.</p>
+<h2 id="what-it-converts">What It Converts</h2>
+<ul>
+<li>from: a global optimization (true current)</li>
+<li>to: a single explicit construction + a sum</li>
+</ul>
+<h2 id="when-should-i-think-of-this">When Should I Think of This?</h2>
+<ul>
+<li>I need “the walk escapes” / “resistance is finite/small.”</li>
+<li>I can picture how water would drain through the graph — that picture
+<em>is</em> the flow.</li>
+<li>Dual jaw: if I instead need resistance <em>large</em>, switch to
+test potentials (<a href="dirichlet-principle.html">Dirichlet
+principle</a>) or shorting (<a
+href="use-rayleigh-monotonicity-by-shorting-or-cutting.html">Use
+Rayleigh monotonicity by shorting or cutting</a>).</li>
+</ul>
+<h2 id="typical-use-cases">Typical Use Cases</h2>
+<ul>
+<li>Transience of <span class="math inline">\(\mathbb{Z}^d\)</span>,
+<span class="math inline">\(d \ge 3\)</span>.</li>
+<li>Trees: flow splitting along rays computes resistance to infinity
+exactly.</li>
+<li>The superposition flow in <a
+href="effective-resistance-between-adjacent-vertices-in-z2.html">Effective
+resistance between adjacent vertices in Z2</a>.</li>
+</ul>
+<h2 id="where-this-appears-in-my-path">Where This Appears in My
+Path</h2>
+<p>Zeitouni project; I presented the <span
+class="math inline">\(\mathbb{Z}^3\)</span> flow construction on the
+board in the two-hour Courant talk — first time I felt a variational
+principle as a <em>practical</em> device.</p>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Good. I can construct and verify flows on lattices and trees.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>Method of random paths (flows from measures on paths) — I know the
+statement, should do one honest example.</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Yes, with the <span class="math inline">\(\mathbb{Z}^3\)</span>
+example fully written.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

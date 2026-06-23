@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Use multiscale decomposition · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Tool</p>
+<article>
+<h1 id="tool-use-multiscale-decomposition">Tool: Use multiscale
+decomposition</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>Write a log-correlated field as a sum of <span
+class="math inline">\(\asymp \log N\)</span> nearly-independent scale
+increments, each of <span class="math inline">\(O(1)\)</span> variance —
+turning one intractable field into a branching random walk I can analyze
+generation by generation.</p>
+<h2 id="what-problem-does-this-solve">What Problem Does This Solve?</h2>
+<p>Fine questions about the 2D <a href="dgff.html">DGFF</a> (extremes,
+near-maxima geometry, barrier events) where the global Gaussian
+description is true but useless.</p>
+<h2 id="input">Input</h2>
+<p>The Gibbs–Markov property: conditioning the field on coarser boxes
+splits off independent finer fields — iterate <a
+href="use-gaussian-conditioning-as-markov-property.html">Use Gaussian
+conditioning as Markov property</a> over a dyadic hierarchy of
+boxes.</p>
+<h2 id="output">Output</h2>
+<p><span class="math inline">\(\varphi_x \approx \sum_{k=1}^{\log_2 N}
+W_k(x)\)</span>, where <span class="math inline">\(W_k\)</span> are
+(nearly) independent increments, each contributing variance <span
+class="math inline">\(\approx \frac{2}{\pi}\log 2\)</span>, and <span
+class="math inline">\(W_k(x), W_k(y)\)</span> are strongly correlated
+iff <span class="math inline">\(x, y\)</span> share the level-<span
+class="math inline">\(k\)</span> box. The dependency structure of the
+family <span class="math inline">\(\{\varphi_x\}\)</span> becomes
+(approximately) the genealogical tree of a <a
+href="branching-random-walk.html">Branching random walk</a>.</p>
+<h2 id="what-it-converts">What It Converts</h2>
+<ul>
+<li>from: a flat, globally correlated Gaussian field</li>
+<li>to: a hierarchy = tree-indexed walk, where BRW technology (barriers,
+spine arguments, <a
+href="use-second-moment-method-for-existence-lower-bound.html">Use
+second moment method for existence lower bound</a>) applies</li>
+</ul>
+<h2 id="core-idea">Core Idea</h2>
+<p>Log-correlation <em>is</em> hierarchy: <span
+class="math inline">\(\mathbb{E}[\varphi_x\varphi_y] \approx
+\frac{2}{\pi}\log\frac{N}{|x-y|}\)</span> says “covariance counts the
+number of shared scales.” The decomposition makes that literal. The deep
+dividend: DGFF extremes inherit BRW’s structure — same leading order,
+same <span class="math inline">\(\frac{3}{2}\)</span>-type correction
+(the <span class="math inline">\(\frac34\sqrt g \log\log N\)</span>),
+and the heuristic transfers theorem-by-theorem (made rigorous in
+Bramson–Ding–Zeitouni).</p>
+<h2 id="when-should-i-think-of-this">When Should I Think of This?</h2>
+<ul>
+<li>Anything about DGFF maxima, high points, or barrier
+probabilities.</li>
+<li>A covariance that looks like <span
+class="math inline">\(\log(\text{macroscale}/\text{distance})\)</span> —
+instant hierarchy alarm.</li>
+<li>Conversely: to predict DGFF behavior, first solve the BRW analogue
+(cheaper), then decide what survives the approximation.</li>
+</ul>
+<h2 id="where-this-appears-in-my-path">Where This Appears in My
+Path</h2>
+<p>The conceptual spine of the Bourgade reading direction; my HRUMC talk
+gestured at it in the final minutes (“the field is secretly a branching
+structure”) without proof — writing the honest version is a current
+goal.</p>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>I understand the one-step Gibbs–Markov split rigorously and the full
+hierarchy heuristically.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>The error bookkeeping: increments are only <em>approximately</em>
+i.i.d. across scales — how do BDZ control the accumulation of these
+errors? This is my main open reading question.</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Not yet; publish after the one-step split + heuristic hierarchy is
+written carefully (it would make an excellent exposition).</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

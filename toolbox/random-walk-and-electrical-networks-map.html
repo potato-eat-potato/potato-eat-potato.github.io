@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Walk and Electrical Networks Map · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Map</p>
+<article>
+<h1 id="random-walk-and-electrical-networks-map">Random Walk and
+Electrical Networks Map</h1>
+<p><em>The Zeitouni half of my toolbox. Source: Zeitouni Reading Project
+- Random Walks and Electrical Networks; public face: <a
+href="exposition-effective-resistance-as-a-probability-tool.html">Exposition
+- Effective Resistance as a Probability Tool</a>.</em></p>
+<h2 id="the-logic-of-the-area-four-steps">The Logic of the Area (four
+steps)</h2>
+<ol type="1">
+<li><strong>Hitting probabilities are harmonic</strong> → probability
+questions become Dirichlet problems. <a
+href="turn-hitting-probability-into-harmonic-function.html">Turn hitting
+probability into harmonic function</a></li>
+<li><strong>Voltages solve the same Dirichlet problems</strong> →
+uniqueness (<a href="maximum-principle.html">Maximum principle</a>)
+forces probability = electricity. <a
+href="turn-random-walk-into-electrical-network.html">Turn random walk
+into electrical network</a></li>
+<li><strong>Electricity is variational</strong> → <a
+href="dirichlet-energy.html">Dirichlet energy</a> is minimized by truth;
+competitors give bounds. <a href="thomson-principle.html">Thomson
+principle</a> + <a href="dirichlet-principle.html">Dirichlet
+principle</a> = the vise; <a href="rayleigh-monotonicity.html">Rayleigh
+monotonicity</a> = surgery.</li>
+<li><strong>One number rules</strong>: <a
+href="effective-resistance.html">Effective resistance</a> encodes
+escape, recurrence, visits, commute times. <a
+href="use-effective-resistance-to-control-random-walk.html">Use
+effective resistance to control random walk</a></li>
+</ol>
+<h2 id="core-objects">Core Objects</h2>
+<p><a href="effective-resistance.html">Effective resistance</a> · <a
+href="unit-current-flow.html">Unit current flow</a> · <a
+href="dirichlet-energy.html">Dirichlet energy</a> · <a
+href="equilibrium-potential.html">Equilibrium potential</a> · <a
+href="harmonic-measure.html">Harmonic measure</a> · <a
+href="simple-random-walk-on-z2.html">Simple random walk on Z2</a></p>
+<h2 id="core-tools">Core Tools</h2>
+<p><a href="use-thomson-principle-by-constructing-flow.html">Use Thomson
+principle by constructing flow</a> · <a
+href="use-rayleigh-monotonicity-by-shorting-or-cutting.html">Use
+Rayleigh monotonicity by shorting or cutting</a> · <a
+href="use-effective-resistance-to-control-random-walk.html">Use
+effective resistance to control random walk</a></p>
+<h2 id="benchmark-computations">Benchmark Computations</h2>
+<ul>
+<li>Pólya: <span class="math inline">\(\mathbb{Z}^2\)</span> recurrent
+(short annuli), <span class="math inline">\(\mathbb{Z}^3\)</span>
+transient (radial flow).</li>
+<li><a
+href="effective-resistance-between-adjacent-vertices-in-z2.html">Effective
+resistance between adjacent vertices in Z2</a> = <span
+class="math inline">\(\tfrac12\)</span>, three ways.</li>
+<li><a href="escape-probability-of-srw-on-z2.html">Escape probability of
+SRW on Z2</a> <span class="math inline">\(\sim \pi/(2\log
+n)\)</span>.</li>
+</ul>
+<h2 id="where-this-area-points">Where This Area Points</h2>
+<ul>
+<li>Into potential theory: the sharp-constant layer lives in <a
+href="green-function-and-potential-theory-map.html">Green Function and
+Potential Theory Map</a>.</li>
+<li>Into fields: <span class="math inline">\(G_D(x,x) =
+c(x)R_{\mathrm{eff}}\)</span> hands the whole area to the DGFF Map.</li>
+<li>Open flank: trees and general networks (Lyons–Peres) — my theory is
+lattice-centric so far.</li>
+</ul>
+<h2 id="status">Status</h2>
+<p>The most mature region of the vault — most notes <code>usable</code>,
+two talks delivered from it. Maintenance mode: feed it benchmark
+problems when new techniques arrive.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

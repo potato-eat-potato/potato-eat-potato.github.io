@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strong Markov property · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Theorem</p>
+<article>
+<h1 id="theorem-strong-markov-property">Theorem: Strong Markov
+property</h1>
+<h2 id="statement">Statement</h2>
+<p>For a Markov chain and a stopping time <span
+class="math inline">\(\tau\)</span> with <span
+class="math inline">\(\tau &lt; \infty\)</span>: conditionally on <span
+class="math inline">\(\mathcal{F}_\tau\)</span> and <span
+class="math inline">\(\{X_\tau = x\}\)</span>, the shifted process <span
+class="math inline">\((X_{\tau + n})_{n \ge 0}\)</span> is the chain
+started from <span class="math inline">\(x\)</span>, independent of the
+past.</p>
+<h2 id="intuition">Intuition</h2>
+<p>The walk has no memory <em>even at random times</em> — as long as the
+random time doesn’t peek into the future.</p>
+<h2 id="when-to-use">When to Use</h2>
+<p>The decomposition license. Every “split the path at the first visit
+to…” argument is an application:</p>
+<ul>
+<li><strong>Visit counts are geometric</strong>: visits to <span
+class="math inline">\(x\)</span> before exiting <span
+class="math inline">\(D\)</span> = geometric with success probability
+<span class="math inline">\(\mathbb{P}_x(\text{no return before
+exit})\)</span>. One line later: <span class="math inline">\(G_D(x,x) =
+c(x)R_{\mathrm{eff}}(x, D^c)\)</span> — the identity joining my two
+reading projects (see <a href="green-function.html">Green
+function</a>).</li>
+<li>Excursion decompositions; last-exit-style formulas (with care, see
+below).</li>
+<li>First-entrance decompositions for Green function identities
+(e.g. the puncture identity in <a
+href="killed-green-function.html">Killed Green function</a> has a
+strong-Markov proof alongside the Gaussian one).</li>
+</ul>
+<h2 id="what-it-converts">What It Converts</h2>
+<p>One long path into i.i.d. blocks between regeneration times —
+geometry into geometric random variables.</p>
+<h2 id="typical-failure-modes">Typical Failure Modes</h2>
+<p>The “time” must be a stopping time. <strong>Last exit times are not
+stopping times</strong> — that’s why last-exit decompositions (used for
+<a href="equilibrium-potential.html">Equilibrium potential</a> formulas)
+need a separate argument (reverse the walk), not a naive strong Markov
+application. This trips me up; flagging it permanently.</p>
+<h2 id="related-tools">Related Tools</h2>
+<ul>
+<li><a href="use-effective-resistance-to-control-random-walk.html">Use
+effective resistance to control random walk</a></li>
+<li><a href="turn-random-walk-into-electrical-network.html">Turn random
+walk into electrical network</a></li>
+</ul>
+<h2 id="where-i-have-used-or-seen-this">Where I Have Used or Seen
+This</h2>
+<p>Honors Probability for the proof; the geometric-visits argument was
+on the board in my Courant talk.</p>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Solid for discrete time.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>Write out the reversed-walk fix for last-exit decompositions once,
+carefully (goes with the TODO in <a
+href="equilibrium-potential.html">Equilibrium potential</a>).</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Public with the geometric-visits one-liner as the showcase.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harmonic measure · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Object</p>
+<article>
+<h1 id="object-harmonic-measure">Object: Harmonic measure</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>Where the walk exits: <span class="math inline">\(\mathrm{hm}_D(x,
+\cdot) = \mathbb{P}_x(X_{\tau_{D^c}} \in \cdot)\)</span> — the
+probabilistic answer to “which boundary points does the domain actually
+see from <span class="math inline">\(x\)</span>?”</p>
+<h2 id="definition">Definition</h2>
+<p>For <span class="math inline">\(x \in D\)</span> and <span
+class="math inline">\(A \subset \partial D\)</span> (outer boundary):
+<span class="math inline">\(\mathrm{hm}_D(x, A) = \mathbb{P}_x(X_{\tau}
+\in A)\)</span>, <span class="math inline">\(\tau\)</span> = exit time
+of <span class="math inline">\(D\)</span>.</p>
+<h2 id="equivalent-interpretations">Equivalent Interpretations</h2>
+<ul>
+<li>The exit distribution of the random walk.</li>
+<li>The representing measure for the Dirichlet problem: <span
+class="math inline">\(u(x) = \sum_{y \in \partial D}
+u(y)\,\mathrm{hm}_D(x, y)\)</span> solves <span
+class="math inline">\(\Delta u = 0\)</span> with given boundary data —
+this <em>is</em> Convert boundary value problem into probabilistic
+representation.</li>
+<li>In <span class="math inline">\(\mathbb{Z}^2\)</span> there is also
+harmonic measure <strong>from infinity</strong> for a finite set <span
+class="math inline">\(A\)</span> (limit of <span
+class="math inline">\(\mathbb{P}_x(\text{first hit of } A \in
+\cdot)\)</span> as <span class="math inline">\(x \to \infty\)</span> —
+exists by recurrence), proportional to the equilibrium-type measure of
+<span class="math inline">\(A\)</span>.</li>
+</ul>
+<h2 id="why-it-matters">Why It Matters</h2>
+<p>Harmonic measure is how geometry enters estimates: protruding parts
+of the boundary carry more of it, screened parts carry exponentially
+little. Every “the walk doesn’t notice the far side of the obstacle”
+argument is a harmonic measure statement.</p>
+<h2 id="why-this-object-is-central-to-my-probability-route">Why This
+Object Is Central to My Probability Route</h2>
+<p>My punctured-box and mesoscopic-hole questions are at heart questions
+about the harmonic measure of small removed sets: the conditioned field
+/ killed walk feels the hole exactly through it. See Harmonic measure
+near removed set.</p>
+<h2 id="important-properties">Important Properties</h2>
+<ul>
+<li><span class="math inline">\(\mathrm{hm}_D(x,\cdot)\)</span> is
+harmonic in <span class="math inline">\(x\)</span> for fixed target
+set.</li>
+<li>Carleman/Beurling-type estimates control it near slits and obstacles
+— flagged as future reading (Lawler’s books).</li>
+<li>Relation to <a href="equilibrium-potential.html">Equilibrium
+potential</a> and capacity: hitting probabilities of small sets ≈ (Green
+factor) × (capacity).</li>
+</ul>
+<h2 id="where-i-encountered-this">Where I Encountered This</h2>
+<p>Implicitly throughout Doyle–Snell (exit probabilities); explicitly
+when formulating the punctured box question.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>Quantitative harmonic measure near a <em>mesoscopic</em> removed set
+in a box: which scales dominate? This is really my research question in
+disguise.</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Keep private until the research-adjacent parts are separated out.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

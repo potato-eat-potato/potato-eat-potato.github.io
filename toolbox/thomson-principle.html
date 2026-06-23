@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thomson principle · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Theorem</p>
+<article>
+<h1 id="theorem-thomson-principle">Theorem: Thomson principle</h1>
+<h2 id="statement">Statement</h2>
+<p>Among all unit flows <span class="math inline">\(\theta\)</span> from
+<span class="math inline">\(a\)</span> to <span
+class="math inline">\(z\)</span>, the energy <span
+class="math inline">\(\mathcal{E}(\theta) = \sum_e \theta(e)^2
+r_e\)</span> is uniquely minimized by the <a
+href="unit-current-flow.html">Unit current flow</a> <span
+class="math inline">\(i\)</span>, and <span
+class="math display">\[R_{\mathrm{eff}}(a,z) = \mathcal{E}(i) =
+\min_{\theta \text{ unit flow}} \mathcal{E}(\theta).\]</span></p>
+<h2 id="intuition">Intuition</h2>
+<p>Nature dissipates as little as possible: actual current arranges
+itself to waste minimal energy, so <em>any</em> flow I invent wastes at
+least as much — and my invention’s waste is a certified upper bound on
+resistance.</p>
+<h2 id="when-to-use">When to Use</h2>
+<p>Whenever I need <span class="math inline">\(R_{\mathrm{eff}} \le
+(\text{something})\)</span>: equivalently, escape probability
+<em>lower</em> bounds, transience proofs, <span
+class="math inline">\(G_D(x,x)\)</span> upper bounds. This is one jaw of
+the variational vise; the other jaw (test potentials, lower bounds on
+<span class="math inline">\(R\)</span>) is <a
+href="dirichlet-principle.html">Dirichlet principle</a>. <strong>Flows
+bound <span class="math inline">\(R\)</span> from above; potentials from
+below.</strong></p>
+<h2 id="what-it-converts">What It Converts</h2>
+<p>A global equilibrium computation (solve Kirchhoff everywhere) into a
+one-sided certificate (construct anything admissible).</p>
+<h2 id="proof-sketch">Proof Sketch</h2>
+<p>Decompose <span class="math inline">\(\theta = i + (\theta -
+i)\)</span>; the difference is a sourceless flow (cycle space); cross
+term vanishes because the current comes from a potential (<span
+class="math inline">\(\sum_e r_e\, i(e)\,\sigma(e) = 0\)</span> for
+sourceless <span class="math inline">\(\sigma\)</span> — sum by parts
+onto the potential); so <span class="math inline">\(\mathcal{E}(\theta)
+= \mathcal{E}(i) + \mathcal{E}(\theta - i) \ge \mathcal{E}(i)\)</span>.
+Pythagoras in disguise: flows form an affine space, energy is a
+quadratic form, the current is the orthogonal projection.</p>
+<h2 id="typical-failure-modes">Typical Failure Modes</h2>
+<ul>
+<li>The candidate <span class="math inline">\(\theta\)</span> silently
+violates the node law (most common bug — verify divergence at every
+vertex class).</li>
+<li>Forgetting “unit”: flux must be exactly <span
+class="math inline">\(1\)</span>.</li>
+<li>Infinite networks: need finite-energy flows to infinity; the
+principle then characterizes transience (Lyons’ criterion).</li>
+</ul>
+<h2 id="related-tools">Related Tools</h2>
+<ul>
+<li><a href="use-thomson-principle-by-constructing-flow.html">Use
+Thomson principle by constructing flow</a> (the action version)</li>
+<li><a href="use-effective-resistance-to-control-random-walk.html">Use
+effective resistance to control random walk</a></li>
+</ul>
+<h2 id="where-i-have-used-or-seen-this">Where I Have Used or Seen
+This</h2>
+<p>Doyle–Snell via Zeitouni; proved on the board in my Courant talk (the
+Pythagoras picture).</p>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Solid, including proof.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<p>None for finite networks.</p>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Public-ready; keep the projection picture.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

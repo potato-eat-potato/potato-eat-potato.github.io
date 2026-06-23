@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit current flow · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Object</p>
+<article>
+<h1 id="object-unit-current-flow">Object: Unit current flow</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>The physically realized flow of one ampere from <span
+class="math inline">\(a\)</span> to <span
+class="math inline">\(z\)</span> — among all unit flows, the unique one
+of minimal energy, and the one the random walk itself traces out.</p>
+<h2 id="definition">Definition</h2>
+<p>A <strong>unit flow</strong> <span
+class="math inline">\(\theta\)</span> from <span
+class="math inline">\(a\)</span> to <span
+class="math inline">\(z\)</span>: antisymmetric edge function with
+Kirchhoff’s node law (<span class="math inline">\(\mathrm{div}\,\theta =
+0\)</span> off <span class="math inline">\(\{a,z\}\)</span>) and net
+flux <span class="math inline">\(1\)</span> out of <span
+class="math inline">\(a\)</span>. The <strong>unit current flow</strong>
+<span class="math inline">\(i\)</span> is the one induced by the
+harmonic voltage via Ohm’s law: <span class="math inline">\(i(x,y) =
+c_{xy}(v(x) - v(y))\)</span>.</p>
+<h2 id="equivalent-interpretations">Equivalent Interpretations</h2>
+<ul>
+<li>Minimizer of energy <span class="math inline">\(\mathcal{E}(\theta)
+= \sum_e \theta(e)^2 r_e\)</span> over all unit flows; <span
+class="math inline">\(\mathcal{E}(i) = R_{\mathrm{eff}}(a,z)\)</span> —
+<a href="thomson-principle.html">Thomson principle</a>.</li>
+<li><strong>Probabilistic</strong>: <span
+class="math inline">\(i(x,y)\)</span> = expected net number of signed
+traversals of edge <span class="math inline">\((x,y)\)</span> by the
+walk from <span class="math inline">\(a\)</span> before hitting <span
+class="math inline">\(z\)</span> (Doyle–Snell). Current is a random-walk
+statistic, not just physics.</li>
+</ul>
+<h2 id="why-it-matters">Why It Matters</h2>
+<p>Flows are the <em>constructible</em> side of the variational vise: I
+can write one down by hand (mimic the continuum radial flow, push mass
+along a tree, spread along shells) and instantly get <span
+class="math inline">\(R_{\mathrm{eff}} \le \mathcal{E}(\theta)\)</span>.
+The current flow is the certificate that the bound is tight.</p>
+<h2 id="tools-that-use-this-object">Tools That Use This Object</h2>
+<ul>
+<li><a href="use-thomson-principle-by-constructing-flow.html">Use
+Thomson principle by constructing flow</a></li>
+<li><a href="use-effective-resistance-to-control-random-walk.html">Use
+effective resistance to control random walk</a></li>
+</ul>
+<h2 id="problems-where-this-appears">Problems Where This Appears</h2>
+<ul>
+<li><a
+href="effective-resistance-between-adjacent-vertices-in-z2.html">Effective
+resistance between adjacent vertices in Z2</a> — the superposition
+trick: unit current <span class="math inline">\(0 \to e_1\)</span> =
+(flow out of <span class="math inline">\(0\)</span>) + (flow into <span
+class="math inline">\(e_1\)</span>), each spreading <span
+class="math inline">\(1/4\)</span> per incident edge by symmetry, so the
+direct edge carries <span class="math inline">\(\tfrac14 + \tfrac14 =
+\tfrac12\)</span>, giving <span class="math inline">\(R_{\mathrm{eff}} =
+\tfrac12\)</span>.</li>
+<li>Transience of <span class="math inline">\(\mathbb{Z}^3\)</span>:
+radial-ish flow with energy <span class="math inline">\(\sum_k k^2 \cdot
+(k^{-2})^2 = \sum k^{-2} &lt; \infty\)</span>.</li>
+</ul>
+<h2 id="where-i-encountered-this">Where I Encountered This</h2>
+<p>Doyle–Snell with Zeitouni; the superposition computation was a
+highlight of my two-hour Courant blackboard talk.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>The signed-traversal interpretation: I can state it, should
+re-derive it once via <a href="strong-markov-property.html">Strong
+Markov property</a>.</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Publishable alongside the adjacent-resistance problem note.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

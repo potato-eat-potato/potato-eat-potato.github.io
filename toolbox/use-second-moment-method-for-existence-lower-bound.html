@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Use second moment method for existence lower bound · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Tool</p>
+<article>
+<h1 id="tool-use-second-moment-method-for-existence-lower-bound">Tool:
+Use second moment method for existence lower bound</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>If the count <span class="math inline">\(Z\)</span> has <span
+class="math inline">\(\mathbb{E}[Z^2] \approx (\mathbb{E}Z)^2\)</span>,
+then <span class="math inline">\(Z &gt; 0\)</span> with decent
+probability — existence from two moments via Paley–Zygmund.</p>
+<h2 id="what-problem-does-this-solve">What Problem Does This Solve?</h2>
+<p>Lower bounds on maxima and existence statements (“some particle
+reaches <span class="math inline">\(vn\)</span>”, “some site exceeds
+<span class="math inline">\(m_N\)</span>”, “some structure appears in
+the random graph”).</p>
+<h2 id="input">Input</h2>
+<p>A counting variable <span class="math inline">\(Z \ge 0\)</span> with
+computable first and second moments.</p>
+<h2 id="output">Output</h2>
+<p><span class="math display">\[\mathbb{P}(Z &gt; 0) \ge
+\frac{(\mathbb{E}Z)^2}{\mathbb{E}[Z^2]}.\]</span></p>
+<h2 id="what-it-converts">What It Converts</h2>
+<ul>
+<li>from: existence of an unlikely configuration</li>
+<li>to: a correlation computation (<span
+class="math inline">\(\mathbb{E}[Z^2]\)</span> = sum over
+<em>pairs</em>)</li>
+</ul>
+<h2 id="core-idea">Core Idea</h2>
+<p><span class="math inline">\(\mathbb{E}[Z^2] =
+\sum_{i,j}\mathbb{P}(X_i, X_j \text{ both high})\)</span>: split pairs
+by how correlated they are. The method works iff near-independent pairs
+dominate. For BRW, pairs = pairs of particles, correlation = common
+ancestry; for DGFF, correlation = <span
+class="math inline">\(\frac{2}{\pi}\log\frac{N}{|x-y|}\)</span> — split
+by dyadic distance.</p>
+<p><strong>The crucial caveat</strong>: for BRW/DGFF maxima, the
+<em>vanilla</em> second moment fails near the true maximum (pairs with
+deep common history blow up <span
+class="math inline">\(\mathbb{E}[Z^2]\)</span>). The fix is
+<strong>truncation</strong>: count only particles whose whole trajectory
+stays below a linear barrier. With the barrier, second moment matches
+first moment and the lower bound goes through — this is Bramson’s
+insight, and it’s where <a href="use-multiscale-decomposition.html">Use
+multiscale decomposition</a> becomes unavoidable.</p>
+<h2 id="when-should-i-think-of-this">When Should I Think of This?</h2>
+<ul>
+<li>Immediately after a successful first moment bound, to test
+sharpness.</li>
+<li>Whenever <span class="math inline">\(\mathbb{E}Z \to \infty\)</span>
+but I cannot conclude <span class="math inline">\(Z &gt; 0\)</span> —
+the signature situation.</li>
+</ul>
+<h2 id="typical-use-cases">Typical Use Cases</h2>
+<ul>
+<li>BRW: particles near <span class="math inline">\(v^* n\)</span> exist
+— with barrier truncation.</li>
+<li>Thresholds in random graphs (Park seminar material).</li>
+<li>DGFF: near-maximal sites exist.</li>
+</ul>
+<h2 id="where-this-appears-in-my-path">Where This Appears in My
+Path</h2>
+<p>Park’s seminar drilled the vanilla version; the Zeitouni-notes BRW
+chapters are teaching me the truncated version. The gap between the two
+versions <em>is</em> the gap between combinatorics and log-correlated
+fields.</p>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Vanilla version: solid. Truncated version: I follow the proofs but
+can’t yet improvise the barrier bookkeeping — active reading goal.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>How to choose the barrier slope/curvature systematically rather than
+copying it from the source.</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Wait until the truncated example is written in my own words.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

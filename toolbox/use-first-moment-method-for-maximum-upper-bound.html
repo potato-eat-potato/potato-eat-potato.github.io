@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Use first moment method for maximum upper bound · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Tool</p>
+<article>
+<h1 id="tool-use-first-moment-method-for-maximum-upper-bound">Tool: Use
+first moment method for maximum upper bound</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>Nobody can be above level <span class="math inline">\(m\)</span> if
+the <em>expected number</em> of people above <span
+class="math inline">\(m\)</span> is tiny: <span
+class="math inline">\(\mathbb{P}(\max &gt; m) \le \mathbb{E}[\#\{i : X_i
+&gt; m\}]\)</span>.</p>
+<h2 id="what-problem-does-this-solve">What Problem Does This Solve?</h2>
+<p>Upper bounds on maxima of large families of random variables — BRW
+particles, DGFF heights, combinatorial counts.</p>
+<h2 id="input">Input</h2>
+<p>A family <span class="math inline">\(\{X_i\}_{i \le N}\)</span> with
+computable marginal tails. No independence needed — that’s the luxury of
+this direction.</p>
+<h2 id="output">Output</h2>
+<p><span class="math inline">\(\mathbb{P}(\max_i X_i &gt; m) \le N \cdot
+\max_i \mathbb{P}(X_i &gt; m)\)</span>; the critical <span
+class="math inline">\(m^*\)</span> is where the right side crosses <span
+class="math inline">\(1\)</span>: <span
+class="math display">\[\text{(entropy) } \log N = -\log \mathbb{P}(X
+&gt; m^*) \text{ (energy)}.\]</span></p>
+<h2 id="what-it-converts">What It Converts</h2>
+<ul>
+<li>from: a maximum over exponentially many <em>dependent</em>
+variables</li>
+<li>to: one single-variable tail estimate plus a count</li>
+</ul>
+<h2 id="core-idea">Core Idea</h2>
+<p>Markov’s inequality on the count <span class="math inline">\(Z_m =
+\#\{i: X_i &gt; m\}\)</span>. For BRW, compute <span
+class="math inline">\(\mathbb{E} Z_m\)</span> with the many-to-one lemma
+(<a href="branching-random-walk.html">Branching random walk</a>) and a
+Cramér tail; for the DGFF, with the Gaussian tail and <span
+class="math inline">\(\mathrm{Var} = \frac{2}{\pi}\log N\)</span>. Both
+give the <em>correct leading order</em> of the max — dependence costs
+nothing at first order.</p>
+<p>Reflex calculation (DGFF, <span class="math inline">\(d=2\)</span>):
+<span class="math inline">\(N^2\)</span> variables, variance <span
+class="math inline">\(g\log N\)</span>, tail <span
+class="math inline">\(e^{-m^2/(2g\log N)}\)</span>; solve <span
+class="math inline">\(N^2 e^{-m^2/(2g\log N)} = 1\)</span> ⇒ <span
+class="math inline">\(m^* = 2\sqrt{g}\log N\)</span>. Matches the true
+leading order.</p>
+<h2 id="when-should-i-think-of-this">When Should I Think of This?</h2>
+<ul>
+<li>Any “how high does the maximum reach?” question: run this first,
+always. It costs ten minutes and calibrates everything.</li>
+<li>When the count is over paths/particles with exponential growth —
+pair with <a
+href="use-cramer-transform-for-large-deviation-speed.html">Use Cramer
+transform for large deviation speed</a>.</li>
+</ul>
+<h2 id="limits-of-the-tool">Limits of the Tool</h2>
+<p>It cannot see corrections: the true max sits a <span
+class="math inline">\(\log\)</span> <em>below</em> <span
+class="math inline">\(m^*\)</span> (the <span
+class="math inline">\(\frac{3}{2\theta^*}\log n\)</span> of BRW, the
+<span class="math inline">\(\frac34\sqrt{g}\log\log N\)</span> of DGFF),
+because paths that get high early get killed by their descendants’
+failure — capturing that needs barriers and <a
+href="use-multiscale-decomposition.html">Use multiscale
+decomposition</a>. And it gives no lower bound: that’s <a
+href="use-second-moment-method-for-existence-lower-bound.html">Use
+second moment method for existence lower bound</a>.</p>
+<h2 id="where-this-appears-in-my-path">Where This Appears in My
+Path</h2>
+<p>First and second moment arguments were the daily bread of Jinyoung
+Park’s probabilistic combinatorics seminar (Spring 2026); the same
+reflex transplanted to BRW/DGFF is how the Bourgade reading connected
+back.</p>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Automatic at leading order.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>Exactly where the naive bound stops being tight for the DGFF (at
+which sub-leading order does dependence first bite?).</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Great public note: the two reflex calculations side by side.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

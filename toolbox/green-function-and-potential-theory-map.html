@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Function and Potential Theory Map · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Map</p>
+<article>
+<h1 id="green-function-and-potential-theory-map">Green Function and
+Potential Theory Map</h1>
+<p><em>The hinge of the vault: everything walk-side and everything
+field-side passes through here. Public face: <a
+href="exposition-why-green-functions-connect-random-walks-and-dgff.html">Exposition
+- Why Green Functions Connect Random Walks and DGFF</a>.</em></p>
+<h2 id="the-one-object-six-faces">The One Object, Six Faces</h2>
+<p><a href="green-function.html">Green function</a> is simultaneously:
+1. expected visits before exit (<a
+href="killed-green-function.html">Killed Green function</a>); 2. the
+inverse of <span class="math inline">\(-\Delta\)</span> (<a
+href="use-green-function-as-inverse-laplacian.html">Use Green function
+as inverse Laplacian</a>); 3. the kernel solving Dirichlet/Poisson
+problems; 4. the covariance of the <a href="dgff.html">DGFF</a> (<a
+href="express-dgff-covariance-by-green-function.html">Express DGFF
+covariance by Green function</a>); 5. resistance in disguise: <span
+class="math inline">\(G_D(x,x) = c(x)\,R_{\mathrm{eff}}(x,
+D^c)\)</span>; 6. in <span class="math inline">\(d=2\)</span>, the
+renormalized limit that <em>is</em> the <a
+href="potential-kernel.html">Potential kernel</a>.</p>
+<h2 id="the-2d-storyline-my-home-dimension">The 2D Storyline (my home
+dimension)</h2>
+<p>No Green function on all of <span
+class="math inline">\(\mathbb{Z}^2\)</span> → <a
+href="replace-divergent-green-function-by-potential-kernel.html">Replace
+divergent Green function by potential kernel</a> → <span
+class="math inline">\(a(x) = \frac{2}{\pi}\log|x| + \kappa +
+O(|x|^{-2})\)</span> → killed Green functions via <span
+class="math inline">\(G_D(x,y) = \mathbb{E}_x[a(X_\tau - y)] -
+a(x-y)\)</span> → every constant in my escape probabilities and field
+variances.</p>
+<h2 id="supporting-cast">Supporting Cast</h2>
+<p><a href="harmonic-measure.html">Harmonic measure</a> (exit laws; the
+price list of Boundary-to-bulk comparison) · <a
+href="equilibrium-potential.html">Equilibrium potential</a> and capacity
+(hitting probabilities of sets) · <a
+href="maximum-principle.html">Maximum principle</a> (uniqueness
+everywhere) · <a href="discrete-laplacian.html">Discrete Laplacian</a>
+(the grammar, and the convention table)</p>
+<h2 id="tools-housed-here">Tools Housed Here</h2>
+<p><a href="use-green-function-as-inverse-laplacian.html">Use Green
+function as inverse Laplacian</a> · <a
+href="replace-divergent-green-function-by-potential-kernel.html">Replace
+divergent Green function by potential kernel</a> · <a
+href="regularize-infinite-graph-by-finite-box.html">Regularize infinite
+graph by finite box</a> · <a
+href="compare-domains-by-monotonicity.html">Compare domains by
+monotonicity</a></p>
+<h2 id="problems-fed-from-here">Problems Fed From Here</h2>
+<p>DGFF on punctured box (puncture identity) · Random walk on box with
+mesoscopic hole (three-radii estimates) · Harmonic measure near removed
+set</p>
+<h2 id="known-gaps-be-honest">Known Gaps (be honest)</h2>
+<ul>
+<li>Quantitative harmonic measure (Beurling) — not yet a usable
+tool.</li>
+<li>Boundary behavior of <span class="math inline">\(G_D\)</span> —
+needed for sharp boundary-to-bulk statements.</li>
+<li>Proof of the potential kernel expansion — currently cited, not
+owned.</li>
+</ul>
+<h2 id="next-reading-for-this-map">Next Reading for This Map</h2>
+<p>Lawler &amp; Limic, <em>Random Walk: A Modern Introduction</em>
+(chs. on Green functions and potential kernel) — the natural deepening
+of this whole map.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exposition - Why Green Functions Connect Random Walks and DGFF · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Talk / exposition</p>
+<article>
+<h1
+id="exposition---why-green-functions-connect-random-walks-and-dgff">Exposition
+- Why Green Functions Connect Random Walks and DGFF</h1>
+<p><em>Planned written exposition; primary public-website artifact.
+Built from the HRUMC talk’s second half, expanded to include what the
+talk had to skip.</em></p>
+<h2 id="thesis">Thesis</h2>
+<p>The Green function is one object wearing three uniforms — occupation
+time (probability), inverse Laplacian (analysis), covariance (Gaussian
+geometry) — and the DGFF is what you get when you take the third uniform
+seriously. The honest punchline: <span class="math inline">\(G_D(x,x) =
+c(x)R_{\mathrm{eff}}(x, D^c)\)</span>, so <em>field variance is
+electrical resistance</em>, and log-correlation of the 2D field is the
+log-growth of 2D resistance.</p>
+<h2 id="planned-outline">Planned Outline</h2>
+<ol type="1">
+<li>Visits before exit: <span class="math inline">\(G_D\)</span> as a
+counting object; geometric-visits identity (<a
+href="strong-markov-property.html">Strong Markov property</a>).</li>
+<li>The matrix view: <span class="math inline">\(G_D =
+(-\Delta_D)^{-1}\)</span>; positivity of the inverse as a probabilistic
+miracle.</li>
+<li>Interlude: why <span class="math inline">\(d=2\)</span> needs the <a
+href="potential-kernel.html">Potential kernel</a> (and why that’s a
+feature).</li>
+<li>Covariances need positive-definiteness; we have it; define the <a
+href="dgff.html">DGFF</a>.</li>
+<li>The dictionary’s last column: variance = resistance;
+log-correlations computed from first principles.</li>
+<li>Coda: conditioning = domain surgery (puncture identity) — one teaser
+computation.</li>
+</ol>
+<h2 id="what-this-exposition-reveals-about-my-interests">What This
+Exposition Reveals About My Interests</h2>
+<p>This is the single document that should make my mathematical identity
+legible to an outsider (including PhD admissions readers):
+connections-first, constants kept honest, walk-field duality as home
+territory.</p>
+<h2 id="status-next-actions">Status / Next Actions</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Draft §§1–2 from HRUMC slides +
+Courant board notes.</label></li>
+<li><label><input type="checkbox" />Decide the level: target “strong
+undergraduate who knows martingales” (= me, two years ago).</label></li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>This note IS the public pipeline’s flagship. Mark
+<code>publish: true</code> only when §§1–5 are complete and checked.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

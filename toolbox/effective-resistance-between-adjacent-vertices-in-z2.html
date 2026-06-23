@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Effective resistance between adjacent vertices in Z2 · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Problem</p>
+<article>
+<h1
+id="problem-effective-resistance-between-adjacent-vertices-in-z2">Problem:
+Effective resistance between adjacent vertices in Z2</h1>
+<h2 id="problem-statement">Problem Statement</h2>
+<p>Compute <span class="math inline">\(R_{\mathrm{eff}}(0, e_1)\)</span>
+for the network <span class="math inline">\(\mathbb{Z}^2\)</span> with
+unit conductances.</p>
+<p><strong>Answer: <span class="math inline">\(\tfrac{1}{2}\)</span>,
+exactly.</strong></p>
+<h2 id="why-this-matters">Why This Matters</h2>
+<p>Not for the number — for the <em>demonstration</em>: one tiny
+problem, three completely different tools, same answer. This is my
+standard test problem for any new resistance technique, and my favorite
+example of what this vault means by “toolbox.”</p>
+<h2 id="three-solutions">Three Solutions</h2>
+<ol type="1">
+<li><strong>Superposition of currents.</strong> Inject <span
+class="math inline">\(1\)</span>A at <span
+class="math inline">\(0\)</span> (it spreads <span
+class="math inline">\(\tfrac14\)</span> per incident edge by symmetry);
+separately extract <span class="math inline">\(1\)</span>A at <span
+class="math inline">\(e_1\)</span> (it draws <span
+class="math inline">\(\tfrac14\)</span> per edge). Superpose: the edge
+<span class="math inline">\((0, e_1)\)</span> carries <span
+class="math inline">\(\tfrac14 + \tfrac14 = \tfrac12\)</span> A. Voltage
+drop across that unit resistor <span class="math inline">\(=
+\tfrac12\)</span>, and unit current flows overall, so <span
+class="math inline">\(R_{\mathrm{eff}} = \tfrac12\)</span>. (<a
+href="unit-current-flow.html">Unit current flow</a>, linearity.)</li>
+<li><strong>Potential kernel.</strong> <span
+class="math inline">\(\mathbb{P}_0(\tau_{e_1} &lt; \tau_0^+) = \big(c(0)
+R_{\mathrm{eff}}(0,e_1)\big)^{-1}\)</span>, and via <span
+class="math inline">\(a(e_1) = 1\)</span> (one-line proof in <a
+href="potential-kernel.html">Potential kernel</a>) the escape
+probability is exactly <span class="math inline">\(\tfrac12\)</span>…
+giving <span class="math inline">\(R_{\mathrm{eff}} = \tfrac{1}{4 \cdot
+1/2} = \tfrac12\)</span>. Bonus fact: the walk from <span
+class="math inline">\(0\)</span> hits <span
+class="math inline">\(e_1\)</span> before returning to <span
+class="math inline">\(0\)</span> with probability exactly <span
+class="math inline">\(\tfrac12\)</span> — not obvious!</li>
+<li><strong>Foster’s theorem / transitivity.</strong> On a finite
+transitive-ish approximation (torus), <span
+class="math inline">\(\sum_{\text{edges}} R_{\mathrm{eff}}(e) = \#V -
+1\)</span>; with <span class="math inline">\(2N^2\)</span> edges and
+<span class="math inline">\(N^2\)</span> vertices, edge-transitivity
+gives <span class="math inline">\(R_{\mathrm{eff}}(e) \to
+\tfrac12\)</span>. (Limit interchange to be done carefully — see
+below.)</li>
+</ol>
+<h2 id="objects-involved">Objects Involved</h2>
+<p><a href="effective-resistance.html">Effective resistance</a>, <a
+href="unit-current-flow.html">Unit current flow</a>, <a
+href="potential-kernel.html">Potential kernel</a>, <a
+href="simple-random-walk-on-z2.html">Simple random walk on Z2</a></p>
+<h2 id="tools-that-may-apply">Tools That May Apply</h2>
+<p>All three solutions above; also <a
+href="use-thomson-principle-by-constructing-flow.html">Use Thomson
+principle by constructing flow</a> for upper bounds if I forget the
+exact trick.</p>
+<h2 id="what-i-understand">What I Understand</h2>
+<p>Solutions 1 and 2 completely; they were part of my Courant blackboard
+talk.</p>
+<h2 id="what-remains-unclear">What Remains Unclear</h2>
+<ul>
+<li>Solution 3: justify torus → plane convergence of <span
+class="math inline">\(R_{\mathrm{eff}}\)</span> honestly (a <a
+href="finite-volume-approximation.html">Finite volume approximation</a>
+exercise I haven’t written out).</li>
+</ul>
+<h2 id="possible-generalizations">Possible Generalizations</h2>
+<ul>
+<li><span class="math inline">\(R_{\mathrm{eff}}(0, x)\)</span> for
+general <span class="math inline">\(x\)</span>: equals… should be
+expressible via <span class="math inline">\(a\)</span>; conjecture <span
+class="math inline">\(R_{\mathrm{eff}}(0,x) = \tfrac12 a(x)\)</span> —
+check against the asymptotics and record.</li>
+<li>Other lattices (triangular, hexagonal): does the superposition
+argument survive? (Needs only vertex symmetry.)</li>
+</ul>
+<h2 id="related-problems">Related Problems</h2>
+<ul>
+<li><a href="escape-probability-of-srw-on-z2.html">Escape probability of
+SRW on Z2</a></li>
+</ul>
+<h2 id="research-log">Research Log</h2>
+<ul>
+<li>2026-06-11: Vault created; problem recorded as the canonical toolbox
+demo.</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p><strong>Public-ready candidate #1.</strong> Harmless, beautiful, and
+shows the toolbox philosophy perfectly.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discrete Laplacian · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Object</p>
+<article>
+<h1 id="object-discrete-laplacian">Object: Discrete Laplacian</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>The operator that says “compare a function to the average of its
+neighbors” — the grammar in which random walks, harmonic functions,
+networks, and the DGFF all speak.</p>
+<h2 id="definition-and-vault-convention">Definition and VAULT
+CONVENTION</h2>
+<p><strong>This vault’s default</strong> (probabilistic normalization):
+<span class="math display">\[\Delta f(x) = \frac{1}{2d}\sum_{y \sim
+x}\big(f(y) - f(x)\big) = (P - I)f(x).\]</span></p>
+<p>Other conventions in the wild — convert before mixing sources:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Convention</th>
+<th>Operator</th>
+<th>Used by</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Probabilistic (vault default)</td>
+<td><span class="math inline">\(\frac{1}{2d}\sum_{y\sim
+x}(f(y)-f(x))\)</span></td>
+<td>Lawler, Zeitouni notes</td>
+</tr>
+<tr class="even">
+<td>Graph Laplacian</td>
+<td><span class="math inline">\(\sum_{y\sim x}(f(y)-f(x))\)</span></td>
+<td>spectral graph theory; factor <span
+class="math inline">\(2d\)</span></td>
+</tr>
+<tr class="odd">
+<td>Network / weighted</td>
+<td><span class="math inline">\(\frac{1}{c(x)}\sum_y
+c_{xy}(f(y)-f(x))\)</span></td>
+<td>Lyons–Peres</td>
+</tr>
+</tbody>
+</table>
+<p>Consequences of the choice propagate to <a
+href="green-function.html">Green function</a> (factor <span
+class="math inline">\(2d\)</span>) and the <a href="dgff.html">DGFF</a>
+density. Getting this wrong is my single most likely source of constant
+errors.</p>
+<h2 id="intuition">Intuition</h2>
+<p><span class="math inline">\(\Delta f(x) &gt; 0\)</span>: <span
+class="math inline">\(f\)</span> at <span
+class="math inline">\(x\)</span> sits below its neighborhood average —
+the walk “drifts uphill in expectation.” Harmonic (<span
+class="math inline">\(\Delta f = 0\)</span>) = mean-value property =
+fair game for the walk = no net current.</p>
+<h2 id="equivalent-interpretations">Equivalent Interpretations</h2>
+<ul>
+<li>Generator of the SRW: <span
+class="math inline">\(\mathbb{E}_x[f(X_1)] - f(x)\)</span>.</li>
+<li>Negative gradient of <a href="dirichlet-energy.html">Dirichlet
+energy</a>: critical points of <span
+class="math inline">\(\mathcal{E}\)</span> with fixed boundary are
+harmonic.</li>
+<li>Kirchhoff’s node law for the network with potential <span
+class="math inline">\(f\)</span>.</li>
+</ul>
+<h2 id="why-this-object-is-central-to-my-probability-route">Why This
+Object Is Central to My Probability Route</h2>
+<p>Every object in my toolbox is defined through <span
+class="math inline">\(\Delta\)</span>: harmonic functions (<span
+class="math inline">\(\Delta h = 0\)</span>), Green function (<span
+class="math inline">\(-\Delta G = \delta\)</span>), potential kernel
+(<span class="math inline">\(\Delta a = \delta_0\)</span>), DGFF
+(Gaussian with <span class="math inline">\((-\Delta)^{-1}\)</span>
+covariance). It is the root node of the whole dependency graph.</p>
+<h2 id="tools-that-use-this-object">Tools That Use This Object</h2>
+<ul>
+<li><a href="use-green-function-as-inverse-laplacian.html">Use Green
+function as inverse Laplacian</a></li>
+<li><a href="turn-hitting-probability-into-harmonic-function.html">Turn
+hitting probability into harmonic function</a></li>
+<li><a href="express-dgff-covariance-by-green-function.html">Express
+DGFF covariance by Green function</a></li>
+</ul>
+<h2 id="where-i-encountered-this">Where I Encountered This</h2>
+<p>Everywhere; first consciously in Honors Probability (martingale
+problems), then operationally in the Zeitouni project.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>Spectral theory of <span class="math inline">\(\Delta_D\)</span> on
+a box (eigenvalue asymptotics) — I know it exists, haven’t needed it
+yet; will matter for heat-kernel methods.</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>The convention table alone is publishable as a service to other
+students.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

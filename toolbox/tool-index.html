@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tool Index · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Map</p>
+<article>
+<h1 id="tool-index">Tool Index</h1>
+<p><em>Every tool in <code>02 Tools</code>, grouped by the kind of move,
+with a one-line “reach for this when.” Update on every new
+tool.</em></p>
+<h2 id="a.-walk-analysis-network-conversions">A. Walk ↔︎ Analysis ↔︎
+Network conversions</h2>
+<ul>
+<li><a href="turn-hitting-probability-into-harmonic-function.html">Turn
+hitting probability into harmonic function</a> — when the unknown is
+“which target first?”</li>
+<li><a href="turn-random-walk-into-electrical-network.html">Turn random
+walk into electrical network</a> — when I want surgery and energy bounds
+on a reversible walk.</li>
+<li><a href="use-effective-resistance-to-control-random-walk.html">Use
+effective resistance to control random walk</a> — when
+escape/recurrence/visits should become one number.</li>
+<li>Convert boundary value problem into probabilistic representation —
+<em>(to write)</em> the reverse direction: solve PDEs by running
+walks.</li>
+</ul>
+<h2 id="b.-variational-energy-moves">B. Variational / energy moves</h2>
+<ul>
+<li><a href="use-thomson-principle-by-constructing-flow.html">Use
+Thomson principle by constructing flow</a> — when I need resistance ≤
+something: build a flow.</li>
+<li><a href="use-rayleigh-monotonicity-by-shorting-or-cutting.html">Use
+Rayleigh monotonicity by shorting or cutting</a> — when surgery to a
+solvable circuit settles the order. Short = lower, cut = upper.</li>
+<li>Use energy minimization to prove resistance bounds — <em>(to write;
+meanwhile see the pattern <a
+href="energy-minimization-argument.html">Energy minimization
+argument</a>)</em></li>
+</ul>
+<h2 id="c.-green-function-potential-theory-moves">C. Green function /
+potential theory moves</h2>
+<ul>
+<li><a href="use-green-function-as-inverse-laplacian.html">Use Green
+function as inverse Laplacian</a> — when an equation reads “<span
+class="math inline">\(-\Delta u = f\)</span>” or a sum reads “reward
+until exit.”</li>
+<li><a
+href="replace-divergent-green-function-by-potential-kernel.html">Replace
+divergent Green function by potential kernel</a> — when a transient-case
+formula dies in <span class="math inline">\(d=2\)</span>.</li>
+<li><a href="regularize-infinite-graph-by-finite-box.html">Regularize
+infinite graph by finite box</a> — when anything diverges: box first,
+limit later.</li>
+<li><a href="compare-domains-by-monotonicity.html">Compare domains by
+monotonicity</a> — when the domain is awkward: sandwich it.</li>
+</ul>
+<h2 id="d.-gaussian-field-moves">D. Gaussian field moves</h2>
+<ul>
+<li><a href="express-dgff-covariance-by-green-function.html">Express
+DGFF covariance by Green function</a> — first question for any DGFF
+statement: what does it say about <span
+class="math inline">\(G_D\)</span>?</li>
+<li><a href="use-gaussian-conditioning-as-markov-property.html">Use
+Gaussian conditioning as Markov property</a> — when conditioning the
+field: harmonic mean + killed covariance.</li>
+<li><a href="use-multiscale-decomposition.html">Use multiscale
+decomposition</a> — when the question is about extremes/fine structure
+of a log-correlated field.</li>
+</ul>
+<h2 id="e.-moment-methods-and-extremes">E. Moment methods and
+extremes</h2>
+<ul>
+<li><a href="use-first-moment-method-for-maximum-upper-bound.html">Use
+first moment method for maximum upper bound</a> — always run first on
+any max question; free calibration.</li>
+<li><a
+href="use-second-moment-method-for-existence-lower-bound.html">Use
+second moment method for existence lower bound</a> — to match the first
+moment; truncate when correlated.</li>
+</ul>
+<h2 id="f.-large-deviations">F. Large deviations</h2>
+<ul>
+<li><a href="use-cramer-transform-for-large-deviation-speed.html">Use
+Cramer transform for large deviation speed</a> — exponential decay rates
+and front speeds: <span class="math inline">\(\Lambda \to \Lambda^*
+\to\)</span> solve.</li>
+</ul>
+<h2 id="gaps-i-already-know-about-future-tools">Gaps I already know
+about (future tools)</h2>
+<ul>
+<li>Coupling comparisons (listed in my original design, not yet written
+— needs an honest worked example first).</li>
+<li>Doob <span class="math inline">\(h\)</span>-transform / conditioning
+walks to avoid sets — will fall out of Harmonic measure near removed
+set.</li>
+<li>Spine decomposition for BRW — after the Zeitouni notes chapters
+land.</li>
+</ul>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

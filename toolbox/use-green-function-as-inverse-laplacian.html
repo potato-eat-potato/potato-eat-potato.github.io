@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Use Green function as inverse Laplacian · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Tool</p>
+<article>
+<h1 id="tool-use-green-function-as-inverse-laplacian">Tool: Use Green
+function as inverse Laplacian</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>Treat <span class="math inline">\(G_D\)</span> as the literal matrix
+inverse of <span class="math inline">\(-\Delta\)</span> on the domain —
+solve discrete PDEs by summing against a kernel, and read walk facts as
+linear algebra.</p>
+<h2 id="what-problem-does-this-solve">What Problem Does This Solve?</h2>
+<p>Any discrete Poisson problem: find <span
+class="math inline">\(u\)</span> with <span
+class="math inline">\(-\Delta u = f\)</span> in <span
+class="math inline">\(D\)</span>, <span class="math inline">\(u =
+0\)</span> on <span class="math inline">\(D^c\)</span>.</p>
+<h2 id="input">Input</h2>
+<p>The domain <span class="math inline">\(D\)</span>, the source <span
+class="math inline">\(f\)</span>, and the <a
+href="killed-green-function.html">Killed Green function</a> <span
+class="math inline">\(G_D\)</span>.</p>
+<h2 id="output">Output</h2>
+<p><span class="math display">\[u(x) = \sum_{y \in D} G_D(x,y)\,
+f(y),\]</span> unique by the <a href="maximum-principle.html">Maximum
+principle</a>. Probabilistically: <span class="math inline">\(u(x) =
+\mathbb{E}_x\big[\sum_{k &lt; \tau} f(X_k)\big]\)</span> — <em>solutions
+of Poisson equations are expected accumulated rewards</em>.</p>
+<h2 id="what-it-converts">What It Converts</h2>
+<ul>
+<li>from: a difference equation (analysis)</li>
+<li>to: a kernel sum (linear algebra) ↔︎ an occupation-time functional
+(probability)</li>
+</ul>
+<h2 id="core-idea">Core Idea</h2>
+<p><span class="math inline">\(-\Delta\)</span> with Dirichlet boundary
+is an invertible positive matrix; <span
+class="math inline">\(G_D\)</span> is its inverse; positivity of the
+inverse is the probabilistic miracle (entries count visits, so they’re
+<span class="math inline">\(\ge 0\)</span>). Three languages, one
+identity. The Gaussian upgrade — a positive-definite inverse can serve
+as a covariance — is exactly <a
+href="express-dgff-covariance-by-green-function.html">Express DGFF
+covariance by Green function</a>.</p>
+<h2 id="when-should-i-think-of-this">When Should I Think of This?</h2>
+<ul>
+<li>An equation has the shape “Laplacian of unknown = known.”</li>
+<li>I see <span class="math inline">\(\mathbb{E}\big[\sum_{k&lt;\tau}
+(\cdots)\big]\)</span> — recognize an inverse Laplacian and switch to
+analysis.</li>
+<li>I need positivity or monotonicity of a solution: inherit it from the
+kernel.</li>
+</ul>
+<h2 id="typical-use-cases">Typical Use Cases</h2>
+<ul>
+<li>Expected exit time: <span class="math inline">\(-\Delta u =
+1\)</span> ⇒ <span class="math inline">\(u(x) = \sum_y
+G_D(x,y)\)</span>.</li>
+<li>Occupation-time identities in the Zeitouni project.</li>
+<li>Setting up the covariance computations in DGFF on punctured
+box.</li>
+</ul>
+<h2 id="where-this-appears-in-my-path">Where This Appears in My
+Path</h2>
+<p>The pivot slide of my HRUMC talk — the moment the talk turned from
+electricity to Gaussian fields was literally “now invert the
+Laplacian.”</p>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Solid on finite domains. The infinite-volume subtleties are delegated
+to <a
+href="replace-divergent-green-function-by-potential-kernel.html">Replace
+divergent Green function by potential kernel</a> and <a
+href="regularize-infinite-graph-by-finite-box.html">Regularize infinite
+graph by finite box</a>.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>Rates in <span class="math inline">\(G_{D_n} \to G\)</span> under
+domain exhaustion (quantitative, not just monotone) — needed eventually
+for careful limit arguments.</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Strong public candidate; pairs with <a
+href="exposition-why-green-functions-connect-random-walks-and-dgff.html">Exposition
+- Why Green Functions Connect Random Walks and DGFF</a>.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

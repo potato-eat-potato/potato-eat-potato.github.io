@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Union bound over exponential family · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Proof pattern</p>
+<article>
+<h1 id="proof-pattern-union-bound-over-exponential-family">Proof
+Pattern: Union bound over exponential family</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>Organize a huge union so the summands decay geometrically; then the
+whole union costs only a constant times its worst term.</p>
+<h2 id="when-this-pattern-appears">When This Pattern Appears</h2>
+<p>Uniform bounds over scales, levels, boxes, or times: “no scale
+misbehaves,” “no dyadic box is bad,” maxima over parametrized families.
+The quantitative backbone under <a
+href="first-moment-upper-bound.html">First moment upper bound</a>
+whenever the family is structured rather than flat.</p>
+<h2 id="general-structure">General Structure</h2>
+<ol type="1">
+<li>Stratify the family by a parameter <span
+class="math inline">\(k\)</span> (scale, level, distance,
+generation).</li>
+<li>Bound each stratum: <span class="math inline">\(\mathbb{P}(\text{bad
+at } k) \le e^{-c\,\phi(k)}\)</span> with <span
+class="math inline">\(\phi\)</span> strictly increasing (linear in <span
+class="math inline">\(k\)</span> is the usual win).</li>
+<li>Sum the geometric series: <span class="math inline">\(\sum_k
+e^{-c\phi(k)} \le C e^{-c\phi(k_0)}\)</span> — the first/worst stratum
+dominates.</li>
+<li>Read off: the union is as unlikely as its most likely member, up to
+constants.</li>
+</ol>
+<h2 id="key-estimate-or-mechanism">Key Estimate or Mechanism</h2>
+<p>Designing the stratification so step 2 has <em>uniform</em> constants
+and genuinely increasing exponents. The skill is choosing the
+parametrization — by dyadic distance for DGFF pairs, by generation gap
+for BRW ancestors, by annulus for walk excursions.</p>
+<h2 id="typical-inputs">Typical Inputs</h2>
+<p>Exponential one-event bounds (Gaussian tails, Cramér); a hierarchy to
+stratify along.</p>
+<h2 id="typical-output">Typical Output</h2>
+<p>“With high probability, simultaneously for all <span
+class="math inline">\(k\)</span>…” statements — the uniformity that
+converts pointwise estimates into path/field statements.</p>
+<h2 id="common-mistakes-or-failure-modes">Common Mistakes or Failure
+Modes</h2>
+<ul>
+<li>Polynomially many terms each barely controlled: if the per-stratum
+bound doesn’t <em>improve</em> along the family, the union bound just
+loses a log — sometimes fatal at <span
+class="math inline">\(\log\log\)</span> precision (DGFF
+corrections!).</li>
+<li>Hidden double counting across strata (fine, but wasteful — only
+hurts constants).</li>
+<li>When geometric decay is unobtainable, this pattern is the wrong
+hammer: chaining/Dudley-type arguments are the next tool up (future
+reading flag).</li>
+</ul>
+<h2 id="examples-from-my-learning">Examples From My Learning</h2>
+<ul>
+<li>Pair-overlap sums in <a href="second-moment-lower-bound.html">Second
+moment lower bound</a> (the stratified sum IS this pattern).</li>
+<li>“No annulus is crossed too often” estimates in random walk arguments
+(Zeitouni project).</li>
+<li>Threshold computations in Park’s seminar.</li>
+</ul>
+<h2 id="related-tools">Related Tools</h2>
+<ul>
+<li><a href="use-first-moment-method-for-maximum-upper-bound.html">Use
+first moment method for maximum upper bound</a></li>
+</ul>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Solid; mostly a matter of craft in choosing strata.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>Where exactly chaining strictly beats stratified union bounds in my
+problems — flag for when I meet Gaussian process suprema properly.</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Public-ready as a methods note.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

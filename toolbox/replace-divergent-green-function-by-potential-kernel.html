@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replace divergent Green function by potential kernel · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Tool</p>
+<article>
+<h1 id="tool-replace-divergent-green-function-by-potential-kernel">Tool:
+Replace divergent Green function by potential kernel</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>In recurrent dimension two, run every Green-function argument with
+<span class="math inline">\(a(x)\)</span> in place of <span
+class="math inline">\(G\)</span>: same harmonicity, same martingales,
+finite answers.</p>
+<h2 id="what-problem-does-this-solve">What Problem Does This Solve?</h2>
+<p>All of 2D potential theory, where <span class="math inline">\(G(x,y)
+= \infty\)</span> kills the standard transient-case formulas.</p>
+<h2 id="input">Input</h2>
+<p>The <a href="potential-kernel.html">Potential kernel</a> <span
+class="math inline">\(a\)</span> with its three working properties:
+<span class="math inline">\(\Delta a = \delta_0\)</span>; <span
+class="math inline">\(a(e_1) = 1\)</span>; <span
+class="math inline">\(a(x) = \frac{2}{\pi}\log|x| + \kappa +
+O(|x|^{-2})\)</span>.</p>
+<h2 id="output">Output</h2>
+<p>Finite-volume Green functions and hitting probabilities by pure
+bookkeeping: <span class="math display">\[G_D(x,y) =
+\mathbb{E}_x\big[a(X_{\tau} - y)\big] - a(x - y).\]</span></p>
+<h2 id="what-it-converts">What It Converts</h2>
+<ul>
+<li>from: divergent occupation-time sums</li>
+<li>to: boundary averages of one explicit function</li>
+</ul>
+<h2 id="core-idea">Core Idea</h2>
+<p><span class="math inline">\(a(X_n - y)\)</span> is a martingale while
+the walk avoids <span class="math inline">\(y\)</span> (harmonicity off
+the origin), so <a href="optional-stopping-theorem.html">Optional
+stopping theorem</a> at exit/hitting times produces identities. The
+asymptotic expansion then converts identities into estimates with
+explicit constants. Standard dividend: <span
+class="math display">\[\mathbb{P}_x(\tau_{\partial B_n} &lt; \tau_0) =
+\frac{a(x)}{\tfrac{2}{\pi}\log n + \kappa + o(1)},\]</span> which at
+<span class="math inline">\(x = e_1\)</span> (where <span
+class="math inline">\(a = 1\)</span>) gives the sharp escape probability
+<span class="math inline">\(\sim \pi/(2\log n)\)</span>.</p>
+<h2 id="when-should-i-think-of-this">When Should I Think of This?</h2>
+<ul>
+<li>Any <span class="math inline">\(\mathbb{Z}^2\)</span> quantity that
+would be a one-liner with a Green function in <span
+class="math inline">\(d \ge 3\)</span>.</li>
+<li>When constants matter: <span class="math inline">\(a\)</span>’s
+expansion carries the exact <span
+class="math inline">\(\frac{2}{\pi}\)</span> and <span
+class="math inline">\(\kappa\)</span> that resistance shorting arguments
+lose.</li>
+<li>When a quantity is only defined “relative to the origin” — <span
+class="math inline">\(a\)</span> is precisely the relative object.</li>
+</ul>
+<h2 id="typical-use-cases">Typical Use Cases</h2>
+<ul>
+<li><a href="escape-probability-of-srw-on-z2.html">Escape probability of
+SRW on Z2</a> — sharp version.</li>
+<li><a
+href="effective-resistance-between-adjacent-vertices-in-z2.html">Effective
+resistance between adjacent vertices in Z2</a> via <span
+class="math inline">\(a(e_1) = 1\)</span>.</li>
+<li>DGFF variance asymptotics: <span
+class="math inline">\(G_{B_n}(x,x)\)</span> via the boundary-average
+formula — this is where the <span
+class="math inline">\(\frac{2}{\pi}\log N\)</span> in <a
+href="express-dgff-covariance-by-green-function.html">Express DGFF
+covariance by Green function</a> comes from.</li>
+</ul>
+<h2 id="where-this-appears-in-my-path">Where This Appears in My
+Path</h2>
+<p>The technical core of my random-walk-on-<span
+class="math inline">\(\mathbb{Z}^2\)</span> work during the Zeitouni
+project; the reason my HRUMC talk could quote sharp constants.</p>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Can run the optional stopping arguments cleanly. The expansion itself
+is currently a cited black box (flagged in <a
+href="potential-kernel.html">Potential kernel</a>).</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>Error propagation: when I plug <span
+class="math inline">\(a\)</span>’s expansion into boundary averages over
+irregular domains, what controls the <span
+class="math inline">\(o(1)\)</span>?</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>A worked “escape probability, with constants” derivation would be an
+excellent public note.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

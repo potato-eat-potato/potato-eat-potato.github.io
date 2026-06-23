@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Optional stopping theorem · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Theorem</p>
+<article>
+<h1 id="theorem-optional-stopping-theorem">Theorem: Optional stopping
+theorem</h1>
+<h2 id="statement">Statement</h2>
+<p>If <span class="math inline">\((M_n)\)</span> is a martingale and
+<span class="math inline">\(\tau\)</span> a stopping time, then <span
+class="math inline">\(\mathbb{E}[M_\tau] = \mathbb{E}[M_0]\)</span>
+under any of: (a) <span class="math inline">\(\tau\)</span> bounded; (b)
+<span class="math inline">\(\tau &lt; \infty\)</span> a.s. and <span
+class="math inline">\((M_{n \wedge \tau})\)</span> bounded; (c) <span
+class="math inline">\((M_{n\wedge\tau})\)</span> uniformly
+integrable.</p>
+<h2 id="intuition">Intuition</h2>
+<p>You cannot beat a fair game with a quitting strategy —
+<em>provided</em> you can’t hide unbounded losses in the tail.</p>
+<h2 id="when-to-use">When to Use</h2>
+<p>The identity-generating machine: find a harmonic function <span
+class="math inline">\(h\)</span> of the chain (so <span
+class="math inline">\(h(X_n)\)</span> is a martingale), stop at an exit
+time, and read off an equation relating hitting probabilities to
+boundary values.</p>
+<h2 id="what-it-converts">What It Converts</h2>
+<p>A martingale (dynamic, path-level object) into a single algebraic
+identity at a stopping time.</p>
+<h2 id="my-standard-applications">My Standard Applications</h2>
+<ul>
+<li>Gambler’s ruin: <span class="math inline">\(h(x) = x\)</span> on
+<span class="math inline">\(\{0,\dots,n\}\)</span>.</li>
+<li><span class="math inline">\(a(X_{n \wedge \tau_0})\)</span> for SRW
+on <span class="math inline">\(\mathbb{Z}^2\)</span>: the engine of <a
+href="replace-divergent-green-function-by-potential-kernel.html">Replace
+divergent Green function by potential kernel</a>, giving <span
+class="math inline">\(\mathbb{P}_x(\tau_{\partial B_n} &lt; \tau_0) =
+a(x) / (\tfrac{2}{\pi}\log n + \kappa + o(1))\)</span>.</li>
+<li>Wald-type identities for exit times.</li>
+</ul>
+<h2 id="typical-failure-modes">Typical Failure Modes</h2>
+<p><strong>Always check a condition before writing <span
+class="math inline">\(\mathbb{E}[M_\tau] = M_0\)</span>.</strong>
+Canonical counterexample: SRW on <span
+class="math inline">\(\mathbb{Z}\)</span>, <span
+class="math inline">\(\tau\)</span> = hitting time of <span
+class="math inline">\(1\)</span>; then <span
+class="math inline">\(\mathbb{E}[M_\tau] = 1 \ne 0\)</span> — <span
+class="math inline">\(\tau\)</span> is a.s. finite but the stopped
+martingale is unbounded below. In my 2D applications the saving grace is
+usually that the domain is finite (condition (b) with boundedness on the
+box).</p>
+<h2 id="related-tools">Related Tools</h2>
+<ul>
+<li><a href="turn-hitting-probability-into-harmonic-function.html">Turn
+hitting probability into harmonic function</a> (harmonicity supplies the
+martingale)</li>
+</ul>
+<h2 id="related-proof-patterns">Related Proof Patterns</h2>
+<ul>
+<li><a href="finite-volume-approximation.html">Finite volume
+approximation</a> (stop in a box first, then grow the box)</li>
+</ul>
+<h2 id="where-i-have-used-or-seen-this">Where I Have Used or Seen
+This</h2>
+<p>Honors Probability (Ben Arous) for the theory; daily use in the
+Zeitouni project for exit identities.</p>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Solid, including the failure modes.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<p>None operationally; revisit UI criteria when I move to continuous
+time.</p>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Public-ready; include the counterexample.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

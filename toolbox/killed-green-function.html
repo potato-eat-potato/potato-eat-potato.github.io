@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Killed Green function · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Object</p>
+<article>
+<h1 id="object-killed-green-function">Object: Killed Green function</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p><span class="math inline">\(G_D\)</span> — the Green function of the
+walk killed on exiting <span class="math inline">\(D\)</span> — is the
+finite-domain workhorse: every DGFF computation I do starts here.</p>
+<h2 id="definition">Definition</h2>
+<p>For <span class="math inline">\(D \subsetneq \mathbb{Z}^d\)</span>
+and <span class="math inline">\(\tau = \tau_{D^c}\)</span> the exit
+time, <span class="math display">\[G_D(x,y) =
+\mathbb{E}_x\Big[\sum_{k=0}^{\tau - 1} \mathbf{1}\{X_k =
+y\}\Big].\]</span> Equivalently: <span class="math inline">\(\Delta
+G_D(\cdot, y) = -\delta_y\)</span> in <span
+class="math inline">\(D\)</span>, and <span
+class="math inline">\(G_D(\cdot, y) = 0\)</span> outside <span
+class="math inline">\(D\)</span>. So <span class="math inline">\(G_D =
+(-\Delta_D)^{-1}\)</span> with zero (Dirichlet) boundary conditions.</p>
+<h2 id="intuition">Intuition</h2>
+<p>Visits before you fall off the edge of the domain. Killing is what
+makes the inverse exist — on all of <span
+class="math inline">\(\mathbb{Z}^2\)</span> there is no inverse (<a
+href="potential-kernel.html">Potential kernel</a> is the patch).</p>
+<h2 id="key-formulas-i-actually-use">Key Formulas I Actually Use</h2>
+<ul>
+<li><strong>Puncture identity</strong> (= Gaussian conditioning at one
+point): <span class="math display">\[G_{D\setminus\{v\}}(x,y) = G_D(x,y)
+- \frac{G_D(x,v)\,G_D(v,y)}{G_D(v,v)}.\]</span> This is the engine of
+DGFF on punctured box.</li>
+<li><strong>Potential kernel representation</strong> in <span
+class="math inline">\(\mathbb{Z}^2\)</span>: <span
+class="math display">\[G_D(x,y) = \mathbb{E}_x\big[a(X_\tau - y)\big] -
+a(x-y).\]</span> See <a
+href="replace-divergent-green-function-by-potential-kernel.html">Replace
+divergent Green function by potential kernel</a>.</li>
+<li><strong>Box asymptotics</strong> (<span
+class="math inline">\(d=2\)</span>, <span
+class="math inline">\(x\)</span> deep inside <span
+class="math inline">\(B_n\)</span>): <span
+class="math inline">\(G_{B_n}(x,x) = \frac{2}{\pi}\log n +
+O(1)\)</span>; off-diagonal <span class="math inline">\(G_{B_n}(x,y)
+\approx \frac{2}{\pi}\log\frac{n}{|x-y|}\)</span> — the source of
+log-correlations of the <a href="dgff.html">DGFF</a>.</li>
+</ul>
+<h2 id="important-properties">Important Properties</h2>
+<ul>
+<li>Symmetric, positive semidefinite, monotone increasing in <span
+class="math inline">\(D\)</span>.</li>
+<li>Zero boundary values — the analytic reason the DGFF has the domain
+Markov property.</li>
+</ul>
+<h2 id="why-this-object-is-central-to-my-probability-route">Why This
+Object Is Central to My Probability Route</h2>
+<p>The Bourgade reading direction is essentially: understand fields
+whose covariance is <span class="math inline">\(G_D\)</span>. Any
+control I want on the field (variance, correlation, effect of removing a
+set) must first be proven about <span
+class="math inline">\(G_D\)</span>.</p>
+<h2 id="tools-that-use-this-object">Tools That Use This Object</h2>
+<ul>
+<li><a href="express-dgff-covariance-by-green-function.html">Express
+DGFF covariance by Green function</a></li>
+<li><a href="use-gaussian-conditioning-as-markov-property.html">Use
+Gaussian conditioning as Markov property</a></li>
+<li><a href="regularize-infinite-graph-by-finite-box.html">Regularize
+infinite graph by finite box</a></li>
+</ul>
+<h2 id="where-i-encountered-this">Where I Encountered This</h2>
+<p>Zeitouni’s Gaussian field notes (as covariance), and concretely while
+thinking about the punctured box with the Bourgade reading.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>The puncture identity for removing a <em>set</em> (not a point)
+involves inverting a submatrix of <span
+class="math inline">\(G_D\)</span> — I should write out the <span
+class="math inline">\(2\)</span>-point case explicitly once.</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Publishable after the puncture identity gets a clean derivation
+section.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multiscale decomposition · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Proof pattern</p>
+<article>
+<h1 id="proof-pattern-multiscale-decomposition">Proof Pattern:
+Multiscale decomposition</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>Decompose a long-range-correlated object into a telescoping sum over
+geometric scales, prove a uniform estimate per scale, and recombine with
+a union or martingale argument.</p>
+<h2 id="when-this-pattern-appears">When This Pattern Appears</h2>
+<p>Log-correlated fields, hierarchical models, anything whose covariance
+is a sum of scale contributions; also classical multiscale analysis of
+walks (coarse-graining trajectories by dyadic boxes).</p>
+<h2 id="general-structure">General Structure</h2>
+<ol type="1">
+<li>Fix the hierarchy: dyadic boxes <span
+class="math inline">\(B^{(k)}\)</span> of side <span
+class="math inline">\(N 2^{-k}\)</span>, <span class="math inline">\(k =
+0, \dots, \log_2 N\)</span>.</li>
+<li>Decompose: <span class="math inline">\(\varphi = \sum_k W_k\)</span>
+with <span class="math inline">\(W_k\)</span> = (conditional expectation
+given scale-<span class="math inline">\(k\)</span> boundary data)
+increments — each split is one application of <a
+href="use-gaussian-conditioning-as-markov-property.html">Use Gaussian
+conditioning as Markov property</a>.</li>
+<li>Per-scale estimate, uniform in <span
+class="math inline">\(k\)</span>: each <span
+class="math inline">\(W_k\)</span> has variance <span
+class="math inline">\(\approx \frac{2}{\pi}\log 2\)</span>, independence
+across boxes at the same scale.</li>
+<li>Recombine: treat <span class="math inline">\((W_1(x), W_1(x)+W_2(x),
+\dots)\)</span> as a tree-indexed walk and import <a
+href="branching-random-walk.html">Branching random walk</a> technology
+(barriers, first/second moments along the tree).</li>
+<li>Pay the approximation tax: the increments are only nearly
+independent/identical; isolate and bound the defect (this step is the
+hard, paper-specific part).</li>
+</ol>
+<h2 id="key-estimate-or-mechanism">Key Estimate or Mechanism</h2>
+<p>“Variance budget per scale is <span
+class="math inline">\(O(1)\)</span>, number of scales is <span
+class="math inline">\(\log N\)</span>” — fine behavior is decided by how
+the <span class="math inline">\(O(1)\)</span> pieces cooperate across
+scales, which is a BRW question.</p>
+<h2 id="typical-inputs">Typical Inputs</h2>
+<p>A Markov/Gibbs–Markov property to generate the decomposition;
+per-scale Green function asymptotics.</p>
+<h2 id="typical-output">Typical Output</h2>
+<p>Sharp extremes (<span class="math inline">\(2\sqrt g \log N -
+\frac34\sqrt g\log\log N\)</span> for the 2D DGFF), barrier
+probabilities, structure of near-maxima.</p>
+<h2 id="common-mistakes-or-failure-modes">Common Mistakes or Failure
+Modes</h2>
+<ul>
+<li>Pretending exact BRW structure (the defect in step 5 can eat the
+<span class="math inline">\(\log\log\)</span>-order terms if ignored —
+they are exactly the precision at stake).</li>
+<li>Hierarchies not aligned with the question (the right tree for the
+max near a point is centered at that point).</li>
+</ul>
+<h2 id="examples-from-my-learning">Examples From My Learning</h2>
+<ul>
+<li>Zeitouni notes: BRW chapters as the model case; the DGFF chapters
+run this pattern.</li>
+<li>The reason my HRUMC talk could honestly say “the field is a
+branching structure in disguise.”</li>
+</ul>
+<h2 id="related-tools">Related Tools</h2>
+<ul>
+<li><a href="use-multiscale-decomposition.html">Use multiscale
+decomposition</a> (tool: when to deploy; this note: the proof
+skeleton)</li>
+</ul>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Steps 1–4 conceptually clear; step 5 is my current reading
+frontier.</p>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Not yet — publish after I can execute step 5 on one example.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

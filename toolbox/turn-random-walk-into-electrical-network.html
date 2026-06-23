@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Turn random walk into electrical network · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Tool</p>
+<article>
+<h1 id="tool-turn-random-walk-into-electrical-network">Tool: Turn random
+walk into electrical network</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>Place a unit resistor on every edge; the walk’s hitting
+probabilities, visit counts, and recurrence become voltages, currents,
+and resistances — and physical reasoning becomes rigorous.</p>
+<h2 id="what-problem-does-this-solve">What Problem Does This Solve?</h2>
+<p>Quantitative questions about reversible walks on graphs whose
+geometry is too irregular for exact computation but amenable to physical
+estimates.</p>
+<h2 id="the-dictionary">The Dictionary</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Probability</th>
+<th>Electricity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\mathbb{P}_x(\tau_a &lt;
+\tau_z)\)</span></td>
+<td>voltage <span class="math inline">\(v(x)\)</span> (normalized <span
+class="math inline">\(v(a)=1\)</span>, <span
+class="math inline">\(v(z)=0\)</span>)</td>
+</tr>
+<tr class="even">
+<td>escape probability <span class="math inline">\(\mathbb{P}_a(\tau_z
+&lt; \tau_a^+)\)</span></td>
+<td><span
+class="math inline">\(\big(c(a)\,R_{\mathrm{eff}}(a,z)\big)^{-1}\)</span></td>
+</tr>
+<tr class="odd">
+<td>expected net edge crossings</td>
+<td>current <span class="math inline">\(i(e)\)</span> (<a
+href="unit-current-flow.html">Unit current flow</a>)</td>
+</tr>
+<tr class="even">
+<td>expected visits <span class="math inline">\(G_D(x,x)\)</span></td>
+<td><span class="math inline">\(c(x)\,R_{\mathrm{eff}}(x,
+D^c)\)</span></td>
+</tr>
+<tr class="odd">
+<td>recurrence</td>
+<td><span class="math inline">\(R_{\mathrm{eff}}(0, \infty) =
+\infty\)</span></td>
+</tr>
+<tr class="even">
+<td>commute time <span class="math inline">\(\mathbb{E}_a\tau_z +
+\mathbb{E}_z\tau_a\)</span></td>
+<td><span
+class="math inline">\(2|E|\,R_{\mathrm{eff}}(a,z)\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-it-converts">What It Converts</h2>
+<ul>
+<li>from: estimates about random paths</li>
+<li>to: estimates about one deterministic quadratic form (<a
+href="dirichlet-energy.html">Dirichlet energy</a>)</li>
+</ul>
+<h2 id="core-idea">Core Idea</h2>
+<p>Both theories solve the same Dirichlet problem (<a
+href="turn-hitting-probability-into-harmonic-function.html">Turn hitting
+probability into harmonic function</a> gives the probability side;
+Kirchhoff + Ohm give the electrical side; the <a
+href="maximum-principle.html">Maximum principle</a> gives uniqueness, so
+they agree). The payoff is that the electrical side has
+<em>operations</em> — series, parallel, shorting, cutting, energy bounds
+— with no probabilistic counterpart.</p>
+<h2 id="when-should-i-think-of-this">When Should I Think of This?</h2>
+<ul>
+<li>The graph is reversible and the question is about hitting, escape,
+recurrence, or visit counts.</li>
+<li>I want monotonicity: “making the graph bigger/denser helps the walk”
+— that’s <a href="rayleigh-monotonicity.html">Rayleigh monotonicity</a>,
+only visible electrically.</li>
+</ul>
+<h2 id="typical-use-cases">Typical Use Cases</h2>
+<ul>
+<li>Pólya recurrence/transience in all dimensions in two pages
+(Doyle–Snell).</li>
+<li><a href="escape-probability-of-srw-on-z2.html">Escape probability of
+SRW on Z2</a> — shorting annuli.</li>
+<li>Commute-time bounds for algorithm analysis (where my CS side
+occasionally meets this).</li>
+</ul>
+<h2 id="where-this-appears-in-my-path">Where This Appears in My
+Path</h2>
+<p>The central object of the Zeitouni reading project, and the title
+concept of both my talks. If I had to name the single conversion that
+made me a probabilist, it’s this one.</p>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Solid for finite networks and unit conductances; comfortable with the
+infinite-network limit for recurrence criteria.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>Non-reversible chains: the dictionary breaks; I don’t know what
+survives.</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>The dictionary table is the centerpiece of <a
+href="exposition-effective-resistance-as-a-probability-tool.html">Exposition
+- Effective Resistance as a Probability Tool</a>.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

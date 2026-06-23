@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green function · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Object</p>
+<article>
+<h1 id="object-green-function">Object: Green function</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>The Green function is the single object where my two reading projects
+meet: it is simultaneously a random-walk quantity (expected visits), an
+analytic quantity (inverse Laplacian), and a field quantity (DGFF
+covariance).</p>
+<h2 id="definition">Definition</h2>
+<p>For transient walks on the whole lattice: <span
+class="math inline">\(G(x,y) = \mathbb{E}_x\big[\sum_{k\ge 0}
+\mathbf{1}\{X_k = y\}\big]\)</span> (finite only for <span
+class="math inline">\(d \ge 3\)</span>). In a finite domain, use the <a
+href="killed-green-function.html">Killed Green function</a> <span
+class="math inline">\(G_D\)</span>. In <span class="math inline">\(d \le
+2\)</span> the whole-space version diverges — see <a
+href="potential-kernel.html">Potential kernel</a>.</p>
+<h2 id="the-hub-property">The Hub Property</h2>
+<p>This object connects, and I should always be able to walk this list
+from memory:</p>
+<ul>
+<li><strong>Random walk occupation time</strong>: expected number of
+visits.</li>
+<li><strong>Inverse Laplacian</strong>: <span
+class="math inline">\(-\Delta G(\cdot, y) = \delta_y\)</span> — see <a
+href="use-green-function-as-inverse-laplacian.html">Use Green function
+as inverse Laplacian</a>.</li>
+<li><strong>Dirichlet problem</strong>: integral kernel that solves
+<span class="math inline">\(-\Delta u = f\)</span>.</li>
+<li><strong>DGFF covariance</strong>: <span
+class="math inline">\(\mathbb{E}[\varphi_x \varphi_y] =
+G_D(x,y)\)</span> — see <a
+href="express-dgff-covariance-by-green-function.html">Express DGFF
+covariance by Green function</a>.</li>
+<li><strong>Potential kernel</strong>: its renormalized
+recurrent-dimension replacement.</li>
+<li><strong>Effective resistance</strong>: the identity below.</li>
+</ul>
+<h2 id="the-identity-that-joins-my-two-reading-projects">The Identity
+That Joins My Two Reading Projects</h2>
+<p><span class="math display">\[G_D(x,x) = c(x)\, R_{\mathrm{eff}}(x,
+D^c),\]</span></p>
+<p>where <span class="math inline">\(c(x)\)</span> is the total
+conductance at <span class="math inline">\(x\)</span> (<span
+class="math inline">\(c(x) = 4\)</span> for SRW on <span
+class="math inline">\(\mathbb{Z}^2\)</span>). Proof in one line: the
+number of visits to <span class="math inline">\(x\)</span> before
+exiting is geometric, with success probability the escape probability
+<span class="math inline">\([c(x)R_{\mathrm{eff}}]^{-1}\)</span>. Sanity
+check on the box <span class="math inline">\(B_n \subset
+\mathbb{Z}^2\)</span>: <span
+class="math inline">\(R_{\mathrm{eff}}(0,\partial B_n) = \frac{\log
+n}{2\pi} + O(1)\)</span> gives <span class="math inline">\(G_{B_n}(0,0)
+= \frac{2}{\pi}\log n + O(1)\)</span>. ✓</p>
+<p>Zeitouni-side resistance estimates and Bourgade-side field variances
+are the <em>same numbers</em>.</p>
+<h2 id="important-properties">Important Properties</h2>
+<ul>
+<li>Symmetric: <span class="math inline">\(G_D(x,y) = G_D(y,x)\)</span>
+(reversibility).</li>
+<li>Monotone in the domain: <span class="math inline">\(D&#39; \subset D
+\Rightarrow G_{D&#39;} \le G_D\)</span> (fewer visits before exit) —
+input to <a href="compare-domains-by-monotonicity.html">Compare domains
+by monotonicity</a>.</li>
+<li><span class="math inline">\(d \ge 3\)</span>: <span
+class="math inline">\(G(0,x) \asymp |x|^{2-d}\)</span>.</li>
+<li>Positive semidefinite as a matrix — which is <em>why</em> it can be
+a covariance.</li>
+</ul>
+<h2 id="why-this-object-is-central-to-my-probability-route">Why This
+Object Is Central to My Probability Route</h2>
+<p>My HRUMC talk was secretly one long advertisement for this object:
+random walks → harmonic functions → networks → Green function → DGFF.
+Every future direction I care about (extremes of log-correlated fields,
+cover times, punctured domains) starts by estimating a Green
+function.</p>
+<h2 id="common-normalizations-or-conventions">Common Normalizations or
+Conventions</h2>
+<p>Vault convention: <span class="math inline">\(G_D\)</span> counts
+visits (including time <span class="math inline">\(0\)</span>) of the
+walk with <span class="math inline">\(\Delta = P - I\)</span>. Sources
+using the graph Laplacian differ by a factor <span
+class="math inline">\(2d\)</span>. <strong>Always recompute <span
+class="math inline">\(G\)</span>(adjacent) in a new source before
+trusting its formulas.</strong></p>
+<h2 id="where-i-encountered-this">Where I Encountered This</h2>
+<ul>
+<li>Zeitouni reading project (as occupation time / resistance).</li>
+<li>Bourgade reading project (as DGFF covariance).</li>
+<li><a
+href="exposition-why-green-functions-connect-random-walks-and-dgff.html">Exposition
+- Why Green Functions Connect Random Walks and DGFF</a> is my attempt to
+write this story properly.</li>
+</ul>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>Behavior of <span class="math inline">\(G_D(x,y)\)</span> for <span
+class="math inline">\(x, y\)</span> both near the boundary (boundary
+Harnack-type questions) — relevant to Harmonic measure near removed
+set.</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Strong candidate for early publication; the hub structure is the most
+“me” piece of exposition I have.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

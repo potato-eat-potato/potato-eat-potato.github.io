@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legendre transform · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Object</p>
+<article>
+<h1 id="object-legendre-transform">Object: Legendre transform</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p><span class="math inline">\(\Lambda^*(a) = \sup_\lambda\,[\lambda a -
+\Lambda(\lambda)]\)</span> — the dictionary between “tilting strength”
+and “target value,” and the shape of every large deviation rate I
+use.</p>
+<h2 id="definition">Definition</h2>
+<p>For <span class="math inline">\(\Lambda\)</span> convex (here: <span
+class="math inline">\(\Lambda(\lambda) = \log \mathbb{E}\,e^{\lambda
+X}\)</span>, the log-MGF), the transform <span
+class="math inline">\(\Lambda^*(a) = \sup_{\lambda}[\lambda a -
+\Lambda(\lambda)]\)</span>.</p>
+<h2 id="intuition">Intuition</h2>
+<ul>
+<li>Geometric: <span class="math inline">\(\Lambda^*\)</span> records,
+for each slope… no — for each <em>point</em> <span
+class="math inline">\(a\)</span>, how far the line of slope-<span
+class="math inline">\(a\)</span>-through-origin can be pushed above
+<span class="math inline">\(\Lambda\)</span>. Convex duality: points of
+<span class="math inline">\(\Lambda^*\)</span> ↔︎ tangent slopes of <span
+class="math inline">\(\Lambda\)</span>.</li>
+<li>Probabilistic: the optimizing <span
+class="math inline">\(\lambda^*(a)\)</span> is the exponential tilt that
+recenters the walk at mean <span class="math inline">\(a\)</span>; <span
+class="math inline">\(\Lambda^*(a)\)</span> is the relative entropy cost
+of that tilt. <strong>The sup is not formal — it is “choose the cheapest
+change of measure.”</strong> See <a href="change-of-measure.html">Change
+of measure</a>.</li>
+</ul>
+<h2 id="worked-microexample-memorize">Worked Microexample
+(memorize)</h2>
+<p><span class="math inline">\(X \sim N(0, \sigma^2)\)</span>: <span
+class="math inline">\(\Lambda(\lambda) =
+\frac{\lambda^2\sigma^2}{2}\)</span>, so <span
+class="math inline">\(\Lambda^*(a) = \frac{a^2}{2\sigma^2}\)</span>.
+Every Gaussian tail bound in the DGFF/BRW world is this one line wearing
+different clothes.</p>
+<h2 id="important-properties">Important Properties</h2>
+<ul>
+<li>Convex, lower semicontinuous, <span
+class="math inline">\(\Lambda^*(\mathbb{E}X) = 0\)</span>.</li>
+<li>Involution on nice convex functions: <span
+class="math inline">\((\Lambda^*)^* = \Lambda\)</span>.</li>
+<li>Smoothness of <span class="math inline">\(\Lambda\)</span> ↔︎ strict
+convexity of <span class="math inline">\(\Lambda^*\)</span> (duality of
+differentiability — relevant when rate functions develop flat
+pieces).</li>
+</ul>
+<h2 id="why-this-object-is-central-to-my-probability-route">Why This
+Object Is Central to My Probability Route</h2>
+<p>BRW speed: solve <span class="math inline">\(\Lambda^*(v) = \log
+m\)</span>. Large deviation speed selection, barrier computations, and
+the entropy–energy tradeoff in extremes all route through this
+transform. It’s the analytic gadget my probability-side arguments borrow
+most often.</p>
+<h2 id="tools-that-use-this-object">Tools That Use This Object</h2>
+<ul>
+<li><a href="use-cramer-transform-for-large-deviation-speed.html">Use
+Cramer transform for large deviation speed</a></li>
+<li><a href="use-first-moment-method-for-maximum-upper-bound.html">Use
+first moment method for maximum upper bound</a> (where the exponential
+count meets the exponential cost)</li>
+</ul>
+<h2 id="where-i-encountered-this">Where I Encountered This</h2>
+<p>Large deviations material in my probability preparation;
+operationally in BRW speed calculations.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>Conditions for the involution to hold exactly (Fenchel–Moreau
+details) — fine for my current uses, should pin down once.</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Safe and useful public note; keep the microexample.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Use Rayleigh monotonicity by shorting or cutting · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Tool</p>
+<article>
+<h1 id="tool-use-rayleigh-monotonicity-by-shorting-or-cutting">Tool: Use
+Rayleigh monotonicity by shorting or cutting</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>Surgery instead of computation: collapse vertices (short) to
+lower-bound resistance, delete edges (cut) to upper-bound it, then
+compute the mutilated network exactly.</p>
+<h2 id="the-mnemonic">The Mnemonic</h2>
+<p><strong>Short for lower bounds, cut for upper bounds.</strong></p>
+<ul>
+<li>Shorting (gluing vertices) only decreases <span
+class="math inline">\(R_{\mathrm{eff}}\)</span>: <span
+class="math inline">\(R \ge R_{\text{shorted}}\)</span>.</li>
+<li>Cutting (deleting edges) only increases <span
+class="math inline">\(R_{\mathrm{eff}}\)</span>: <span
+class="math inline">\(R \le R_{\text{cut}}\)</span>.</li>
+</ul>
+<p>Both are instances of <a href="rayleigh-monotonicity.html">Rayleigh
+monotonicity</a> (conductance <span class="math inline">\(\to
+\infty\)</span> resp. <span class="math inline">\(\to 0\)</span>).</p>
+<h2 id="what-problem-does-this-solve">What Problem Does This Solve?</h2>
+<p>Resistance bounds on networks too irregular to solve, by comparing to
+series/parallel circuits or trees that I <em>can</em> solve.</p>
+<h2 id="input">Input</h2>
+<p>A network and a vision of which identifications/deletions produce a
+computable circuit.</p>
+<h2 id="output">Output</h2>
+<p>A one-sided bound on <span
+class="math inline">\(R_{\mathrm{eff}}\)</span>, hence on
+escape/recurrence via <a
+href="use-effective-resistance-to-control-random-walk.html">Use
+effective resistance to control random walk</a>.</p>
+<h2 id="typical-use-cases">Typical Use Cases</h2>
+<ul>
+<li><strong>Recurrence of <span
+class="math inline">\(\mathbb{Z}^2\)</span></strong>: short each annulus
+<span class="math inline">\(\partial B_k\)</span> to a point; the result
+is a series circuit of parallel edge bundles, <span
+class="math inline">\(R_{\mathrm{eff}}(0,\partial B_n) \ge \sum_{k&lt;n}
+\frac{1}{\#\{\text{edges } k \to k+1\}} \asymp \sum \frac{1}{8k} \asymp
+\log n \to \infty\)</span>. (This is Nash–Williams in disguise.)</li>
+<li><strong>Transience of <span
+class="math inline">\(\mathbb{Z}^3\)</span> via subnetworks</strong>:
+cutting down to a transient subtree shows <span
+class="math inline">\(R_{\mathbb{Z}^3} \le R_{\text{tree}} &lt;
+\infty\)</span> — “a transient subgraph makes the whole graph
+transient.”</li>
+<li>Robustness: adding edges/obstacles to a recurrent graph — what
+survives? First question: which direction does monotonicity point?</li>
+</ul>
+<h2 id="what-it-converts">What It Converts</h2>
+<ul>
+<li>from: an irregular network</li>
+<li>to: a series/parallel circuit or tree with an exact answer</li>
+</ul>
+<h2 id="when-should-i-think-of-this">When Should I Think of This?</h2>
+<ul>
+<li>Before any computation: can surgery + a back-of-envelope circuit
+already settle the order?</li>
+<li>When perturbing a known graph (holes, extra edges): monotonicity
+often gives one direction for free — relevant to Random walk on box with
+mesoscopic hole.</li>
+</ul>
+<h2 id="where-this-appears-in-my-path">Where This Appears in My
+Path</h2>
+<p>The shorted-annuli proof of <span
+class="math inline">\(\mathbb{Z}^2\)</span> recurrence was the emotional
+high point of my HRUMC talk — recurrence of a lattice from a harmonic
+series.</p>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Solid. The discipline is remembering which surgery gives which
+direction (hence the mnemonic).</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>Quantitative loss: how much does shorting annuli give away in the
+constant? (Compare with the true <span class="math inline">\(\frac{\log
+n}{2\pi}\)</span>.)</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Publish with the <span class="math inline">\(\mathbb{Z}^2\)</span>
+computation done honestly, constants and all.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Use effective resistance to control random walk · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Tool</p>
+<article>
+<h1 id="tool-use-effective-resistance-to-control-random-walk">Tool: Use
+effective resistance to control random walk</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>Reduce a walk question to “compute or bound one number, <span
+class="math inline">\(R_{\mathrm{eff}}\)</span>” — then attack that
+number with the variational vise.</p>
+<h2 id="what-problem-does-this-solve">What Problem Does This Solve?</h2>
+<p>Escape probabilities, recurrence/transience, expected visit counts,
+commute times — anything in the dictionary of <a
+href="turn-random-walk-into-electrical-network.html">Turn random walk
+into electrical network</a>.</p>
+<h2 id="input">Input</h2>
+<p>A reversible network and two “terminals” (vertex ↔︎ vertex, vertex ↔︎
+boundary, vertex ↔︎ infinity).</p>
+<h2 id="output">Output</h2>
+<p>A two-sided estimate on a walk quantity via <span
+class="math display">\[\mathbb{P}_a(\tau_z &lt; \tau_a^+) =
+\frac{1}{c(a)R_{\mathrm{eff}}(a,z)}, \qquad G_D(x,x) =
+c(x)R_{\mathrm{eff}}(x, D^c).\]</span></p>
+<h2 id="what-it-converts">What It Converts</h2>
+<ul>
+<li>from: walk behavior (paths, return times)</li>
+<li>to: one scalar with <em>two</em> variational characterizations</li>
+</ul>
+<h2 id="core-idea">Core Idea</h2>
+<p><span class="math inline">\(R_{\mathrm{eff}}\)</span> is squeezed in
+a vise: - <strong>any unit flow</strong> <span
+class="math inline">\(\theta\)</span>: <span
+class="math inline">\(R_{\mathrm{eff}} \le \mathcal{E}(\theta)\)</span>
+— <a href="use-thomson-principle-by-constructing-flow.html">Use Thomson
+principle by constructing flow</a>; - <strong>any test
+potential</strong> <span class="math inline">\(f\)</span>: <span
+class="math inline">\(R_{\mathrm{eff}} \ge 1/\mathcal{E}(f)\)</span> —
+<a href="dirichlet-principle.html">Dirichlet principle</a>; - plus
+surgery: <strong>short for lower bounds, cut for upper bounds</strong> —
+<a href="use-rayleigh-monotonicity-by-shorting-or-cutting.html">Use
+Rayleigh monotonicity by shorting or cutting</a>.</p>
+<p>So a walk problem becomes: design one clever flow and one clever
+potential.</p>
+<h2 id="when-should-i-think-of-this">When Should I Think of This?</h2>
+<ul>
+<li>The exact Green function/harmonic function is uncomputable but I
+only need the <em>order</em> of an escape probability.</li>
+<li>The graph is irregular (holes, perturbations, random environment) —
+resistance is robust under surgery; exact formulas are not.</li>
+</ul>
+<h2 id="typical-use-cases">Typical Use Cases</h2>
+<ul>
+<li><span class="math inline">\(R_{\mathrm{eff}}(0,\partial B_n) \asymp
+\log n\)</span> in <span class="math inline">\(\mathbb{Z}^2\)</span> ⇒
+escape probability <span class="math inline">\(\asymp 1/\log
+n\)</span>.</li>
+<li>Transience of <span class="math inline">\(\mathbb{Z}^3\)</span> via
+one finite-energy flow.</li>
+<li>Perturbed domains: Random walk on box with mesoscopic hole —
+resistance feels the hole through its capacity.</li>
+</ul>
+<h2 id="where-this-appears-in-my-path">Where This Appears in My
+Path</h2>
+<p>The main technical skill I took from the Zeitouni project; the “so
+what” slide of my HRUMC talk (resistance growth ⇒ recurrence of <span
+class="math inline">\(\mathbb{Z}^2\)</span>).</p>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Comfortable; I can run both jaws of the vise on radially symmetric
+examples without notes.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>How tight can flow/potential pairs be made in non-symmetric
+geometries? (Duality gap is zero in principle — the art is explicit
+constructions.)</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Merge the best examples into <a
+href="exposition-effective-resistance-as-a-probability-tool.html">Exposition
+- Effective Resistance as a Probability Tool</a> for the public
+site.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

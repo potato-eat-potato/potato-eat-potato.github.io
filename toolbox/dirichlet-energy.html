@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dirichlet energy · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Object</p>
+<article>
+<h1 id="object-dirichlet-energy">Object: Dirichlet energy</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p><span class="math inline">\(\mathcal{E}(f) = \sum_{e=\{x,y\}}
+c_e\,(f(x)-f(y))^2\)</span> — the quadratic form that secretly runs
+three theories at once: electrical networks, harmonic functions, and the
+DGFF.</p>
+<h2 id="definition">Definition</h2>
+<p>For <span class="math inline">\(f\)</span> on the vertices: <span
+class="math inline">\(\mathcal{E}(f) = \sum_{\text{edges } \{x,y\}}
+c_{xy}(f(x)-f(y))^2\)</span>. For a flow <span
+class="math inline">\(\theta\)</span>: <span
+class="math inline">\(\mathcal{E}(\theta) = \sum_e \theta(e)^2
+r_e\)</span>. Relation to the Laplacian: <span
+class="math inline">\(\mathcal{E}(f) = \langle f,
+-\Delta_{\mathrm{graph}} f\rangle\)</span> (graph normalization — factor
+warning in <a href="discrete-laplacian.html">Discrete
+Laplacian</a>).</p>
+<h2 id="three-hats">Three Hats</h2>
+<ol type="1">
+<li><strong>Electrical</strong>: energy dissipated by a current;
+minimized by the true voltage/current (<a
+href="dirichlet-principle.html">Dirichlet principle</a>, <a
+href="thomson-principle.html">Thomson principle</a>).</li>
+<li><strong>Analytic</strong>: harmonic functions are exactly the local
+minimizers of <span class="math inline">\(\mathcal{E}\)</span> given
+boundary values.</li>
+<li><strong>Probabilistic</strong>: the DGFF density is <span
+class="math inline">\(\propto e^{-\frac{1}{4d}\sum_{x\sim y}(\varphi_x -
+\varphi_y)^2}\)</span> — the field is “Gaussian noise weighted by
+Dirichlet energy,” so low-energy configurations are likely. Shifting the
+field by <span class="math inline">\(h\)</span> costs <span
+class="math inline">\(e^{-\frac{1}{2}\mathcal{E}(h)}\)</span>-ish
+(Cameron–Martin) — see <a href="change-of-measure.html">Change of
+measure</a>.</li>
+</ol>
+<h2 id="why-it-matters">Why It Matters</h2>
+<p>Whenever I need a bound and don’t have an exact computation, the move
+is: <em>guess a competitor function or flow, compute its energy</em>.
+Energy turns clever guesses into rigorous inequalities — the heart of <a
+href="energy-minimization-argument.html">Energy minimization
+argument</a>.</p>
+<h2 id="why-this-object-is-central-to-my-probability-route">Why This
+Object Is Central to My Probability Route</h2>
+<p>It is the common currency between my Zeitouni side (resistance =
+minimized energy) and Bourgade side (DGFF Hamiltonian = energy). The
+same functional, two research programs.</p>
+<h2 id="tools-that-use-this-object">Tools That Use This Object</h2>
+<ul>
+<li><a href="use-thomson-principle-by-constructing-flow.html">Use
+Thomson principle by constructing flow</a></li>
+<li><a href="use-effective-resistance-to-control-random-walk.html">Use
+effective resistance to control random walk</a></li>
+<li><a href="use-gaussian-conditioning-as-markov-property.html">Use
+Gaussian conditioning as Markov property</a> (harmonic extension
+minimizes energy)</li>
+</ul>
+<h2 id="common-normalizations-or-conventions">Common Normalizations or
+Conventions</h2>
+<p>Sum over edges vs. ordered pairs: factor 2. With <span
+class="math inline">\(\frac{1}{2d}\)</span> or without: factor <span
+class="math inline">\(2d\)</span>. I record per-source conversions in
+reading notes; vault default is the edge sum above.</p>
+<h2 id="where-i-encountered-this">Where I Encountered This</h2>
+<p>Doyle–Snell (energy of flows), Zeitouni’s field notes (Gaussian
+Hamiltonian).</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>Exact constant in the Cameron–Martin cost under my normalization —
+recompute once carefully and record in <a
+href="change-of-measure.html">Change of measure</a>.</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Good public note: the “three hats” framing is worth polishing.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

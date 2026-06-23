@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Use Cramer transform for large deviation speed · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Tool</p>
+<article>
+<h1 id="tool-use-cramer-transform-for-large-deviation-speed">Tool: Use
+Cramer transform for large deviation speed</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>To find how fast an exponentially unlikely event decays — or how far
+an exponentially large population spreads — compute <span
+class="math inline">\(\Lambda\)</span>, transform to <span
+class="math inline">\(\Lambda^*\)</span>, and solve a one-variable
+equation.</p>
+<h2 id="what-problem-does-this-solve">What Problem Does This Solve?</h2>
+<p>Finding the exponential rate of rare events for sums (<span
+class="math inline">\(\mathbb{P}(S_n \ge an) \approx
+e^{-n\Lambda^*(a)}\)</span>), and <strong>speed selection</strong>: the
+front location for populations of exponentially growing size.</p>
+<h2 id="input">Input</h2>
+<p>The step distribution, via its log-MGF <span
+class="math inline">\(\Lambda(\lambda) = \log\mathbb{E}e^{\lambda
+X}\)</span> (finite near <span class="math inline">\(0\)</span>).</p>
+<h2 id="output">Output</h2>
+<p>The rate function $^* $ (<a href="legendre-transform.html">Legendre
+transform</a>), and from it the answer to the actual question —
+e.g. <strong>BRW speed</strong>: <span
+class="math inline">\(v^*\)</span> solves <span
+class="math display">\[\Lambda^*(v^*) = \log m,\]</span> balancing <span
+class="math inline">\(e^{n\log m}\)</span> particles against <span
+class="math inline">\(e^{-n\Lambda^*(v)}\)</span> cost per particle.</p>
+<h2 id="what-it-converts">What It Converts</h2>
+<ul>
+<li>from: an asymptotic probability question about <span
+class="math inline">\(n\)</span>-step sums</li>
+<li>to: a calculus problem (optimize <span class="math inline">\(\lambda
+a - \Lambda(\lambda)\)</span>)</li>
+</ul>
+<h2 id="core-idea">Core Idea</h2>
+<p>The upper bound is one line of Chernoff. The lower bound is the real
+lesson: <strong>tilt the measure</strong> (<span
+class="math inline">\(d\mathbb{P}_\lambda \propto e^{\lambda
+X}d\mathbb{P}\)</span>) so the rare event becomes typical, and pay <span
+class="math inline">\(e^{-n\Lambda^*(a)}\)</span> in likelihood — see <a
+href="change-of-measure.html">Change of measure</a>. The optimal <span
+class="math inline">\(\lambda^*\)</span> is not bookkeeping: it
+<em>is</em> the tilted world in which the extremal particle lives (the
+“spine” picture in BRW).</p>
+<h2 id="when-should-i-think-of-this">When Should I Think of This?</h2>
+<ul>
+<li>Any probability decaying exponentially in a natural parameter.</li>
+<li>“Exponentially many independent-ish trials, exponentially small
+success” — solve entropy = energy.</li>
+<li>Before trusting any heuristic front-speed claim: check it against
+<span class="math inline">\(\Lambda^*(v) = \log m\)</span>.</li>
+</ul>
+<h2 id="typical-use-cases">Typical Use Cases</h2>
+<ul>
+<li>Gaussian steps: <span class="math inline">\(\Lambda^*(a) =
+a^2/2\)</span> ⇒ binary BRW speed <span class="math inline">\(v^* =
+\sqrt{2\log 2}\)</span>. (My standard sanity example.)</li>
+<li>Tail of one DGFF height (Gaussian case of Cramér).</li>
+<li>Sub-exponential corrections start where this tool stops — handoff to
+<a href="use-second-moment-method-for-existence-lower-bound.html">Use
+second moment method for existence lower bound</a> with barriers.</li>
+</ul>
+<h2 id="where-this-appears-in-my-path">Where This Appears in My
+Path</h2>
+<p>Large deviations entered my path through the probability sequence and
+became load-bearing in the BRW chapters of the Zeitouni notes (Bourgade
+reading direction).</p>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Comfortable with statement, both bounds, and the BRW speed
+application.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>Gärtner–Ellis (dependent increments): statement known, proof not
+processed. Needed eventually for path-level versions (Mogulskii) —
+future reading.</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Public-ready with the binary-Gaussian worked example.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

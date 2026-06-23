@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entropy versus energy · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Proof pattern</p>
+<article>
+<h1 id="proof-pattern-entropy-versus-energy">Proof Pattern: Entropy
+versus energy</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>When exponentially many candidates each succeed with exponentially
+small probability, the answer lives where <span
+class="math inline">\(\;\text{(growth rate of candidates)} =
+\text{(decay rate of success)}\;\)</span> — find the crossing, then
+justify both sides.</p>
+<h2 id="when-this-pattern-appears">When This Pattern Appears</h2>
+<p>Extremes of random fields and BRW; speed/front selection; free energy
+computations; threshold phenomena; basically every “how far does the
+unlikely-but-numerous reach?” question in my world.</p>
+<h2 id="general-structure">General Structure</h2>
+<ol type="1">
+<li>Parametrize the target level: <span class="math inline">\(m = \alpha
+\cdot (\text{natural scale})\)</span>.</li>
+<li>Entropy count: <span class="math inline">\(\log \#(\text{candidates
+at level } m)\)</span> — particles, sites, paths.</li>
+<li>Energy cost: <span class="math inline">\(-\log \mathbb{P}(\text{one
+candidate succeeds})\)</span> — a Gaussian exponent or a <a
+href="legendre-transform.html">Legendre transform</a> rate.</li>
+<li>Solve entropy <span class="math inline">\(=\)</span> energy for
+<span class="math inline">\(\alpha^*\)</span>.</li>
+<li>Upper bound at <span class="math inline">\(\alpha^* +
+\varepsilon\)</span> by <a href="first-moment-upper-bound.html">First
+moment upper bound</a>; lower bound at <span
+class="math inline">\(\alpha^* - \varepsilon\)</span> by <a
+href="second-moment-lower-bound.html">Second moment lower bound</a> —
+the heuristic only becomes a theorem in this pincer.</li>
+</ol>
+<h2 id="key-estimate-or-mechanism">Key Estimate or Mechanism</h2>
+<p>The crossing equation. Canon examples: - BRW speed: <span
+class="math inline">\(\log m = \Lambda^*(v)\)</span>. - DGFF max: <span
+class="math inline">\(2\log N = \frac{m^2}{2 \cdot \frac{2}{\pi}\log
+N}\)</span> ⇒ <span class="math inline">\(m^* = 2\sqrt{2/\pi}\,\log
+N\)</span>. - The optimal trajectory is typically <em>linear in
+scale</em> (constant rate per scale) — when the optimizer wants to be
+nonlinear, expect new phenomena (entropic repulsion, barrier
+effects).</p>
+<h2 id="typical-inputs">Typical Inputs</h2>
+<p>A count and a one-candidate tail, both at exponential precision.</p>
+<h2 id="typical-output">Typical Output</h2>
+<p>Leading-order constants for extremes and fronts. (Corrections beyond
+leading order are where the pattern hands off to barriers and <a
+href="multiscale-decomposition.html">Multiscale decomposition</a>.)</p>
+<h2 id="common-mistakes-or-failure-modes">Common Mistakes or Failure
+Modes</h2>
+<ul>
+<li>Counting candidates that aren’t really independent attempts and
+stopping at step 4 (heuristic ≠ proof; the lower bound can genuinely
+fail at the heuristic level for strongly correlated families if
+truncation isn’t used).</li>
+<li>Wrong entropy: count <em>effective</em> candidates (e.g. distinct
+mesoscopic boxes), not raw ones.</li>
+</ul>
+<h2 id="examples-from-my-learning">Examples From My Learning</h2>
+<ul>
+<li>BRW speed (Zeitouni notes); DGFF leading max; threshold heuristics
+in Park’s seminar.</li>
+</ul>
+<h2 id="related-tools">Related Tools</h2>
+<ul>
+<li><a href="use-cramer-transform-for-large-deviation-speed.html">Use
+Cramer transform for large deviation speed</a>, <a
+href="use-first-moment-method-for-maximum-upper-bound.html">Use first
+moment method for maximum upper bound</a></li>
+</ul>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>The heuristic is second nature; the “pincer” justifications are at
+the same stage as my second-moment truncation skills.</p>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>The three canon examples in parallel would make a lovely public
+note.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

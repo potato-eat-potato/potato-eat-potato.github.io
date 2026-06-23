@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First moment upper bound · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Proof pattern</p>
+<article>
+<h1 id="proof-pattern-first-moment-upper-bound">Proof Pattern: First
+moment upper bound</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>Bound the probability of existence by the expected count: <span
+class="math inline">\(\mathbb{P}(Z \ge 1) \le \mathbb{E}[Z]\)</span>,
+then show <span class="math inline">\(\mathbb{E}[Z] \to 0\)</span>.</p>
+<h2 id="when-this-pattern-appears">When This Pattern Appears</h2>
+<p>Maxima of large families, existence of structures in random objects,
+“no particle/site/subgraph does X” statements. The dependence structure
+is irrelevant — linearity of expectation doesn’t care.</p>
+<h2 id="general-structure">General Structure</h2>
+<ol type="1">
+<li>Encode the event as <span class="math inline">\(\{Z \ge 1\}\)</span>
+for a counting variable <span class="math inline">\(Z = \sum_i
+\mathbf{1}_{A_i}\)</span>.</li>
+<li>Compute <span class="math inline">\(\mathbb{E}[Z] = \sum_i
+\mathbb{P}(A_i)\)</span> — for BRW use many-to-one; for the DGFF use
+Gaussian tails with <span class="math inline">\(\mathrm{Var} =
+\frac{2}{\pi}\log N\)</span>.</li>
+<li>Choose the threshold so <span class="math inline">\(\mathbb{E}[Z]
+\to 0\)</span>; Markov finishes.</li>
+</ol>
+<h2 id="key-estimate-or-mechanism">Key Estimate or Mechanism</h2>
+<p>The crossing point of (number of candidates) × (tail of one
+candidate): solve <span class="math inline">\(N e^{-\Lambda^*} =
+1\)</span>. The pattern is sharp at exponential scale exactly when this
+entropy–energy balance is the true mechanism — see <a
+href="entropy-versus-energy.html">Entropy versus energy</a>.</p>
+<h2 id="typical-inputs">Typical Inputs</h2>
+<p>Marginal tail bounds; a count of candidates. Nothing about
+correlations.</p>
+<h2 id="typical-output">Typical Output</h2>
+<p><span class="math inline">\(\max \le m^* + \varepsilon\)</span> with
+high probability; nonexistence thresholds.</p>
+<h2 id="common-mistakes-or-failure-modes">Common Mistakes or Failure
+Modes</h2>
+<ul>
+<li><strong>It cannot prove existence.</strong> <span
+class="math inline">\(\mathbb{E}[Z] \to \infty\)</span> proves nothing
+without <a href="second-moment-lower-bound.html">Second moment lower
+bound</a>.</li>
+<li>For log-correlated families the naive threshold overshoots at second
+order (true max is a <span class="math inline">\(\log\)</span> lower:
+descendants of early-high particles die — fixing this requires
+barrier/truncation ideas).</li>
+<li>Summing a tail bound that isn’t uniform over the family (boundary
+sites of the DGFF have smaller variance — sometimes helps, sometimes
+invalidates the uniform bound; check).</li>
+</ul>
+<h2 id="examples-from-my-learning">Examples From My Learning</h2>
+<ul>
+<li>BRW speed upper bound: <span
+class="math inline">\(\mathbb{E}[\#\{|v|=n : S_v &gt; vn\}] =
+m^n\mathbb{P}(S_n &gt; vn)\)</span> → <span
+class="math inline">\(0\)</span> iff <span
+class="math inline">\(\Lambda^*(v) &gt; \log m\)</span>.</li>
+<li>DGFF max upper bound at <span class="math inline">\(2\sqrt{g}\log
+N\)</span>.</li>
+<li>Threshold computations in Park’s seminar (subgraph counts).</li>
+</ul>
+<h2 id="related-tools">Related Tools</h2>
+<ul>
+<li><a href="use-first-moment-method-for-maximum-upper-bound.html">Use
+first moment method for maximum upper bound</a> (tool version: when to
+reach for it; this note: how the proof goes)</li>
+</ul>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Automatic.</p>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Public-ready; pair with the tool note.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

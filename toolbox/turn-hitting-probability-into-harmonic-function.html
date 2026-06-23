@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Turn hitting probability into harmonic function · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Tool</p>
+<article>
+<h1 id="tool-turn-hitting-probability-into-harmonic-function">Tool: Turn
+hitting probability into harmonic function</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>Recognize a hitting/exit probability as a harmonic function with
+known boundary values, and from then on use analysis instead of
+path-counting.</p>
+<h2 id="what-problem-does-this-solve">What Problem Does This Solve?</h2>
+<p>Any “which target does the walk reach first?” question — gambler’s
+ruin, escape probabilities, exit distributions — where direct path
+analysis is hopeless.</p>
+<h2 id="input">Input</h2>
+<p>A Markov chain, two disjoint target sets <span
+class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span>, the function <span
+class="math inline">\(h(x) = \mathbb{P}_x(\tau_A &lt;
+\tau_B)\)</span>.</p>
+<h2 id="output">Output</h2>
+<p>The fact that <span class="math inline">\(h\)</span> is the unique
+solution of the discrete Dirichlet problem: <span
+class="math inline">\(\Delta h = 0\)</span> off <span
+class="math inline">\(A \cup B\)</span>, <span
+class="math inline">\(h|_A = 1\)</span>, <span
+class="math inline">\(h|_B = 0\)</span>.</p>
+<h2 id="what-it-converts">What It Converts</h2>
+<ul>
+<li>from: a probabilistic quantity defined over infinitely many
+paths</li>
+<li>to: a boundary value problem for the <a
+href="discrete-laplacian.html">Discrete Laplacian</a></li>
+</ul>
+<h2 id="core-idea">Core Idea</h2>
+<p>Condition on the first step: <span class="math inline">\(h(x) =
+\frac{1}{2d}\sum_{y \sim x} h(y)\)</span> — that <em>is</em>
+harmonicity. Uniqueness comes from the <a
+href="maximum-principle.html">Maximum principle</a>. From here, every
+harmonic-function technique (explicit solutions, comparison,
+monotonicity, energy) applies to a probability question. The reverse
+direction is Convert boundary value problem into probabilistic
+representation.</p>
+<h2 id="when-should-i-think-of-this">When Should I Think of This?</h2>
+<ul>
+<li>The unknown is a probability of one event preceding another.</li>
+<li>Someone hands me a harmonic function and I want to know what it
+“counts.”</li>
+<li>I need uniqueness: two candidate answers agreeing on the boundary
+must agree everywhere.</li>
+</ul>
+<h2 id="typical-use-cases">Typical Use Cases</h2>
+<ul>
+<li>Gambler’s ruin on <span class="math inline">\(\{0, \dots,
+n\}\)</span>: <span class="math inline">\(h\)</span> linear.</li>
+<li>Escape probability via potential kernel: <span
+class="math inline">\(a(X_n)\)</span> harmonic off <span
+class="math inline">\(0\)</span> + <a
+href="optional-stopping-theorem.html">Optional stopping theorem</a> ⇒ <a
+href="escape-probability-of-srw-on-z2.html">Escape probability of SRW on
+Z2</a>.</li>
+<li>Voltage = hitting probability: the first plank of <a
+href="turn-random-walk-into-electrical-network.html">Turn random walk
+into electrical network</a>.</li>
+</ul>
+<h2 id="where-this-appears-in-my-path">Where This Appears in My
+Path</h2>
+<p>This was the opening move of both my talks — the first slide of the
+HRUMC talk and the first half-hour of the Courant blackboard talk were
+exactly this conversion. With Zeitouni it was the entry point into
+Doyle–Snell.</p>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Fully comfortable, including the uniqueness argument.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>Unbounded domains: what growth conditions restore uniqueness (same
+issue as in <a href="potential-kernel.html">Potential kernel</a>).</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>First candidate for the public toolbox — it’s the cleanest
+illustration of “a tool, not a topic.”</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

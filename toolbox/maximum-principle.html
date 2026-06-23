@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maximum principle · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Theorem</p>
+<article>
+<h1 id="theorem-maximum-principle">Theorem: Maximum principle</h1>
+<h2 id="statement">Statement</h2>
+<p>A function harmonic on a finite connected <span
+class="math inline">\(D\)</span> attains its maximum (and minimum) on
+the boundary <span class="math inline">\(\partial D\)</span>; if
+attained inside, the function is constant. Consequence:
+<strong>uniqueness</strong> for the discrete Dirichlet problem —
+harmonic functions are determined by boundary values.</p>
+<h2 id="intuition">Intuition</h2>
+<p>Mean-value property forbids interior peaks: a strict interior max
+would have to exceed the average of its neighbors. Probabilistically:
+<span class="math inline">\(h(X_n)\)</span> is a martingale, and a fair
+game can’t be sure to go down.</p>
+<h2 id="when-to-use">When to Use</h2>
+<ul>
+<li><strong>Identification</strong>: two candidate formulas, both
+harmonic, same boundary values ⇒ equal. This is the glue in <a
+href="turn-random-walk-into-electrical-network.html">Turn random walk
+into electrical network</a> — voltage <em>equals</em> hitting
+probability because both solve the same Dirichlet problem.</li>
+<li><strong>Comparison</strong>: <span class="math inline">\(h_1 \le
+h_2\)</span> on <span class="math inline">\(\partial D\)</span> and both
+harmonic ⇒ <span class="math inline">\(h_1 \le h_2\)</span> everywhere
+(Boundary-to-bulk comparison).</li>
+<li>Subharmonic versions for one-sided bounds.</li>
+</ul>
+<h2 id="what-it-converts">What It Converts</h2>
+<p>A pointwise interior claim into a boundary check — infinitely
+cheaper.</p>
+<h2 id="proof-sketch">Proof Sketch</h2>
+<p>Walk from an interior max along neighbors realizing the average;
+connectivity drags the max to the boundary. (Or: optional stopping on
+<span class="math inline">\(h(X_{\tau})\)</span>.)</p>
+<h2 id="typical-failure-modes">Typical Failure Modes</h2>
+<ul>
+<li><strong>Unbounded domains</strong>: uniqueness fails without growth
+conditions (<span class="math inline">\(h(x) = x_1\)</span> is harmonic
+on <span class="math inline">\(\mathbb{Z}^2\)</span>, zero nowhere
+relevant). This is exactly why the <a
+href="potential-kernel.html">Potential kernel</a>’s uniqueness statement
+carries a sublinearity hypothesis.</li>
+<li>Disconnected domains: apply per component.</li>
+<li>Operators with zeroth-order terms (killing): still fine; with wrong
+signs: not fine. Check before generalizing.</li>
+</ul>
+<h2 id="related-tools">Related Tools</h2>
+<ul>
+<li><a href="turn-hitting-probability-into-harmonic-function.html">Turn
+hitting probability into harmonic function</a></li>
+<li><a href="use-green-function-as-inverse-laplacian.html">Use Green
+function as inverse Laplacian</a> (uniqueness of the Poisson solve)</li>
+</ul>
+<h2 id="where-i-have-used-or-seen-this">Where I Have Used or Seen
+This</h2>
+<p>Every identification argument in the Zeitouni project; the quiet
+workhorse of both my talks (used three times, named once).</p>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Solid.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>Quantitative versions (Harnack inequalities) — next layer of the
+theory; reading flag.</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Public-ready.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

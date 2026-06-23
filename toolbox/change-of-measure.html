@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change of measure · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Proof pattern</p>
+<article>
+<h1 id="proof-pattern-change-of-measure">Proof Pattern: Change of
+measure</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>Make the rare event typical under a new measure, do the easy
+computation there, and pay the Radon–Nikodym price on the way back.</p>
+<h2 id="when-this-pattern-appears">When This Pattern Appears</h2>
+<p>Large deviation lower bounds; spine/size-biasing arguments for
+branching processes; Gaussian shift arguments (Cameron–Martin); any
+“condition on the unlikely and describe what it looks like”
+question.</p>
+<h2 id="general-structure">General Structure</h2>
+<ol type="1">
+<li>Choose the tilt: a new measure <span
+class="math inline">\(\mathbb{Q}\)</span> under which the target event
+<span class="math inline">\(A\)</span> has probability <span
+class="math inline">\(\approx 1\)</span>.</li>
+<li>Write <span class="math inline">\(\mathbb{P}(A) =
+\mathbb{E}_\mathbb{Q}\big[\frac{d\mathbb{P}}{d\mathbb{Q}}\mathbf{1}_A\big]\)</span>.</li>
+<li>Control the density on the event — ideally <span
+class="math inline">\(\frac{d\mathbb{P}}{d\mathbb{Q}} \approx
+e^{-(\text{cost})}\)</span> is nearly constant on <span
+class="math inline">\(A\)</span>.</li>
+<li>Conclude <span class="math inline">\(\mathbb{P}(A) \approx
+e^{-\text{cost}} \cdot \mathbb{Q}(A) \approx
+e^{-\text{cost}}\)</span>.</li>
+</ol>
+<h2 id="key-estimate-or-mechanism">Key Estimate or Mechanism</h2>
+<p>The cost is a relative entropy <span
+class="math inline">\(H(\mathbb{Q}\,|\,\mathbb{P})\)</span>, and
+<em>choosing <span class="math inline">\(\mathbb{Q}\)</span> =
+minimizing entropy subject to realizing the event</em> is exactly the <a
+href="legendre-transform.html">Legendre transform</a> optimization. My
+three standard tilts:</p>
+<ul>
+<li><strong>Exponential tilt of a walk</strong> (<span
+class="math inline">\(d\mathbb{Q} \propto e^{\lambda
+S_n}d\mathbb{P}\)</span>): cost <span
+class="math inline">\(n\Lambda^*(a)\)</span> — Cramér’s lower
+bound.</li>
+<li><strong>Gaussian mean shift</strong> (shift DGFF by deterministic
+<span class="math inline">\(h\)</span>): cost <span
+class="math inline">\(\frac{1}{2}\mathcal{E}(h)\)</span> — <em>Dirichlet
+energy is the large-deviation price of reshaping the field</em>
+(Cameron–Martin). The bridge between my energy world and my LD
+world.</li>
+<li><strong>Spine / size-biasing for BRW</strong>: tilt by an additive
+martingale; under <span class="math inline">\(\mathbb{Q}\)</span> one
+distinguished particle does the rare thing — the modern engine for BRW
+fine results (statement-level knowledge for now).</li>
+</ul>
+<h2 id="typical-inputs">Typical Inputs</h2>
+<p>An explicit density; a candidate optimal profile (from the
+entropy-energy heuristic).</p>
+<h2 id="typical-output">Typical Output</h2>
+<p>Sharp lower bounds matching Chernoff upper bounds; structural
+descriptions of conditioned processes (“what does the field look like
+given a high point” = shifted field).</p>
+<h2 id="common-mistakes-or-failure-modes">Common Mistakes or Failure
+Modes</h2>
+<ul>
+<li>Density not nearly-constant on <span
+class="math inline">\(A\)</span> (then step 3 needs a second
+localization — restrict <span class="math inline">\(A\)</span>
+further).</li>
+<li>Tilting “the wrong coordinate” (tilt the increment process, not the
+endpoint).</li>
+<li>For Gaussian shifts: factor-of-2 and normalization errors in the
+cost — recompute <span
+class="math inline">\(\frac12\mathcal{E}(h)\)</span> in vault
+conventions once and record it HERE (open TODO).</li>
+</ul>
+<h2 id="examples-from-my-learning">Examples From My Learning</h2>
+<ul>
+<li>Cramér lower bound (course material); Gaussian shift heuristics in
+DGFF reading; spine decompositions sighted in the Zeitouni notes, not
+yet absorbed.</li>
+</ul>
+<h2 id="related-tools">Related Tools</h2>
+<ul>
+<li><a href="use-cramer-transform-for-large-deviation-speed.html">Use
+Cramer transform for large deviation speed</a></li>
+</ul>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Exponential tilting: solid. Gaussian shifts: usable modulo the
+constant TODO. Spines: aspirational.</p>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Hold until the constant TODO is resolved.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

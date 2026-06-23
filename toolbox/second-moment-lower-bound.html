@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Second moment lower bound · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Proof pattern</p>
+<article>
+<h1 id="proof-pattern-second-moment-lower-bound">Proof Pattern: Second
+moment lower bound</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>Existence with positive probability from <span
+class="math inline">\(\mathbb{P}(Z &gt; 0) \ge (\mathbb{E}Z)^2 /
+\mathbb{E}[Z^2]\)</span> — works exactly when pairs are nearly
+uncorrelated, and is rescued by truncation when they are not.</p>
+<h2 id="when-this-pattern-appears">When This Pattern Appears</h2>
+<p>Matching lower bounds after a first moment upper bound: maxima are
+achieved, structures exist, thresholds are sharp.</p>
+<h2 id="general-structure">General Structure</h2>
+<ol type="1">
+<li>Same count <span class="math inline">\(Z\)</span> as in <a
+href="first-moment-upper-bound.html">First moment upper bound</a>
+(possibly restricted — see step 4).</li>
+<li>Expand <span class="math inline">\(\mathbb{E}[Z^2] = \sum_{i,j}
+\mathbb{P}(A_i \cap A_j)\)</span>; <strong>stratify pairs by
+correlation</strong> (BRW: generation of the common ancestor; DGFF:
+dyadic distance <span class="math inline">\(|x-y| \approx N^{1-k/\log
+N}\)</span>… i.e. number of shared scales).</li>
+<li>Show the diagonal/decorrelated strata dominate: <span
+class="math inline">\(\mathbb{E}[Z^2] \le C(\mathbb{E}Z)^2\)</span>.
+Paley–Zygmund gives <span class="math inline">\(\mathbb{P}(Z&gt;0) \ge
+1/C\)</span>.</li>
+<li><strong>If step 3 fails</strong> (it does, near the true max of
+BRW/DGFF — heavily correlated pairs blow up the sum): redefine <span
+class="math inline">\(Z\)</span> to count only particles whose entire
+trajectory across scales stays below a <strong>barrier</strong>. First
+moment barely changes; second moment collapses to the tractable case.
+(Bramson’s truncation.)</li>
+<li>Boost “positive probability” to “with high probability” if needed
+(zero-one arguments, sprinkling, or concentration).</li>
+</ol>
+<h2 id="key-estimate-or-mechanism">Key Estimate or Mechanism</h2>
+<p>The pair-overlap sum: for two particles sharing <span
+class="math inline">\(k\)</span> of <span
+class="math inline">\(n\)</span> generations/scales, <span
+class="math inline">\(\mathbb{P}(\text{both high}) \approx
+\mathbb{P}(\text{one high})^2 \cdot e^{+(\text{shared-variance gain at }
+k)}\)</span>; summing over <span class="math inline">\(k\)</span> must
+converge geometrically. The barrier exists to kill the <span
+class="math inline">\(k \approx n\)</span> terms.</p>
+<h2 id="typical-inputs">Typical Inputs</h2>
+<p>Pairwise joint laws (two-point function); for step 4, a path/scale
+decomposition of each variable — this is where <a
+href="multiscale-decomposition.html">Multiscale decomposition</a> is
+consumed.</p>
+<h2 id="typical-output">Typical Output</h2>
+<p>Matching lower bound: max <span class="math inline">\(\ge m^* -
+\varepsilon\)</span>, sharp thresholds.</p>
+<h2 id="common-mistakes-or-failure-modes">Common Mistakes or Failure
+Modes</h2>
+<ul>
+<li>Confusing “positive probability” with “whp” (PZ alone gives the
+former).</li>
+<li>Truncating the count but forgetting to re-verify the <em>first</em>
+moment of the truncated count.</li>
+<li>Stratification too coarse: the geometric series in <span
+class="math inline">\(k\)</span> must actually be exhibited.</li>
+</ul>
+<h2 id="examples-from-my-learning">Examples From My Learning</h2>
+<ul>
+<li>Vanilla version: thresholds in Park’s seminar.</li>
+<li>Truncated version: BRW max lower bound in the Zeitouni notes (my
+current reading frontier).</li>
+</ul>
+<h2 id="related-tools">Related Tools</h2>
+<ul>
+<li><a
+href="use-second-moment-method-for-existence-lower-bound.html">Use
+second moment method for existence lower bound</a></li>
+</ul>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Vanilla: solid. Truncated: can follow, cannot yet improvise — the
+barrier bookkeeping is my active study goal.</p>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Hold until I can write step 4 from memory.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regularize infinite graph by finite box · Probability Toolbox</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html">Sicheng (Sam) Wang</a> &rsaquo; <a href="index.html">Probability Toolbox</a></nav>
+<p class="kicker">Tool</p>
+<article>
+<h1 id="tool-regularize-infinite-graph-by-finite-box">Tool: Regularize
+infinite graph by finite box</h1>
+<h2 id="one-sentence-summary">One-Sentence Summary</h2>
+<p>When an infinite-volume object diverges or doesn’t exist, define
+everything in a box <span class="math inline">\(B_n\)</span>, prove
+estimates uniform in <span class="math inline">\(n\)</span>, and only
+then discuss <span class="math inline">\(n \to \infty\)</span>.</p>
+<h2 id="what-problem-does-this-solve">What Problem Does This Solve?</h2>
+<p>Divergences that are artifacts of infinite volume: no Green function
+on <span class="math inline">\(\mathbb{Z}^2\)</span>, no infinite-volume
+2D DGFF, “resistance to infinity” needing definition.</p>
+<h2 id="input">Input</h2>
+<p>The infinite-lattice question; an exhaustion <span
+class="math inline">\(B_n \uparrow \mathbb{Z}^d\)</span>.</p>
+<h2 id="output">Output</h2>
+<p>A family of well-posed finite problems plus a limit statement. Three
+standard outcomes:</p>
+<ol type="1">
+<li><strong>Monotone limit exists</strong>: <span
+class="math inline">\(R_{\mathrm{eff}}(0, \partial B_n) \uparrow
+R_{\mathrm{eff}}(0,\infty)\)</span> — recurrence iff <span
+class="math inline">\(= \infty\)</span>. The limit is the
+definition.</li>
+<li><strong>Limit exists after recentering/differencing</strong>: <span
+class="math inline">\(G_{B_n}(0,0) - G_{B_n}(x,0) \to a(x)\)</span> —
+the <a href="potential-kernel.html">Potential kernel</a> is
+<em>born</em> as a renormalized finite-volume limit. Gradients of the 2D
+DGFF converge even though the field itself doesn’t.</li>
+<li><strong>No limit, and that’s the theorem</strong>: the 2D DGFF has
+<span class="math inline">\(\mathrm{Var}(\varphi_0) = \frac{2}{\pi}\log
+n \to \infty\)</span>; all statements must stay finite-volume with
+explicit <span class="math inline">\(n\)</span>-dependence. (In <span
+class="math inline">\(d \ge 3\)</span>, the infinite-volume field exists
+since <span class="math inline">\(G(0,0) &lt; \infty\)</span>.)</li>
+</ol>
+<h2 id="what-it-converts">What It Converts</h2>
+<ul>
+<li>from: ill-posed infinite-volume questions</li>
+<li>to: finite linear algebra + a limit argument with explicit error
+bookkeeping</li>
+</ul>
+<h2 id="core-idea">Core Idea</h2>
+<p>Killing at <span class="math inline">\(\partial B_n\)</span> makes
+<span class="math inline">\(-\Delta\)</span> invertible. The discipline
+that makes the tool research-grade: <strong>always record how constants
+depend on <span class="math inline">\(n\)</span></strong> — in <span
+class="math inline">\(d=2\)</span> the <span
+class="math inline">\(n\)</span>-dependence (the <span
+class="math inline">\(\log\)</span>) is usually the <em>answer</em>, not
+the error.</p>
+<h2 id="when-should-i-think-of-this">When Should I Think of This?</h2>
+<ul>
+<li>Anything diverges → put it in a box before debugging.</li>
+<li>A quantity is “defined up to additive constant” → it’s a
+finite-volume difference in disguise.</li>
+<li>Comparing two infinite-volume heuristics → compare them in the same
+box first.</li>
+</ul>
+<h2 id="where-this-appears-in-my-path">Where This Appears in My
+Path</h2>
+<p>Both reading projects forced it: recurrence-as-resistance-limit
+(Zeitouni side), the nonexistence of the 2D infinite-volume DGFF
+(Bourgade side). It’s also a pattern — proof-skeleton version at <a
+href="finite-volume-approximation.html">Finite volume
+approximation</a>.</p>
+<h2 id="current-understanding">Current Understanding</h2>
+<p>Solid as a reflex; quantitative boundary-effect control is
+ongoing.</p>
+<h2 id="open-confusions">Open Confusions</h2>
+<ul>
+<li>Boundary-condition dependence: zero vs. free vs. periodic boundary
+for the DGFF — how much do bulk quantities care? (I believe: <span
+class="math inline">\(O(1)\)</span> in the bulk; verify and
+record.)</li>
+</ul>
+<h2 id="public-version-notes">Public Version Notes</h2>
+<p>Public after outcome (2) gets a worked derivation.</p>
+
+</article>
+<footer>A living research toolbox · <a href="index.html">all notes</a> · Sicheng (Sam) Wang</footer>
+</body>
+</html>
