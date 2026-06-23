@@ -48,15 +48,19 @@ of Poisson equations are expected accumulated rewards</em>.</p>
 (probability)</li>
 </ul>
 <h2 id="core-idea">Core Idea</h2>
-<p><span class="math inline">\(-\Delta\)</span> with Dirichlet boundary
-is an invertible positive matrix; <span
-class="math inline">\(G_D\)</span> is its inverse; positivity of the
-inverse is the probabilistic miracle (entries count visits, so they’re
-<span class="math inline">\(\ge 0\)</span>). Three languages, one
-identity. The Gaussian upgrade — a positive-definite inverse can serve
-as a covariance — is exactly <a
-href="express-dgff-covariance-by-green-function.html">Express DGFF
-covariance by Green function</a>.</p>
+<p>With the Dirichlet/killed Laplacian <span class="math inline">\(L = I
+- P\)</span> (symmetric, strictly positive definite), <span
+class="math inline">\(G_D = L^{-1}\)</span> — literally <span
+class="math inline">\(L G_D = I\)</span> (my <a
+href="https://potato-eat-potato.github.io/files/dgff-definitions-and-proofs.pdf">DGFF
+notes</a>, Prop. 5). The Green function then carries <strong>three
+meanings at once</strong>: expected occupation time, inverse-Laplacian
+kernel, and grounded point-source potential in the network. Positivity
+of the inverse is the probabilistic miracle (entries count visits, so
+they’re <span class="math inline">\(\ge 0\)</span>), and the Gaussian
+upgrade — a positive-definite inverse can serve as a covariance — is
+exactly <a href="express-dgff-covariance-by-green-function.html">Express
+DGFF covariance by Green function</a>.</p>
 <h2 id="when-should-i-think-of-this">When Should I Think of This?</h2>
 <ul>
 <li>An equation has the shape “Laplacian of unknown = known.”</li>

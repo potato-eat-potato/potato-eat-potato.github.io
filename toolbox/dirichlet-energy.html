@@ -29,10 +29,15 @@ class="math inline">\(\mathcal{E}(f) = \sum_{\text{edges } \{x,y\}}
 c_{xy}(f(x)-f(y))^2\)</span>. For a flow <span
 class="math inline">\(\theta\)</span>: <span
 class="math inline">\(\mathcal{E}(\theta) = \sum_e \theta(e)^2
-r_e\)</span>. Relation to the Laplacian: <span
-class="math inline">\(\mathcal{E}(f) = \langle f,
--\Delta_{\mathrm{graph}} f\rangle\)</span> (graph normalization — factor
-warning in <a href="discrete-laplacian.html">Discrete
+r_e\)</span>. In my <a
+href="https://potato-eat-potato.github.io/files/dgff-definitions-and-proofs.pdf">DGFF
+notes</a> the polarized form is normalized as <span
+class="math inline">\(\mathcal{E}(f,g) = \frac{1}{4d}\sum_{x\sim
+y}(f(x)-f(y))(g(x)-g(y)) = \langle f, L g\rangle\)</span> with <span
+class="math inline">\(L = I-P\)</span> — the same quadratic form,
+carrying the <span class="math inline">\(\frac{1}{2d}\)</span> that
+makes <span class="math inline">\(G = L^{-1}\)</span> the DGFF
+covariance (factor warning in <a href="discrete-laplacian.html">Discrete
 Laplacian</a>).</p>
 <h2 id="three-hats">Three Hats</h2>
 <ol type="1">

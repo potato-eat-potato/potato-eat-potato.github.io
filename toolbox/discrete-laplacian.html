@@ -22,51 +22,47 @@ window.MathJax = {
 <p>The operator that says “compare a function to the average of its
 neighbors” — the grammar in which random walks, harmonic functions,
 networks, and the DGFF all speak.</p>
-<h2 id="definition-and-vault-convention">Definition and VAULT
-CONVENTION</h2>
-<p><strong>This vault’s default</strong> (probabilistic normalization):
-<span class="math display">\[\Delta f(x) = \frac{1}{2d}\sum_{y \sim
-x}\big(f(y) - f(x)\big) = (P - I)f(x).\]</span></p>
-<p>Other conventions in the wild — convert before mixing sources:</p>
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Convention</th>
-<th>Operator</th>
-<th>Used by</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Probabilistic (vault default)</td>
-<td><span class="math inline">\(\frac{1}{2d}\sum_{y\sim
-x}(f(y)-f(x))\)</span></td>
-<td>Lawler, Zeitouni notes</td>
-</tr>
-<tr class="even">
-<td>Graph Laplacian</td>
-<td><span class="math inline">\(\sum_{y\sim x}(f(y)-f(x))\)</span></td>
-<td>spectral graph theory; factor <span
-class="math inline">\(2d\)</span></td>
-</tr>
-<tr class="odd">
-<td>Network / weighted</td>
-<td><span class="math inline">\(\frac{1}{c(x)}\sum_y
-c_{xy}(f(y)-f(x))\)</span></td>
-<td>Lyons–Peres</td>
-</tr>
-</tbody>
-</table>
-<p>Consequences of the choice propagate to <a
-href="green-function.html">Green function</a> (factor <span
-class="math inline">\(2d\)</span>) and the <a href="dgff.html">DGFF</a>
-density. Getting this wrong is my single most likely source of constant
-errors.</p>
+<h2 id="definition-and-my-conventions">Definition and MY
+CONVENTIONS</h2>
+<p>My notes use the Laplacian in <strong>three</strong> normalizations,
+each natural in one corner of the toolbox. Keeping them straight is my
+single most likely source of constant errors, so they live here
+explicitly. They share the same kernel — <em>harmonic</em> (<span
+class="math inline">\(\Delta h = 0\)</span>) means the same thing in all
+three.</p>
+<p><strong>Probabilistic</strong> (<span class="math inline">\(\Delta =
+P - I\)</span>) — the SRW / potential-theory side (<a
+href="simple-random-walk-on-z2.html">Simple random walk on Z2</a>, <a
+href="potential-kernel.html">Potential kernel</a>): <span
+class="math display">\[\Delta f(x) = (P-I)f(x) = \frac{1}{2d}\sum_{y
+\sim x}\big(f(y) - f(x)\big).\]</span> The generator of the walk; this
+is the normalization that makes <span class="math inline">\(\Delta a =
+\delta_0\)</span> with <span class="math inline">\(a(e_1) = 1\)</span>
+for the <a href="potential-kernel.html">Potential kernel</a>.</p>
+<p><strong>Network</strong> — my <a
+href="https://potato-eat-potato.github.io/files/random-walks-electrical-networks-notes.pdf">Random
+Walks and Electrical Networks notes</a> (Def. 2.2), the electrical /
+Zeitouni side: <span class="math display">\[\Delta f(x) = \sum_{y \sim
+x} c_{xy}\big(f(y) - f(x)\big),\]</span> unnormalized and
+conductance-weighted (<span class="math inline">\(2d\times\)</span> the
+probabilistic one on unit-conductance <span
+class="math inline">\(\mathbb{Z}^d\)</span>); harmonicity and voltages
+live here, and quantitative formulas carry the total conductance <span
+class="math inline">\(c_a\)</span> explicitly.</p>
+<p><strong>Dirichlet / killed Laplacian</strong> (<span
+class="math inline">\(L = I - P = -(P-I)\)</span>) — my <a
+href="https://potato-eat-potato.github.io/files/dgff-definitions-and-proofs.pdf">DGFF
+notes</a>, the Gaussian / Bourgade side: symmetric, strictly
+positive-definite, with inverse the Green function (<span
+class="math inline">\(G = L^{-1}\)</span>) and precision matrix of the
+<a href="dgff.html">DGFF</a>.</p>
+<p><strong>Relations</strong> (unit conductance on <span
+class="math inline">\(\mathbb{Z}^d\)</span>): <span
+class="math inline">\(\;\Delta_{\text{network}} = 2d\,(P-I) =
+-2d\,L\)</span>. The factor <span class="math inline">\(2d\)</span> and
+the sign are what propagate into <a href="green-function.html">Green
+function</a> and the <a href="dgff.html">DGFF</a> density, so I convert
+deliberately when crossing sides.</p>
 <h2 id="intuition">Intuition</h2>
 <p><span class="math inline">\(\Delta f(x) &gt; 0\)</span>: <span
 class="math inline">\(f\)</span> at <span
@@ -87,13 +83,14 @@ class="math inline">\(f\)</span>.</li>
 </ul>
 <h2 id="why-this-object-is-central-to-my-probability-route">Why This
 Object Is Central to My Probability Route</h2>
-<p>Every object in my toolbox is defined through <span
-class="math inline">\(\Delta\)</span>: harmonic functions (<span
-class="math inline">\(\Delta h = 0\)</span>), Green function (<span
-class="math inline">\(-\Delta G = \delta\)</span>), potential kernel
-(<span class="math inline">\(\Delta a = \delta_0\)</span>), DGFF
-(Gaussian with <span class="math inline">\((-\Delta)^{-1}\)</span>
-covariance). It is the root node of the whole dependency graph.</p>
+<p>Every object in my toolbox is defined through it: harmonic functions
+(<span class="math inline">\(\Delta h = 0\)</span>), Green function
+(<span class="math inline">\(G = L^{-1}\)</span>, i.e. <span
+class="math inline">\(LG = \delta\)</span>), potential kernel (<span
+class="math inline">\(\Delta a = \delta_0\)</span>), DGFF (Gaussian with
+precision <span class="math inline">\(L\)</span>, covariance <span
+class="math inline">\(L^{-1}\)</span>). It is the root node of the whole
+dependency graph.</p>
 <h2 id="tools-that-use-this-object">Tools That Use This Object</h2>
 <ul>
 <li><a href="use-green-function-as-inverse-laplacian.html">Use Green

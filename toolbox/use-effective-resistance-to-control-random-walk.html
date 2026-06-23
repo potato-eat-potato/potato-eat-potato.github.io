@@ -34,8 +34,15 @@ boundary, vertex ↔︎ infinity).</p>
 <h2 id="output">Output</h2>
 <p>A two-sided estimate on a walk quantity via <span
 class="math display">\[\mathbb{P}_a(\tau_z &lt; \tau_a^+) =
-\frac{1}{c(a)R_{\mathrm{eff}}(a,z)}, \qquad G_D(x,x) =
-c(x)R_{\mathrm{eff}}(x, D^c).\]</span></p>
+\frac{1}{c_a\,R_{\mathrm{eff}}(a,z)}, \qquad G_D(x,x) =
+c_x\,R_{\mathrm{eff}}(x, D^c).\]</span> The total-conductance factor
+<span class="math inline">\(c_a = \sum_{y\sim a} c_{ay}\)</span> is not
+optional (my <a
+href="https://potato-eat-potato.github.io/files/random-walks-electrical-networks-notes.pdf">RW/EN
+notes</a>, Remark 6.1); <span class="math inline">\(c_a = 2d\)</span>
+for SRW on <span class="math inline">\(\mathbb{Z}^d\)</span>, so escape
+on <span class="math inline">\(\mathbb{Z}^2\)</span> is <span
+class="math inline">\(1/(4R_{\mathrm{eff}})\)</span>.</p>
 <h2 id="what-it-converts">What It Converts</h2>
 <ul>
 <li>from: walk behavior (paths, return times)</li>

@@ -38,10 +38,11 @@ from memory:</p>
 <ul>
 <li><strong>Random walk occupation time</strong>: expected number of
 visits.</li>
-<li><strong>Inverse Laplacian</strong>: <span
-class="math inline">\(-\Delta G(\cdot, y) = \delta_y\)</span> — see <a
-href="use-green-function-as-inverse-laplacian.html">Use Green function
-as inverse Laplacian</a>.</li>
+<li><strong>Inverse Laplacian</strong>: <span class="math inline">\(G =
+L^{-1}\)</span> with <span class="math inline">\(L = I - P\)</span>,
+i.e. <span class="math inline">\(LG(\cdot, y) = \delta_y\)</span> — see
+<a href="use-green-function-as-inverse-laplacian.html">Use Green
+function as inverse Laplacian</a>.</li>
 <li><strong>Dirichlet problem</strong>: integral kernel that solves
 <span class="math inline">\(-\Delta u = f\)</span>.</li>
 <li><strong>DGFF covariance</strong>: <span
@@ -55,15 +56,15 @@ recurrent-dimension replacement.</li>
 </ul>
 <h2 id="the-identity-that-joins-my-two-reading-projects">The Identity
 That Joins My Two Reading Projects</h2>
-<p><span class="math display">\[G_D(x,x) = c(x)\, R_{\mathrm{eff}}(x,
+<p><span class="math display">\[G_D(x,x) = c_x\, R_{\mathrm{eff}}(x,
 D^c),\]</span></p>
-<p>where <span class="math inline">\(c(x)\)</span> is the total
+<p>where <span class="math inline">\(c_x\)</span> is the total
 conductance at <span class="math inline">\(x\)</span> (<span
-class="math inline">\(c(x) = 4\)</span> for SRW on <span
+class="math inline">\(c_x = 4\)</span> for SRW on <span
 class="math inline">\(\mathbb{Z}^2\)</span>). Proof in one line: the
 number of visits to <span class="math inline">\(x\)</span> before
 exiting is geometric, with success probability the escape probability
-<span class="math inline">\([c(x)R_{\mathrm{eff}}]^{-1}\)</span>. Sanity
+<span class="math inline">\([c_xR_{\mathrm{eff}}]^{-1}\)</span>. Sanity
 check on the box <span class="math inline">\(B_n \subset
 \mathbb{Z}^2\)</span>: <span
 class="math inline">\(R_{\mathrm{eff}}(0,\partial B_n) = \frac{\log

@@ -28,6 +28,10 @@ and resistances — and physical reasoning becomes rigorous.</p>
 geometry is too irregular for exact computation but amenable to physical
 estimates.</p>
 <h2 id="the-dictionary">The Dictionary</h2>
+<p>The correspondence as I set it up in my <a
+href="https://potato-eat-potato.github.io/files/random-walks-electrical-networks-notes.pdf">Random
+Walks and Electrical Networks notes</a> (§12), with the walk induced by
+<span class="math inline">\(p(x,y) = c_{xy}/c_x\)</span>:</p>
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -35,47 +39,65 @@ estimates.</p>
 </colgroup>
 <thead>
 <tr class="header">
-<th>Probability</th>
-<th>Electricity</th>
+<th>Random walk</th>
+<th>Electrical network</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\(\mathbb{P}_x(\tau_a &lt;
-\tau_z)\)</span></td>
-<td>voltage <span class="math inline">\(v(x)\)</span> (normalized <span
-class="math inline">\(v(a)=1\)</span>, <span
-class="math inline">\(v(z)=0\)</span>)</td>
+<td>conductance <span class="math inline">\(c_{xy}\)</span>, walk <span
+class="math inline">\(p(x,y) = c_{xy}/c_x\)</span></td>
+<td>edge <span class="math inline">\(\{x,y\}\)</span>, resistance <span
+class="math inline">\(r_{xy} = 1/c_{xy}\)</span></td>
 </tr>
 <tr class="even">
-<td>escape probability <span class="math inline">\(\mathbb{P}_a(\tau_z
+<td>harmonic <span class="math inline">\(\Delta h(x) = 0\)</span></td>
+<td>voltage (Kirchhoff’s node law)</td>
+</tr>
+<tr class="odd">
+<td>hitting probability <span class="math inline">\(\mathbb{P}_x(\tau_a
+&lt; \tau_b)\)</span></td>
+<td>voltage <span class="math inline">\(v(x)\)</span>, <span
+class="math inline">\(v(a)=1\)</span>, <span
+class="math inline">\(v(b)=0\)</span></td>
+</tr>
+<tr class="even">
+<td>escape probability <span class="math inline">\(\mathbb{P}_a(\tau_b
 &lt; \tau_a^+)\)</span></td>
 <td><span
-class="math inline">\(\big(c(a)\,R_{\mathrm{eff}}(a,z)\big)^{-1}\)</span></td>
+class="math inline">\(\dfrac{1}{c_a\,R_{\mathrm{eff}}(a,b)}\)</span></td>
 </tr>
 <tr class="odd">
-<td>expected net edge crossings</td>
-<td>current <span class="math inline">\(i(e)\)</span> (<a
-href="unit-current-flow.html">Unit current flow</a>)</td>
-</tr>
-<tr class="even">
 <td>expected visits <span class="math inline">\(G_D(x,x)\)</span></td>
-<td><span class="math inline">\(c(x)\,R_{\mathrm{eff}}(x,
+<td><span class="math inline">\(c_x\,R_{\mathrm{eff}}(x,
 D^c)\)</span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>recurrence</td>
-<td><span class="math inline">\(R_{\mathrm{eff}}(0, \infty) =
+<td><span class="math inline">\(R_{\mathrm{eff}}(a,\infty) =
 \infty\)</span></td>
 </tr>
-<tr class="even">
-<td>commute time <span class="math inline">\(\mathbb{E}_a\tau_z +
-\mathbb{E}_z\tau_a\)</span></td>
-<td><span
-class="math inline">\(2|E|\,R_{\mathrm{eff}}(a,z)\)</span></td>
+<tr class="odd">
+<td>transience</td>
+<td><span class="math inline">\(R_{\mathrm{eff}}(a,\infty) &lt;
+\infty\)</span></td>
 </tr>
 </tbody>
 </table>
+<p>Core formulas: <span class="math inline">\(\;v(x) =
+\mathbb{P}_x(\tau_a &lt; \tau_b)\)</span>, <span
+class="math inline">\(\;C_{\mathrm{eff}}(a,b) = c_a\,\mathbb{P}_a(\tau_b
+&lt; \tau_a^+)\)</span>, <span
+class="math inline">\(\;\mathbb{P}_a(\tau_b &lt; \tau_a^+) =
+\dfrac{1}{c_a R_{\mathrm{eff}}(a,b)}\)</span>.</p>
+<p><strong>The <span class="math inline">\(c_a\)</span> factor
+matters</strong> (my note’s Remark 6.1): the escape formula is
+<em>not</em> <span class="math inline">\(1/R_{\mathrm{eff}}\)</span> —
+the total conductance <span class="math inline">\(c_a = \sum_{y\sim a}
+c_{ay}\)</span> is there, and <span class="math inline">\(c_a =
+2d\)</span> for SRW on <span class="math inline">\(\mathbb{Z}^d\)</span>
+(so <span class="math inline">\(1/(4R_{\mathrm{eff}})\)</span> on <span
+class="math inline">\(\mathbb{Z}^2\)</span>).</p>
 <h2 id="what-it-converts">What It Converts</h2>
 <ul>
 <li>from: estimates about random paths</li>

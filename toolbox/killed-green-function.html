@@ -27,12 +27,15 @@ finite-domain workhorse: every DGFF computation I do starts here.</p>
 and <span class="math inline">\(\tau = \tau_{D^c}\)</span> the exit
 time, <span class="math display">\[G_D(x,y) =
 \mathbb{E}_x\Big[\sum_{k=0}^{\tau - 1} \mathbf{1}\{X_k =
-y\}\Big].\]</span> Equivalently: <span class="math inline">\(\Delta
-G_D(\cdot, y) = -\delta_y\)</span> in <span
-class="math inline">\(D\)</span>, and <span
+y\}\Big].\]</span> Equivalently: with the Dirichlet/killed Laplacian
+<span class="math inline">\(L = I - P\)</span> on <span
+class="math inline">\(D\)</span>, <span class="math inline">\(\;L
+G_D(\cdot, y) = \delta_y\)</span> and <span
 class="math inline">\(G_D(\cdot, y) = 0\)</span> outside <span
-class="math inline">\(D\)</span>. So <span class="math inline">\(G_D =
-(-\Delta_D)^{-1}\)</span> with zero (Dirichlet) boundary conditions.</p>
+class="math inline">\(D\)</span> — so <span class="math inline">\(G_D =
+L^{-1}\)</span> (my <a
+href="https://potato-eat-potato.github.io/files/dgff-definitions-and-proofs.pdf">DGFF
+notes</a>, Prop. 5).</p>
 <h2 id="intuition">Intuition</h2>
 <p>Visits before you fall off the edge of the domain. Killing is what
 makes the inverse exist — on all of <span
